@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布置作业 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b relative">
+        <a href="homework.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left text-blue-700 text-xl"></i>
+        </a>
+        <h1 class="text-lg font-medium flex-grow">布置作业</h1>
+    </div>
+
+    <!-- 表单内容 -->
+    <div class="flex-1 overflow-auto p-4">
+        <form id="homeworkForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">作业标题</label>
+                <input type="text" id="homeworkTitle" class="w-full p-2 border border-gray-300 rounded-lg" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">科目选择</label>
+                <select id="homeworkSubject" class="w-full p-2 border border-gray-300 rounded-lg">
+                    <option>语文</option>
+                    <option>数学</option>
+                    <option>英语</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">截止时间</label>
+                <input type="datetime-local" id="deadline" class="w-full p-2 border border-gray-300 rounded-lg" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">作业描述</label>
+                <textarea id="homeworkDesc" rows="4" class="w-full p-2 border border-gray-300 rounded-lg"></textarea>
+            </div>
+            <button type="submit" class="w-full py-2 bg-blue-500 text-white rounded-lg">发布作业</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('homeworkForm').onsubmit = function(e) {
+            e.preventDefault();
+            const homeworkData = {
+                title: document.getElementById('homeworkTitle').value,
+                subject: document.getElementById('homeworkSubject').value,
+                deadline: document.getElementById('deadline').value,
+                desc: document.getElementById('homeworkDesc').value
+            };
+            
+            // 这里添加提交到服务器的逻辑
+            console.log('发布作业:', homeworkData);
+            window.location.href = 'homework.html'; // 提交后返回作业列表
+        }
+    </script>
+</body>
+</html>

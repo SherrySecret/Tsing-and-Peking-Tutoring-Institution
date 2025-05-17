@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线课堂 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="teaching.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left"></i>
+        </a>
+        <h1 class="text-lg font-medium">在线课堂</h1>
+        <button class="ml-auto bg-blue-500 text-white px-3 py-1 rounded-full text-sm flex items-center">
+            <i class="t-icon t-icon-add mr-1"></i>
+            <span>创建课堂</span>
+        </button>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="flex-1 overflow-auto">
+        <!-- 我的课堂 -->
+        <div class="p-4 bg-white">
+            <h3 class="font-medium mb-3">我的课堂</h3>
+            <div class="space-y-4">
+                <!-- 进行中的课堂 -->
+                <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-4 text-white">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-3">
+                            <i class="t-icon t-icon-video text-white"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-medium">高三（1）班 - 数学课</h4>
+                                <span class="text-xs text-white bg-green-500 px-2 py-0.5 rounded-full">进行中</span>
+                            </div>
+                            <p class="text-sm text-white/80 mt-1">主题：概率论基础</p>
+                            <div class="flex items-center text-xs text-white/80 mt-2">
+                                <i class="t-icon t-icon-time mr-1"></i>
+                                <span>开始时间：09:30 已进行 25分钟</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <div class="text-sm">
+                            <i class="t-icon t-icon-user mr-1"></i>
+                            <span>36人在线</span>
+                        </div>
+                        <button class="bg-white text-blue-500 px-3 py-1 rounded-full text-sm">
+                            进入课堂
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 即将开始的课堂 -->
+                <div class="bg-white border border-gray-200 rounded-lg p-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="t-icon t-icon-video text-blue-500"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-medium">高三（2）班 - 数学课</h4>
+                                <span class="text-xs text-white bg-orange-500 px-2 py-0.5 rounded-full">未开始</span>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-1">主题：函数的导数与应用</p>
+                            <div class="flex items-center text-xs text-gray-500 mt-2">
+                                <i class="t-icon t-icon-time mr-1"></i>
+                                <span>开始时间：14:00 还有 3小时25分钟</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <div class="text-sm text-gray-500">
+                            <i class="t-icon t-icon-user mr-1"></i>
+                            <span>预计42人参与</span>
+                        </div>
+                        <button class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
+                            提前准备
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 课堂记录 -->
+        <div class="p-4 bg-white mt-4">
+            <h3 class="font-medium mb-3">课堂记录</h3>
+            <div class="divide-y">
+                <div class="py-3">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-medium">高三（1）班 - 数学课</h4>
+                        <span class="text-xs text-gray-500">2024-05-11</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">主题：概率统计进阶</p>
+                    <div class="flex justify-between items-center mt-2">
+                        <div class="text-xs text-gray-500">
+                            <i class="t-icon t-icon-time mr-1"></i>
+                            <span>09:30-10:15 (45分钟)</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="text-xs text-blue-500 flex items-center">
+                                <i class="t-icon t-icon-video-circle mr-1"></i>
+                                <span>回放</span>
+                            </button>
+                            <button class="text-xs text-blue-500 flex items-center">
+                                <i class="t-icon t-icon-file-icon mr-1"></i>
+                                <span>资料</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-3">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-medium">高三（2）班 - 数学课</h4>
+                        <span class="text-xs text-gray-500">2024-05-10</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">主题：函数的导数</p>
+                    <div class="flex justify-between items-center mt-2">
+                        <div class="text-xs text-gray-500">
+                            <i class="t-icon t-icon-time mr-1"></i>
+                            <span>14:00-14:45 (45分钟)</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="text-xs text-blue-500 flex items-center">
+                                <i class="t-icon t-icon-video-circle mr-1"></i>
+                                <span>回放</span>
+                            </button>
+                            <button class="text-xs text-blue-500 flex items-center">
+                                <i class="t-icon t-icon-file-icon mr-1"></i>
+                                <span>资料</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-3">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-medium">高二（3）班 - 数学课</h4>
+                        <span class="text-xs text-gray-500">2024-05-09</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">主题：三角函数入门</p>
+                    <div class="flex justify-between items-center mt-2">
+                        <div class="text-xs text-gray-500">
+                            <i class="t-icon t-icon-time mr-1"></i>
+                            <span>15:30-16:15 (45分钟)</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="text-xs text-blue-500 flex items-center">
+                                <i class="t-icon t-icon-video-circle mr-1"></i>
+                                <span>回放</span>
+                            </button>
+                            <button class="text-xs text-blue-500 flex items-center">
+                                <i class="t-icon t-icon-file-icon mr-1"></i>
+                                <span>资料</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3 text-center">
+                <a href="#" class="text-sm text-blue-500">查看更多记录</a>
+            </div>
+        </div>
+
+        <!-- 教学工具 -->
+        <div class="p-4 bg-white mt-4">
+            <h3 class="font-medium mb-3">教学工具</h3>
+            <div class="grid grid-cols-4 gap-4">
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-1">
+                        <i class="t-icon t-icon-share text-blue-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-600">屏幕共享</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-1">
+                        <i class="t-icon t-icon-upload text-green-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-600">上传资料</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-1">
+                        <i class="t-icon t-icon-chart text-purple-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-600">课堂测验</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-1">
+                        <i class="t-icon t-icon-live-room text-orange-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-600">互动工具</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

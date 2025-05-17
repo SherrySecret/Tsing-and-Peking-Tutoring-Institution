@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业管理</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="detail.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left"></i>
+        </a>
+        <h1 class="text-lg font-medium">作业管理</h1>
+    </div>
+
+    <!-- 作业类型选择 -->
+    <div class="bg-white p-4 flex space-x-4">
+        <button id="btn-all" class="flex-1 py-2 bg-blue-500 text-white rounded-lg text-sm">
+            全部作业
+        </button>
+        <button id="btn-todo" class="flex-1 py-2 bg-white text-gray-500 border border-gray-200 rounded-lg text-sm">
+            待完成
+        </button>
+        <button id="btn-done" class="flex-1 py-2 bg-white text-gray-500 border border-gray-200 rounded-lg text-sm">
+            已完成
+        </button>
+    </div>
+
+    <!-- 作业列表 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4">
+            <div id="homework-list" class="space-y-4">
+                <!-- 作业项 - 待完成 -->
+                <a href="homework-detail.html" class="block homework-item" data-status="todo">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-start">
+                            <div class="flex-1">
+                                <h3 class="font-medium">数学作业：函数与导数</h3>
+                                <p class="text-sm text-gray-500 mt-1 line-clamp-2">
+                                    完成教材P45-P46的习题，包括选择题和解答题...
+                                </p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-gray-400">截止时间：2024-03-20</span>
+                                    <span class="mx-2 text-gray-300">|</span>
+                                    <span class="text-xs text-gray-400">张老师</span>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-600 rounded text-xs">
+                                    待完成
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="homework-detail.html" class="block homework-item" data-status="done">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-start">
+                            <div class="flex-1">
+                                <h3 class="font-medium">英语作业：阅读理解</h3>
+                                <p class="text-sm text-gray-500 mt-1 line-clamp-2">
+                                    完成教材Unit 3的阅读理解练习，并背诵相关单词...
+                                </p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-gray-400">截止时间：2024-03-19</span>
+                                    <span class="mx-2 text-gray-300">|</span>
+                                    <span class="text-xs text-gray-400">李老师</span>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <span class="px-2 py-1 bg-green-100 text-green-600 rounded text-xs">
+                                    已完成
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="homework-detail.html" class="block homework-item" data-status="todo">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-start">
+                            <div class="flex-1">
+                                <h3 class="font-medium">物理作业：力学实验</h3>
+                                <p class="text-sm text-gray-500 mt-1 line-clamp-2">
+                                    完成实验报告，包括实验目的、步骤、数据分析和结论...
+                                </p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-gray-400">截止时间：2024-03-21</span>
+                                    <span class="mx-2 text-gray-300">|</span>
+                                    <span class="text-xs text-gray-400">王老师</span>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-600 rounded text-xs">
+                                    待完成
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 筛选脚本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取按钮和作业项列表
+            const btnAll = document.getElementById('btn-all');
+            const btnTodo = document.getElementById('btn-todo');
+            const btnDone = document.getElementById('btn-done');
+            const homeworkItems = document.querySelectorAll('.homework-item');
+            
+            // 全部作业按钮点击事件
+            btnAll.addEventListener('click', function() {
+                updateButtonStyles(btnAll);
+                homeworkItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+            });
+            
+            // 待完成按钮点击事件
+            btnTodo.addEventListener('click', function() {
+                updateButtonStyles(btnTodo);
+                homeworkItems.forEach(item => {
+                    if (item.dataset.status === 'todo') {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+            
+            // 已完成按钮点击事件
+            btnDone.addEventListener('click', function() {
+                updateButtonStyles(btnDone);
+                homeworkItems.forEach(item => {
+                    if (item.dataset.status === 'done') {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+            
+            // 更新按钮样式函数
+            function updateButtonStyles(activeBtn) {
+                // 重置所有按钮样式
+                [btnAll, btnTodo, btnDone].forEach(btn => {
+                    btn.className = 'flex-1 py-2 bg-white text-gray-500 border border-gray-200 rounded-lg text-sm';
+                });
+                
+                // 设置当前激活按钮样式
+                activeBtn.className = 'flex-1 py-2 bg-blue-500 text-white rounded-lg text-sm';
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改用户信息</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="index.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left"></i>
+        </a>
+        <h1 class="text-lg font-medium">修改用户信息</h1>
+        <button class="ml-auto text-blue-500 font-medium">保存</button>
+    </div>
+
+    <!-- 内容区域 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4 space-y-6">
+            <!-- 头像上传区域 -->
+            <div class="flex flex-col items-center">
+                <div class="relative">
+                    <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center">
+                        <i class="t-icon t-icon-user text-blue-500 text-5xl"></i>
+                    </div>
+                    <div class="absolute bottom-0 right-0 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                        <i class="t-icon t-icon-camera"></i>
+                        <input type="file" id="avatar-upload" class="absolute inset-0 opacity-0 cursor-pointer" accept="image/*">
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mt-2">点击更换头像</p>
+            </div>
+
+            <!-- 基本信息表单 -->
+            <div class="bg-white rounded-lg">
+                <div class="p-4 border-b">
+                    <h2 class="font-medium">基本信息</h2>
+                </div>
+                
+                <!-- 姓名 -->
+                <div class="px-4 py-3 border-b flex items-center">
+                    <span class="w-20 text-gray-500">姓名</span>
+                    <input type="text" class="flex-1 outline-none" value="张三" placeholder="请输入姓名">
+                </div>
+                
+                <!-- 性别 -->
+                <div class="px-4 py-3 border-b flex items-center">
+                    <span class="w-20 text-gray-500">性别</span>
+                    <div class="flex-1 flex space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="gender" checked class="text-blue-500 mr-2">
+                            <span>男</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="gender" class="text-blue-500 mr-2">
+                            <span>女</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 出生日期 -->
+                <div class="px-4 py-3 border-b flex items-center">
+                    <span class="w-20 text-gray-500">出生日期</span>
+                    <input type="date" class="flex-1 outline-none" value="2006-08-15">
+                </div>
+            </div>
+
+            <!-- 联系方式 -->
+            <div class="bg-white rounded-lg">
+                <div class="p-4 border-b">
+                    <h2 class="font-medium">联系方式</h2>
+                </div>
+                
+                <!-- 手机号码 -->
+                <div class="px-4 py-3 border-b flex items-center">
+                    <span class="w-20 text-gray-500">手机号码</span>
+                    <input type="tel" class="flex-1 outline-none" value="138****5678" placeholder="请输入手机号码">
+                </div>
+                
+                <!-- 电子邮箱 -->
+                <div class="px-4 py-3 border-b flex items-center">
+                    <span class="w-20 text-gray-500">电子邮箱</span>
+                    <input type="email" class="flex-1 outline-none" value="zhangsan@example.com" placeholder="请输入电子邮箱">
+                </div>
+                
+                <!-- 家庭住址 -->
+                <div class="px-4 py-3 flex items-center">
+                    <span class="w-20 text-gray-500">家庭住址</span>
+                    <input type="text" class="flex-1 outline-none" value="北京市海淀区xx路xx号" placeholder="请输入家庭住址">
+                </div>
+            </div>
+
+            <!-- 账号安全 -->
+            <div class="bg-white rounded-lg">
+                <div class="p-4 border-b">
+                    <h2 class="font-medium">账号安全</h2>
+                </div>
+                
+                <!-- 修改密码 -->
+                <a href="#" class="px-4 py-3 flex items-center justify-between">
+                    <span class="text-gray-800">修改密码</span>
+                    <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 头像上传脚本 -->
+    <script>
+        document.getElementById('avatar-upload').addEventListener('change', function(e) {
+            if (e.target.files && e.target.files[0]) {
+                // 这里只是模拟头像上传功能
+                console.log('选中的头像文件:', e.target.files[0].name);
+                // 实际应用中应该上传文件并更新显示
+            }
+        });
+    </script>
+</body>
+</html> 

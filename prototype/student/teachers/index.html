@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名师介绍</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <h1 class="text-lg font-medium">名师介绍</h1>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="p-4 bg-white">
+        <div class="relative">
+            <input type="text" 
+                   placeholder="搜索教师" 
+                   class="w-full h-10 pl-10 pr-4 rounded-lg border border-gray-200 focus:outline-none focus:border-blue-500">
+            <i class="t-icon t-icon-search absolute left-3 top-3 text-gray-400"></i>
+        </div>
+    </div>
+
+    <!-- 教师列表 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4">
+            <div class="space-y-4">
+                <!-- 教师卡片 -->
+                <a href="detail.html" class="block">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i class="t-icon t-icon-user text-blue-500 text-3xl"></i>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h2 class="text-lg font-medium">张老师</h2>
+                                <p class="text-sm text-gray-500 mt-1">数学教师 | 特级教师</p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-gray-500">教龄：15年</span>
+                                    <span class="mx-2 text-gray-300">|</span>
+                                    <span class="text-xs text-gray-500">学生好评率：98%</span>
+                                </div>
+                            </div>
+                            <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="detail.html" class="block">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="t-icon t-icon-user text-green-500 text-3xl"></i>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h2 class="text-lg font-medium">李老师</h2>
+                                <p class="text-sm text-gray-500 mt-1">英语教师 | 高级教师</p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-gray-500">教龄：12年</span>
+                                    <span class="mx-2 text-gray-300">|</span>
+                                    <span class="text-xs text-gray-500">学生好评率：96%</span>
+                                </div>
+                            </div>
+                            <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="detail.html" class="block">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
+                                <i class="t-icon t-icon-user text-yellow-500 text-3xl"></i>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h2 class="text-lg font-medium">王老师</h2>
+                                <p class="text-sm text-gray-500 mt-1">物理教师 | 特级教师</p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-gray-500">教龄：18年</span>
+                                    <span class="mx-2 text-gray-300">|</span>
+                                    <span class="text-xs text-gray-500">学生好评率：99%</span>
+                                </div>
+                            </div>
+                            <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="h-16 bg-white border-t flex items-center justify-around">
+        <a href="../home.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-home text-xl"></i>
+            <span class="text-xs mt-1">首页</span>
+        </a>
+        <a href="../class/index.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-class text-xl"></i>
+            <span class="text-xs mt-1">班级</span>
+        </a>
+        <a href="../features/index.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-apps text-xl"></i>
+            <span class="text-xs mt-1">功能</span>
+        </a>
+        <a href="../profile/index.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-user-circle text-xl"></i>
+            <span class="text-xs mt-1">我的</span>
+        </a>
+    </div>
+</body>
+</html> 

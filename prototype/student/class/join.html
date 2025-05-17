@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加入班级</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="index.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left"></i>
+        </a>
+        <h1 class="text-lg font-medium">加入班级</h1>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="bg-white p-4">
+        <div class="relative">
+            <i class="t-icon t-icon-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            <input type="text" placeholder="输入班级名称或班级码" class="w-full h-10 pl-10 pr-4 bg-gray-50 rounded-lg text-sm">
+        </div>
+    </div>
+
+    <!-- 班级列表 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4 space-y-4">
+            <!-- 班级卡片 -->
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+                <div class="flex items-start">
+                    <div class="flex-1">
+                        <h3 class="font-medium">高一(1)班</h3>
+                        <p class="text-sm text-gray-500 mt-1">班主任：张老师</p>
+                        <div class="flex items-center mt-2">
+                            <span class="text-xs text-gray-400">班级码：G1-2024-01</span>
+                            <span class="mx-2 text-gray-300">|</span>
+                            <span class="text-xs text-gray-400">45名学生</span>
+                        </div>
+                    </div>
+                    <a href="select-student.html" class="ml-4 px-4 py-2 bg-blue-500 text-white rounded-lg text-sm">
+                        申请加入
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+                <div class="flex items-start">
+                    <div class="flex-1">
+                        <h3 class="font-medium">高一(2)班</h3>
+                        <p class="text-sm text-gray-500 mt-1">班主任：李老师</p>
+                        <div class="flex items-center mt-2">
+                            <span class="text-xs text-gray-400">班级码：G1-2024-02</span>
+                            <span class="mx-2 text-gray-300">|</span>
+                            <span class="text-xs text-gray-400">42名学生</span>
+                        </div>
+                    </div>
+                    <a href="select-student.html" class="ml-4 px-4 py-2 bg-blue-500 text-white rounded-lg text-sm">
+                        申请加入
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+                <div class="flex items-start">
+                    <div class="flex-1">
+                        <h3 class="font-medium">高一(3)班</h3>
+                        <p class="text-sm text-gray-500 mt-1">班主任：王老师</p>
+                        <div class="flex items-center mt-2">
+                            <span class="text-xs text-gray-400">班级码：G1-2024-03</span>
+                            <span class="mx-2 text-gray-300">|</span>
+                            <span class="text-xs text-gray-400">40名学生</span>
+                        </div>
+                    </div>
+                    <a href="select-student.html" class="ml-4 px-4 py-2 bg-blue-500 text-white rounded-lg text-sm">
+                        申请加入
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>功能</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <h1 class="text-lg font-medium">功能</h1>
+    </div>
+
+    <!-- 功能列表 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4">
+            <!-- 学习管理 -->
+            <div class="mb-6">
+                <h2 class="text-lg font-medium mb-4">学习管理</h2>
+                <div class="grid grid-cols-4 gap-4">
+                    <a href="../class/homework.html" class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="t-icon t-icon-file text-blue-500 text-2xl"></i>
+                        </div>
+                        <span class="text-xs mt-2">作业管理</span>
+                    </a>
+                    <a href="../class/scores.html" class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="t-icon t-icon-chart text-green-500 text-2xl"></i>
+                        </div>
+                        <span class="text-xs mt-2">成绩管理</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center">
+                            <i class="t-icon t-icon-book text-yellow-500 text-2xl"></i>
+                        </div>
+                        <span class="text-xs mt-2">课程表</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center">
+                            <i class="t-icon t-icon-calendar text-purple-500 text-2xl"></i>
+                        </div>
+                        <span class="text-xs mt-2">考试安排</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 班级管理 -->
+            <div class="mb-6">
+                <h2 class="text-lg font-medium mb-4">班级管理</h2>
+                <div class="grid grid-cols-4 gap-4">
+                    <a href="../class/members.html" class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="t-icon t-icon-user text-blue-500 text-2xl"></i>
+                        </div>
+                        <span class="text-xs mt-2">成员管理</span>
+                    </a>
+                    <a href="../class/files.html" class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="t-icon t-icon-folder text-green-500 text-2xl"></i>
+                        </div>
+                        <span class="text-xs mt-2">文件管理</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center">
+                            <i class="t-icon t-icon-chat text-yellow-500 text-2xl"></i>
+                        </div>
+                        <span class="text-xs mt-2">班级群聊</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center">
+                            <i class="t-icon t-icon-notification text-purple-500 text-2xl"></i>
+                        </div>
+                        <span class="text-xs mt-2">通知管理</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 其他功能 -->
+            <div>
+                <h2 class="text-lg font-medium mb-4">其他功能</h2>
+                <div class="grid grid-cols-4 gap-4">
+                    <a href="#" class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="t-icon t-icon-camera text-blue-500 text-2xl"></i>
+                        </div>
+                        <span class="text-xs mt-2">班级相册</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="t-icon t-icon-star text-green-500 text-2xl"></i>
+                        </div>
+                        <span class="text-xs mt-2">班级荣誉</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center">
+                            <i class="t-icon t-icon-activity text-yellow-500 text-2xl"></i>
+                        </div>
+                        <span class="text-xs mt-2">班级活动</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center">
+                            <i class="t-icon t-icon-settings text-purple-500 text-2xl"></i>
+                        </div>
+                        <span class="text-xs mt-2">更多设置</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="h-16 bg-white border-t flex items-center justify-around">
+        <a href="../home.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-home text-xl"></i>
+            <span class="text-xs mt-1">首页</span>
+        </a>
+        <a href="../class/index.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-class text-xl"></i>
+            <span class="text-xs mt-1">班级</span>
+        </a>
+        <a href="index.html" class="flex flex-col items-center text-blue-500">
+            <i class="t-icon t-icon-apps text-xl"></i>
+            <span class="text-xs mt-1">功能</span>
+        </a>
+        <a href="../profile/index.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-user-circle text-xl"></i>
+            <span class="text-xs mt-1">我的</span>
+        </a>
+    </div>
+</body>
+</html> 

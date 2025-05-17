@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <h1 class="text-lg font-medium">个人中心</h1>
+    </div>
+
+    <!-- 内容区域 -->
+    <div class="flex-1 overflow-auto">
+        <!-- 个人信息卡片 -->
+        <div class="bg-white p-4 flex items-center">
+            <div class="mr-4">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                    <i class="t-icon t-icon-user text-blue-500 text-2xl"></i>
+                </div>
+            </div>
+            <div class="flex-1">
+                <h2 class="text-lg font-medium">李老师</h2>
+                <p class="text-gray-500 text-sm">高中数学教师</p>
+                <p class="text-gray-500 text-sm">工号：T20240001</p>
+            </div>
+            <a href="edit-profile.html" class="text-blue-500">
+                <i class="t-icon t-icon-edit"></i>
+            </a>
+        </div>
+
+        <!-- 功能菜单 -->
+        <div class="mt-4">
+            <!-- 教学管理 -->
+            <div class="bg-white rounded-lg mb-4">
+                <div class="p-4 border-b">
+                    <h3 class="font-medium">教学管理</h3>
+                </div>
+                <div class="divide-y">
+                    <a href="../class/class-list.html" class="flex items-center justify-between p-4">
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-class text-blue-500 mr-3"></i>
+                            <span>班级管理</span>
+                        </div>
+                        <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                    </a>
+                    <a href="../teaching/homework-manage.html" class="flex items-center justify-between p-4">
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-file-icon text-green-500 mr-3"></i>
+                            <span>作业管理</span>
+                        </div>
+                        <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                    </a>
+                    <a href="../teaching/grade-manage.html" class="flex items-center justify-between p-4">
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-chart text-orange-500 mr-3"></i>
+                            <span>成绩管理</span>
+                        </div>
+                        <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                    </a>
+                    <a href="../teaching/attendance.html" class="flex items-center justify-between p-4">
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-check-circle text-purple-500 mr-3"></i>
+                            <span>考勤记录</span>
+                        </div>
+                        <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 教研活动 -->
+            <div class="bg-white rounded-lg mb-4">
+                <div class="p-4 border-b">
+                    <h3 class="font-medium">教研活动</h3>
+                </div>
+                <div class="divide-y">
+                    <a href="../teaching/resources.html" class="flex items-center justify-between p-4">
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-folder-open text-yellow-500 mr-3"></i>
+                            <span>教学资源</span>
+                        </div>
+                        <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                    </a>
+                    <a href="../teaching/research-group.html" class="flex items-center justify-between p-4">
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-usergroup text-blue-500 mr-3"></i>
+                            <span>教研组</span>
+                        </div>
+                        <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                    </a>
+                    <a href="notification-settings.html" class="flex items-center justify-between p-4">
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-notification text-blue-500 mr-3"></i>
+                            <span>消息通知</span>
+                        </div>
+                        <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 系统设置 -->
+            <div class="bg-white rounded-lg mb-4">
+                <div class="p-4 border-b">
+                    <h3 class="font-medium">系统设置</h3>
+                </div>
+                <div class="divide-y">
+
+                    <a href="security.html" class="flex items-center justify-between p-4">
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-lock-on text-green-500 mr-3"></i>
+                            <span>账号安全</span>
+                        </div>
+                        <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                    </a>
+                    <a href="about.html" class="flex items-center justify-between p-4">
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-help-circle text-gray-500 mr-3"></i>
+                            <span>关于我们</span>
+                        </div>
+                        <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 退出登录 -->
+            <div class="p-4">
+                <a href="../entry.html" class="block w-full py-3 bg-white text-red-500 text-center rounded-lg">
+                    退出登录
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="h-16 bg-white border-t flex items-center justify-around">
+        <a href="../index.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-home text-xl"></i>
+            <span class="text-xs mt-1">首页</span>
+        </a>
+        <a href="../class/class-list.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-class text-xl"></i>
+            <span class="text-xs mt-1">班级</span>
+        </a>
+        <a href="../teaching/teaching.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-edit text-xl"></i>
+            <span class="text-xs mt-1">教学</span>
+        </a>
+        <a href="profile.html" class="flex flex-col items-center text-blue-500">
+            <i class="t-icon t-icon-user-circle text-xl"></i>
+            <span class="text-xs mt-1">我的</span>
+        </a>
+    </div>
+</body>
+</html> 

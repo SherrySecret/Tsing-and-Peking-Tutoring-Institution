@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成绩管理 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+    <style>
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+        
+        .modal {
+            background-color: white;
+            border-radius: 0.5rem;
+            width: 90%;
+            max-width: 400px;
+            max-height: 90vh;
+            overflow-y: auto;
+            z-index: 60;
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 40;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        
+        .floating-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+        <!-- 顶部标题栏 -->    
+         <div class="h-12 bg-white flex items-center px-4 border-b relative">        
+            <a href="class-detail.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">            
+                <i class="t-icon t-icon-chevron-left text-blue-700 text-xl">
+
+                </i>        
+            </a>        
+            <h1 class="text-lg font-medium flex-grow">班级成绩
+
+            </h1>    
+        </div>
+
+    <!-- 筛选栏 -->
+    <div class="bg-white p-4 border-b">
+        <div class="flex space-x-4">
+            <div class="flex-1">
+                <select class="w-full p-2 border border-gray-200 rounded-lg text-sm">
+                    <option>全部考试</option>
+                    <option>期中考试</option>
+                    <option>期末考试</option>
+                    <option>单元测试</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <select class="w-full p-2 border border-gray-200 rounded-lg text-sm">
+                    <option>本学期</option>
+                    <option>上学期</option>
+                    <option>全年</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- 成绩概览 -->
+    <div class="bg-white p-4 border-b">
+        <h3 class="font-medium mb-3">班级成绩概览</h3>
+        <div class="grid grid-cols-3 gap-4 text-center">
+            <div>
+                <div class="text-lg font-medium text-blue-500">86.5</div>
+                <div class="text-xs text-gray-500">平均分</div>
+            </div>
+            <div>
+                <div class="text-lg font-medium text-green-500">98</div>
+                <div class="text-xs text-gray-500">最高分</div>
+            </div>
+            <div>
+                <div class="text-lg font-medium text-red-500">65</div>
+                <div class="text-xs text-gray-500">最低分</div>
+            </div>
+        </div>
+        <div class="mt-3 h-6 bg-gray-200 rounded-full overflow-hidden">
+            <div class="flex h-full">
+                <div class="bg-green-500 h-full" style="width: 30%"></div>
+                <div class="bg-blue-500 h-full" style="width: 45%"></div>
+                <div class="bg-orange-500 h-full" style="width: 15%"></div>
+                <div class="bg-red-500 h-full" style="width: 10%"></div>
+            </div>
+        </div>
+        <div class="flex justify-between text-xs text-gray-500 mt-1">
+            <span>优秀：30%</span>
+            <span>良好：45%</span>
+            <span>及格：15%</span>
+            <span>不及格：10%</span>
+        </div>
+    </div>
+
+    <!-- 成绩列表 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4">
+            <h3 class="font-medium mb-3">高三期中考试成绩</h3>
+            <div class="bg-white rounded-lg overflow-hidden">
+                <div class="divide-y">
+                    <!-- 学生1 -->
+                    <div class="p-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="t-icon t-icon-user text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">张三</h4>
+                                <p class="text-xs text-gray-500">学号：20240101</p>
+                            </div>
+                        </div>
+                        <div class="text-lg font-medium text-green-500">98</div>
+                    </div>
+
+                    <!-- 学生2 -->
+                    <div class="p-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="t-icon t-icon-user text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">李四</h4>
+                                <p class="text-xs text-gray-500">学号：20240102</p>
+                            </div>
+                        </div>
+                        <div class="text-lg font-medium text-blue-500">85</div>
+                    </div>
+
+                    <!-- 学生3 -->
+                    <div class="p-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="t-icon t-icon-user text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">王五</h4>
+                                <p class="text-xs text-gray-500">学号：20240103</p>
+                            </div>
+                        </div>
+                        <div class="text-lg font-medium text-red-500">65</div>
+                    </div>
+
+                    <!-- 更多学生... -->
+                    <div class="p-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="t-icon t-icon-user text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">赵六</h4>
+                                <p class="text-xs text-gray-500">学号：20240104</p>
+                            </div>
+                        </div>
+                        <div class="text-lg font-medium text-orange-500">75</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 text-center">
+                <button class="text-blue-500 text-sm">
+                    查看更多学生
+                </button>
+                        
+            </div>        
+        </div>    
+    </div>        
+    
+    <!-- 悬浮录入成绩按钮 -->
+    <button class="floating-button" onclick="openImportScoreModal()" style="display: flex; justify-content: center; align-items: center;">
+        <span style="color: white; font-size: 40px; font-weight: 500; line-height: 1; margin-top: -2px;">+</span>
+    </button>
+
+    <!-- 录入成绩模态窗口 -->
+    <div id="importScoreModal" class="modal-backdrop">
+        <div class="modal p-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-medium">录入成绩</h3>
+                <button onclick="closeImportScoreModal()" class="text-gray-500">
+                    <i class="t-icon t-icon-close"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- 考试信息 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">考试名称</label>
+                    <input type="text" placeholder="请输入考试名称，如：期中考试" class="w-full p-2 border border-gray-300 rounded-lg">
+                </div>
+                
+                <!-- 考试科目 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">考试科目</label>
+                    <select class="w-full p-2 border border-gray-300 rounded-lg">
+                        <option>全科</option>
+                        <option>数学</option>
+                        <option>语文</option>
+                        <option>英语</option>
+                        <option>物理</option>
+                        <option>化学</option>
+                        <option>生物</option>
+                    </select>
+                </div>
+                
+                <!-- 考试时间 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">考试时间</label>
+                    <input type="date" class="w-full p-2 border border-gray-300 rounded-lg">
+                </div>
+                
+                <!-- 导入文件 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">导入成绩文件</label>
+                    <div class="border-dashed border-2 border-gray-300 rounded-lg p-6 flex flex-col items-center justify-center text-center">
+                        <i class="t-icon t-icon-upload text-3xl text-gray-400 mb-2"></i>
+                        <p class="text-sm text-gray-500 mb-2">点击上传或拖拽文件到此处</p>
+                        <p class="text-xs text-gray-400 mb-3">支持 Excel、CSV 格式文件</p>
+                        <button class="bg-blue-500 text-white text-sm px-4 py-2 rounded-lg">选择文件</button>
+                        <input type="file" class="hidden" accept=".csv,.xlsx,.xls" />
+                    </div>
+                </div>
+                
+                <!-- 文件模板 -->
+                <div>
+                    <p class="text-sm text-gray-600">
+                        请确保文件包含"学号"、"姓名"、"成绩"等必要信息。
+                        <a href="#" class="text-blue-500">下载模板</a>
+                    </p>
+                </div>
+                
+                <!-- 预览区域 -->
+                <div class="border border-gray-300 rounded-lg p-3">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">文件预览</label>
+                    <div class="text-sm text-gray-500 h-32 overflow-auto">
+                        <p class="text-center text-gray-400 italic pt-10">上传文件后显示预览</p>
+                    </div>
+                </div>
+                
+                <!-- 弹窗按钮 -->
+                <div class="flex justify-end space-x-3 mt-6">
+                    <button onclick="closeImportScoreModal()" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700">
+                        取消
+                    </button>
+                    <button onclick="importScore()" class="px-4 py-2 bg-blue-500 text-white rounded-lg">
+                        导入成绩
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 打开录入成绩弹窗
+        function openImportScoreModal() {
+            document.getElementById('importScoreModal').style.display = 'flex';
+        }
+        
+        // 关闭录入成绩弹窗
+        function closeImportScoreModal() {
+            document.getElementById('importScoreModal').style.display = 'none';
+        }
+        
+        // 导入成绩
+        function importScore() {
+            // 这里添加导入成绩的逻辑
+            alert('成绩导入成功！');
+            closeImportScoreModal();
+        }
+    </script>
+</body>
+</html> 

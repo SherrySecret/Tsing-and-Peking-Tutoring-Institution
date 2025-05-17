@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编辑资料 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="profile.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left"></i>
+        </a>
+        <h1 class="text-lg font-medium">编辑资料</h1>
+        <button class="ml-auto text-blue-500">保存</button>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="flex-1 overflow-auto">
+        <!-- 头像 -->
+        <div class="bg-white p-4 mb-4">
+            <div class="flex items-center justify-between">
+                <span class="text-gray-600">头像</span>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                        <i class="t-icon t-icon-user text-blue-500 text-xl"></i>
+                    </div>
+                    <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 基本信息 -->
+        <div class="bg-white">
+            <div class="divide-y">
+                <div class="p-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-600">姓名</span>
+                        <input type="text" value="李老师" class="text-right text-gray-800 outline-none">
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-600">工号</span>
+                        <span class="text-gray-800">T20240001</span>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-600">手机号</span>
+                        <input type="tel" value="138****8888" class="text-right text-gray-800 outline-none">
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-600">邮箱</span>
+                        <input type="email" value="teacher@example.com" class="text-right text-gray-800 outline-none">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 教学信息 -->
+        <div class="bg-white mt-4">
+            <div class="p-4 border-b">
+                <h3 class="font-medium">教学信息</h3>
+            </div>
+            <div class="divide-y">
+                <div class="p-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-600">任教科目</span>
+                        <span class="text-gray-800">数学</span>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-600">职称</span>
+                        <span class="text-gray-800">高级教师</span>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-600">教龄</span>
+                        <span class="text-gray-800">15年</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 个人简介 -->
+        <div class="bg-white mt-4">
+            <div class="p-4 border-b">
+                <h3 class="font-medium">个人简介</h3>
+            </div>
+            <div class="p-4">
+                <textarea class="w-full h-32 p-2 border border-gray-200 rounded-lg text-gray-800 outline-none resize-none" placeholder="请输入个人简介">高中数学教师，毕业于北京师范大学，有15年教学经验。擅长数学教学，多次获得优秀教师称号。</textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

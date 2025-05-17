@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通知管理 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+    <style>
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+        
+        .modal {
+            background-color: white;
+            border-radius: 0.5rem;
+            width: 90%;
+            max-width: 400px;
+            max-height: 90vh;
+            overflow-y: auto;
+            z-index: 60;
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 40;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .floating-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b relative">
+        <a href="class-detail.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left text-blue-700 text-xl"></i>
+        </a>
+        <h1 class="text-lg font-medium flex-grow">通知管理</h1>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="flex-1 overflow-auto p-4">
+        <!-- 通知分类标签 -->
+        <div class="mb-4 overflow-x-auto whitespace-nowrap flex">
+            <button class="bg-blue-500 text-white text-sm px-4 py-2 rounded-full mr-2">全部通知</button>
+            <button class="bg-white text-gray-700 text-sm px-4 py-2 rounded-full mr-2">重要通知</button>
+            <button class="bg-white text-gray-700 text-sm px-4 py-2 rounded-full mr-2">作业通知</button>
+            <button class="bg-white text-gray-700 text-sm px-4 py-2 rounded-full mr-2">考试通知</button>
+            <button class="bg-white text-gray-700 text-sm px-4 py-2 rounded-full">活动通知</button>
+        </div>
+
+        <!-- 通知列表 -->
+        <div class="bg-white rounded-lg shadow-sm">
+            <div class="p-3 border-b flex justify-between items-center">
+                <h2 class="font-medium">通知列表</h2>
+                <div class="flex">
+                    <button class="text-blue-500 text-sm mr-3 flex items-center">
+                        <i class="t-icon t-icon-filter-clear text-sm mr-1"></i>筛选
+                    </button>
+                    <button class="text-blue-500 text-sm flex items-center">
+                        <i class="t-icon t-icon-sort text-sm mr-1"></i>排序
+                    </button>
+                </div>
+            </div>
+            <div class="divide-y">
+                <!-- 通知项目 -->
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-1">
+                        <div class="flex items-center">
+                            <span class="text-red-500 text-xs border border-red-500 rounded px-1 mr-2">重要</span>
+                            <h3 class="font-medium">期末考试安排通知</h3>
+                        </div>
+                        <span class="text-xs text-gray-500">今天 09:30</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">各位同学，期末考试将于6月15日开始，请做好复习准备。考试时间安排请见附件。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">已读：35/38</span>
+                        <div class="flex space-x-2">
+                            <button class="text-blue-500 text-xs">编辑</button>
+                            <button class="text-gray-500 text-xs">删除</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-1">
+                        <div class="flex items-center">
+                            <span class="text-blue-500 text-xs border border-blue-500 rounded px-1 mr-2">作业</span>
+                            <h3 class="font-medium">物理作业补交通知</h3>
+                        </div>
+                        <span class="text-xs text-gray-500">昨天 15:20</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">还有10名同学未提交上周布置的物理作业，请尽快在本周五前补交。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">已读：32/38</span>
+                        <div class="flex space-x-2">
+                            <button class="text-blue-500 text-xs">编辑</button>
+                            <button class="text-gray-500 text-xs">删除</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-1">
+                        <div class="flex items-center">
+                            <span class="text-green-500 text-xs border border-green-500 rounded px-1 mr-2">活动</span>
+                            <h3 class="font-medium">班级春游活动通知</h3>
+                        </div>
+                        <span class="text-xs text-gray-500">上周</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">下周六将组织班级春游活动，请各位同学准时到校集合，并带好必要的用品。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">已读：38/38</span>
+                        <div class="flex space-x-2">
+                            <button class="text-blue-500 text-xs">编辑</button>
+                            <button class="text-gray-500 text-xs">删除</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 悬浮发布通知按钮 -->
+    <button class="floating-button" onclick="openNoticeModal()" style="display: flex; justify-content: center; align-items: center;">
+        <span style="color: white; font-size: 40px; font-weight: 500; line-height: 1; margin-top: -2px;">+</span>
+    </button>
+
+    <!-- 发布通知模态窗口 -->
+    <div id="noticeModal" class="modal-backdrop">
+        <div class="modal p-4">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="font-medium">发布新通知</h2>
+                <button class="text-gray-500" onclick="closeNoticeModal()">
+                    <i class="t-icon t-icon-close"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">通知标题</label>
+                    <input type="text" class="w-full border rounded-lg p-2 text-sm" placeholder="请输入通知标题">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">通知类型</label>
+                    <select class="w-full border rounded-lg p-2 text-sm">
+                        <option>普通通知</option>
+                        <option>重要通知</option>
+                        <option>作业通知</option>
+                        <option>考试通知</option>
+                        <option>活动通知</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">通知内容</label>
+                    <textarea class="w-full border rounded-lg p-2 text-sm" rows="4" placeholder="请输入通知内容"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">附件</label>
+                    <div class="border-dashed border border-gray-300 rounded-lg p-3 flex items-center justify-center">
+                        <button class="text-blue-500 text-sm flex items-center">
+                            <i class="t-icon t-icon-attachment text-sm mr-1"></i>添加附件
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="send-notify" class="mr-2">
+                        <label for="send-notify" class="text-sm text-gray-700">发送通知提醒</label>
+                    </div>
+                    <button class="bg-blue-500 text-white text-sm px-4 py-2 rounded-lg">发布通知</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 打开发布通知模态窗口
+        function openNoticeModal() {
+            document.getElementById('noticeModal').style.display = 'flex';
+        }
+        
+        // 关闭发布通知模态窗口
+        function closeNoticeModal() {
+            document.getElementById('noticeModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html> 

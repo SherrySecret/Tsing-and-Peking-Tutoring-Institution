@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程安排 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="teaching.html" class="mr-2">
+            <i class="t-icon t-icon-chevron-left text-gray-500"></i>
+        </a>
+        <h1 class="text-lg font-medium">课程安排</h1>
+    </div>
+
+    <!-- 日期选择 -->
+    <div class="bg-white p-4 border-b">
+        <div class="flex justify-between items-center">
+            <button class="text-gray-500">
+                <i class="t-icon t-icon-chevron-left"></i>
+            </button>
+            <div class="text-center">
+                <h3 class="font-medium">2024年5月</h3>
+                <p class="text-sm text-gray-500">第15周</p>
+            </div>
+            <button class="text-gray-500">
+                <i class="t-icon t-icon-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 星期选择 -->
+    <div class="bg-white px-2 py-3 border-b">
+        <div class="flex justify-between">
+            <div class="flex flex-col items-center">
+                <span class="text-xs text-gray-500 mb-1">一</span>
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-gray-800">8</div>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs text-gray-500 mb-1">二</span>
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-gray-800">9</div>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs text-gray-500 mb-1">三</span>
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-gray-800">10</div>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs text-gray-500 mb-1">四</span>
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-gray-800">11</div>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs text-gray-500 mb-1">五</span>
+                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white">12</div>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs text-gray-500 mb-1">六</span>
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-gray-400">13</div>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-xs text-gray-500 mb-1">日</span>
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-gray-400">14</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 课程列表 -->
+    <div class="flex-1 overflow-auto p-4">
+        <div class="space-y-4">
+            <!-- 课节1 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-l-4 border-blue-500">
+                    <div class="flex items-start">
+                        <div class="mr-3">
+                            <div class="text-xl font-medium text-blue-500">1</div>
+                            <div class="text-xs text-gray-500">08:00-08:45</div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium">高三（2）班 - 数学</h3>
+                            <p class="text-sm text-gray-500 mt-1">函数的导数与应用</p>
+                            <p class="text-xs text-gray-500 mt-1">三楼302教室</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 课节2 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-l-4 border-gray-200">
+                    <div class="flex items-start">
+                        <div class="mr-3">
+                            <div class="text-xl font-medium text-gray-400">2</div>
+                            <div class="text-xs text-gray-500">09:00-09:45</div>
+                        </div>
+                        <div class="flex-1 flex items-center justify-center h-16">
+                            <span class="text-gray-400">空闲</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 课节3 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-l-4 border-blue-500">
+                    <div class="flex items-start">
+                        <div class="mr-3">
+                            <div class="text-xl font-medium text-blue-500">3</div>
+                            <div class="text-xs text-gray-500">10:10-10:55</div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium">高三（1）班 - 数学</h3>
+                            <p class="text-sm text-gray-500 mt-1">概率论基础</p>
+                            <p class="text-xs text-gray-500 mt-1">三楼301教室</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 课节4 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-l-4 border-gray-200">
+                    <div class="flex items-start">
+                        <div class="mr-3">
+                            <div class="text-xl font-medium text-gray-400">4</div>
+                            <div class="text-xs text-gray-500">11:10-11:55</div>
+                        </div>
+                        <div class="flex-1 flex items-center justify-center h-16">
+                            <span class="text-gray-400">空闲</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 课节5 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-l-4 border-blue-500">
+                    <div class="flex items-start">
+                        <div class="mr-3">
+                            <div class="text-xl font-medium text-blue-500">5</div>
+                            <div class="text-xs text-gray-500">14:30-15:15</div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium">高二（3）班 - 数学</h3>
+                            <p class="text-sm text-gray-500 mt-1">三角函数与三角恒等式</p>
+                            <p class="text-xs text-gray-500 mt-1">二楼205教室</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 课节6 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-l-4 border-gray-200">
+                    <div class="flex items-start">
+                        <div class="mr-3">
+                            <div class="text-xl font-medium text-gray-400">6</div>
+                            <div class="text-xs text-gray-500">15:30-16:15</div>
+                        </div>
+                        <div class="flex-1 flex items-center justify-center h-16">
+                            <span class="text-gray-400">空闲</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 备注 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4">
+                    <h3 class="font-medium mb-2">日程备注</h3>
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <div class="flex items-start">
+                            <i class="t-icon t-icon-notification text-blue-500 mr-2 mt-0.5"></i>
+                            <div>
+                                <p class="text-sm font-medium">数学教研组会议</p>
+                                <p class="text-xs text-gray-500 mt-1">时间：14:00-15:30</p>
+                                <p class="text-xs text-gray-500">地点：三楼会议室</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="h-16 bg-white border-t flex items-center justify-around">
+        <a href="../index.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-home text-xl"></i>
+            <span class="text-xs mt-1">首页</span>
+        </a>
+        <a href="../class/class-list.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-class text-xl"></i>
+            <span class="text-xs mt-1">班级</span>
+        </a>
+        <a href="teaching.html" class="flex flex-col items-center text-blue-500">
+            <i class="t-icon t-icon-edit text-xl"></i>
+            <span class="text-xs mt-1">教学</span>
+        </a>
+        <a href="../profile/profile.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-user-circle text-xl"></i>
+            <span class="text-xs mt-1">我的</span>
+        </a>
+    </div>
+</body>
+</html> 

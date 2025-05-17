@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级详情</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="index.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left"></i>
+        </a>
+        <h1 class="text-lg font-medium">高一(1)班</h1>
+    </div>
+
+    <!-- 班级信息 -->
+    <div class="bg-white p-4">
+        <div class="flex items-center">
+            <div class="w-20 h-20 bg-blue-100 rounded-lg flex items-center justify-center">
+                <i class="t-icon t-icon-class text-blue-500 text-4xl"></i>
+            </div>
+            <div class="ml-4">
+                <h2 class="text-xl font-medium">高一(1)班</h2>
+                <p class="text-sm text-gray-500 mt-1">班主任：张老师</p>
+                <div class="flex items-center mt-2">
+                    <span class="text-xs text-gray-500">45名学生</span>
+                    <span class="mx-2 text-gray-300">|</span>
+                    <span class="text-xs text-gray-500">6名教师</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 功能模块 -->
+    <div class="grid grid-cols-4 gap-4 p-4 bg-white border-t">
+        <a href="members.html" class="flex flex-col items-center">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <i class="t-icon t-icon-user text-blue-500 text-xl"></i>
+            </div>
+            <span class="text-xs mt-1">班级成员</span>
+        </a>
+        <a href="scores.html" class="flex flex-col items-center">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="t-icon t-icon-chart text-green-500 text-xl"></i>
+            </div>
+            <span class="text-xs mt-1">学生成绩</span>
+        </a>
+        <a href="homework.html" class="flex flex-col items-center">
+            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                <i class="t-icon t-icon-file text-yellow-500 text-xl"></i>
+            </div>
+            <span class="text-xs mt-1">作业</span>
+        </a>
+        <a href="files.html" class="flex flex-col items-center">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                <i class="t-icon t-icon-folder text-purple-500 text-xl"></i>
+            </div>
+            <span class="text-xs mt-1">文件</span>
+        </a>
+    </div>
+
+    <!-- 班级通知 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4">
+            <h3 class="text-lg font-medium mb-4">班级通知</h3>
+            <div class="space-y-4">
+                <a href="notice-detail.html" class="block">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-start">
+                            <div class="flex-1">
+                                <h4 class="font-medium">关于期中考试安排的通知</h4>
+                                <p class="text-sm text-gray-500 mt-1 line-clamp-2">
+                                    各位同学请注意，期中考试将于下周一开始，请提前做好准备...
+                                </p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-gray-400">2024-03-18</span>
+                                    <span class="mx-2 text-gray-300">|</span>
+                                    <span class="text-xs text-gray-400">张老师</span>
+                                </div>
+                            </div>
+                            <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="notice-detail.html" class="block">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-start">
+                            <div class="flex-1">
+                                <h4 class="font-medium">班级活动通知</h4>
+                                <p class="text-sm text-gray-500 mt-1 line-clamp-2">
+                                    本周五下午将举行班级趣味运动会，请同学们准时参加...
+                                </p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-gray-400">2024-03-17</span>
+                                    <span class="mx-2 text-gray-300">|</span>
+                                    <span class="text-xs text-gray-400">李老师</span>
+                                </div>
+                            </div>
+                            <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教研组 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="profile.html" class="mr-2">
+            <i class="t-icon t-icon-chevron-left text-gray-500"></i>
+        </a>
+        <h1 class="text-lg font-medium">教研组</h1>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="flex-1 overflow-auto">
+        <!-- 我的教研组 -->
+        <div class="p-4 bg-white mb-4">
+            <h3 class="font-medium mb-3">我的教研组</h3>
+            <div class="flex items-center bg-blue-50 p-4 rounded-lg">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                    <i class="t-icon t-icon-usergroup text-blue-500 text-xl"></i>
+                </div>
+                <div class="flex-1">
+                    <h4 class="font-medium">高中数学教研组</h4>
+                    <p class="text-sm text-gray-500">成员：16人 | 组长：王老师</p>
+                </div>
+                <a href="#" class="text-blue-500 text-sm">
+                    <i class="t-icon t-icon-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- 最近活动 -->
+        <div class="bg-white mb-4">
+            <div class="p-4 border-b">
+                <h3 class="font-medium">最近活动</h3>
+            </div>
+            <div class="divide-y">
+                <div class="p-4">
+                    <div class="flex justify-between mb-2">
+                        <h4 class="font-medium">数学教研组会议</h4>
+                        <span class="text-xs text-blue-500 bg-blue-50 px-2 py-1 rounded">未开始</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">主题：高三数学复习备考策略研讨</p>
+                    <div class="text-sm text-gray-500">
+                        <div class="flex items-center mb-1">
+                            <i class="t-icon t-icon-user-circle mr-1"></i>
+                            <span>组织人：王老师</span>
+                        </div>
+                        <div class="flex items-center mb-1">
+                            <i class="t-icon t-icon-time mr-1"></i>
+                            <span>时间：2024-05-12 14:00</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-location mr-1"></i>
+                            <span>地点：三楼会议室</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between mb-2">
+                        <h4 class="font-medium">高考模拟题研讨</h4>
+                        <span class="text-xs text-green-500 bg-green-50 px-2 py-1 rounded">已结束</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">主题：分析第二次模拟考试数学试卷</p>
+                    <div class="text-sm text-gray-500">
+                        <div class="flex items-center mb-1">
+                            <i class="t-icon t-icon-user-circle mr-1"></i>
+                            <span>组织人：李老师</span>
+                        </div>
+                        <div class="flex items-center mb-1">
+                            <i class="t-icon t-icon-time mr-1"></i>
+                            <span>时间：2024-05-05 15:30</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-location mr-1"></i>
+                            <span>地点：数学组办公室</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 教研资料 -->
+        <div class="bg-white">
+            <div class="p-4 border-b">
+                <h3 class="font-medium">教研资料</h3>
+            </div>
+            <div class="divide-y">
+                <a href="#" class="block p-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="t-icon t-icon-file-pdf text-blue-500"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-medium mb-1">2024高考数学考点分析</h4>
+                            <p class="text-xs text-gray-500">上传时间：2024-05-03</p>
+                        </div>
+                        <i class="t-icon t-icon-download text-gray-400"></i>
+                    </div>
+                </a>
+                <a href="#" class="block p-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="t-icon t-icon-file-word text-green-500"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-medium mb-1">数学教学方法研究</h4>
+                            <p class="text-xs text-gray-500">上传时间：2024-04-28</p>
+                        </div>
+                        <i class="t-icon t-icon-download text-gray-400"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="h-16 bg-white border-t flex items-center justify-around">
+        <a href="../index.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-home text-xl"></i>
+            <span class="text-xs mt-1">首页</span>
+        </a>
+        <a href="../class/class-list.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-class text-xl"></i>
+            <span class="text-xs mt-1">班级</span>
+        </a>
+        <a href="teaching.html" class="flex flex-col items-center text-blue-500">
+            <i class="t-icon t-icon-edit text-xl"></i>
+            <span class="text-xs mt-1">教学</span>
+        </a>
+        <a href="../profile/profile.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-user-circle text-xl"></i>
+            <span class="text-xs mt-1">我的</span>
+        </a>
+    </div>
+</body>
+</html> 

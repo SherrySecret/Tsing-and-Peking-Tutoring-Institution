@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>考试管理 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="teaching.html" class="mr-2">
+            <i class="t-icon t-icon-chevron-left text-gray-500"></i>
+        </a>
+        <h1 class="text-lg font-medium">考试管理</h1>
+        <button class="ml-auto bg-blue-500 text-white px-3 py-1 rounded-full text-sm flex items-center">
+            <i class="t-icon t-icon-add mr-1"></i>
+            <span>创建考试</span>
+        </button>
+    </div>
+
+    <!-- 筛选栏 -->
+    <div class="bg-white p-4 border-b">
+        <div class="flex space-x-4">
+            <div class="flex-1">
+                <select class="w-full p-2 border border-gray-200 rounded-lg text-sm">
+                    <option>全部班级</option>
+                    <option>高三（1）班</option>
+                    <option>高三（2）班</option>
+                    <option>高二（3）班</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <select class="w-full p-2 border border-gray-200 rounded-lg text-sm">
+                    <option>全部类型</option>
+                    <option>期中考试</option>
+                    <option>期末考试</option>
+                    <option>单元测试</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- 考试列表 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4 space-y-4">
+            <!-- 考试1 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-l-4 border-blue-500">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-medium">高三期中考试</h3>
+                            <p class="text-sm text-gray-500 mt-1">数学 • 高三（1）班</p>
+                            <div class="flex items-center text-xs text-gray-500 mt-2">
+                                <i class="t-icon t-icon-time mr-1"></i>
+                                <span>考试时间：2024-05-15 09:00-11:00</span>
+                            </div>
+                            <div class="flex items-center text-xs text-gray-500 mt-1">
+                                <i class="t-icon t-icon-location mr-1"></i>
+                                <span>考试地点：三楼301教室</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-white bg-blue-500 px-2 py-0.5 rounded">即将进行</span>
+                    </div>
+                </div>
+                <div class="px-4 py-3 bg-gray-50 flex justify-between items-center">
+                    <div class="text-sm text-gray-500">负责老师：李老师</div>
+                    <button class="text-blue-500 text-sm flex items-center">
+                        <span>详情</span>
+                        <i class="t-icon t-icon-chevron-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 考试2 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-l-4 border-green-500">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-medium">高三第三次单元测试</h3>
+                            <p class="text-sm text-gray-500 mt-1">数学 • 高三（2）班</p>
+                            <div class="flex items-center text-xs text-gray-500 mt-2">
+                                <i class="t-icon t-icon-time mr-1"></i>
+                                <span>考试时间：2024-05-10 10:00-11:30</span>
+                            </div>
+                            <div class="flex items-center text-xs text-gray-500 mt-1">
+                                <i class="t-icon t-icon-location mr-1"></i>
+                                <span>考试地点：三楼302教室</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-white bg-green-500 px-2 py-0.5 rounded">已完成</span>
+                    </div>
+                </div>
+                <div class="px-4 py-3 bg-gray-50 flex justify-between items-center">
+                    <div class="text-sm text-gray-500">负责老师：王老师</div>
+                    <button class="text-blue-500 text-sm flex items-center">
+                        <span>查看成绩</span>
+                        <i class="t-icon t-icon-chevron-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 考试3 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-l-4 border-purple-500">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-medium">高二期末考试</h3>
+                            <p class="text-sm text-gray-500 mt-1">数学 • 高二（3）班</p>
+                            <div class="flex items-center text-xs text-gray-500 mt-2">
+                                <i class="t-icon t-icon-time mr-1"></i>
+                                <span>考试时间：2024-06-20 09:00-11:00</span>
+                            </div>
+                            <div class="flex items-center text-xs text-gray-500 mt-1">
+                                <i class="t-icon t-icon-location mr-1"></i>
+                                <span>考试地点：二楼大阶梯教室</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-white bg-purple-500 px-2 py-0.5 rounded">待准备</span>
+                    </div>
+                </div>
+                <div class="px-4 py-3 bg-gray-50 flex justify-between items-center">
+                    <div class="text-sm text-gray-500">负责老师：李老师</div>
+                    <button class="text-blue-500 text-sm flex items-center">
+                        <span>编辑</span>
+                        <i class="t-icon t-icon-chevron-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="h-16 bg-white border-t flex items-center justify-around">
+        <a href="../index.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-home text-xl"></i>
+            <span class="text-xs mt-1">首页</span>
+        </a>
+        <a href="../class/class-list.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-class text-xl"></i>
+            <span class="text-xs mt-1">班级</span>
+        </a>
+        <a href="teaching.html" class="flex flex-col items-center text-blue-500">
+            <i class="t-icon t-icon-edit text-xl"></i>
+            <span class="text-xs mt-1">教学</span>
+        </a>
+        <a href="../profile/profile.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-user-circle text-xl"></i>
+            <span class="text-xs mt-1">我的</span>
+        </a>
+    </div>
+</body>
+</html> 

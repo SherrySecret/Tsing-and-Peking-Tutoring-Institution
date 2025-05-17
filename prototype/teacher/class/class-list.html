@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级列表 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+    <style>
+        .actions-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+            white-space: nowrap;
+        }
+        
+        .actions-scroll::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+        
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+        
+        .modal {
+            background-color: white;
+            border-radius: 0.5rem;
+            width: 90%;
+            max-width: 400px;
+            max-height: 90vh;
+            overflow-y: auto;
+            z-index: 60;
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 40;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .floating-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <h1 class="text-lg font-medium">班级管理</h1>
+    </div>
+
+    <!-- 搜索栏 -->
+    <div class="p-4 bg-white">
+        <div class="relative">
+            <i class="t-icon t-icon-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            <input type="text" placeholder="搜索班级、学生" class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg bg-gray-50">
+        </div>
+    </div>
+
+    <!-- 类别选项卡 -->
+    <div class="bg-white border-b">
+        <div class="flex">
+            <button id="headmaster-tab" class="flex-1 py-3 text-blue-500 border-b-2 border-blue-500 font-medium">
+                班主任班级
+            </button>
+            <button id="teacher-tab" class="flex-1 py-3 text-gray-500">
+                任教班级
+            </button>
+        </div>
+    </div>
+
+    <!-- 班级列表容器 -->
+    <div class="flex-1 overflow-auto p-4">
+        <!-- 班主任班级列表 -->
+        <div id="headmaster-classes" class="space-y-4">
+            <!-- 班级卡片1 -->
+            <div class="bg-white rounded-lg overflow-hidden">
+                <a href="class-detail.html?id=1" class="block">
+                    <div class="p-4 border-b">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="t-icon t-icon-class text-yellow-500"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium">高三（1）班</h3>
+                                    <p class="text-xs text-gray-500">班主任 • 38名学生</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="p-3 bg-gray-50 actions-scroll">
+                    <div class="flex min-w-max">
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-chart text-blue-500 mr-1"></i>
+                            <span>成绩分析</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-file-icon text-green-500 mr-1"></i>
+                            <span>发布作业</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-notification text-orange-500 mr-1"></i>
+                            <span>班级通知</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500">
+                            <i class="t-icon t-icon-setting text-purple-500 mr-1"></i>
+                            <span>班级设置</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 班级卡片2 -->
+            <div class="bg-white rounded-lg overflow-hidden">
+                <a href="class-detail.html?id=4" class="block">
+                    <div class="p-4 border-b">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="t-icon t-icon-class text-purple-500"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium">高二（6）班</h3>
+                                    <p class="text-xs text-gray-500">班主任 • 41名学生</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="p-3 bg-gray-50 actions-scroll">
+                    <div class="flex min-w-max">
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-chart text-blue-500 mr-1"></i>
+                            <span>成绩分析</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-file-icon text-green-500 mr-1"></i>
+                            <span>发布作业</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-notification text-orange-500 mr-1"></i>
+                            <span>班级通知</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500">
+                            <i class="t-icon t-icon-setting text-purple-500 mr-1"></i>
+                            <span>班级设置</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 任教班级列表 -->
+        <div id="teaching-classes" class="space-y-4 hidden">
+            <!-- 班级卡片1 -->
+            <div class="bg-white rounded-lg overflow-hidden">
+                <a href="class-detail.html?id=2" class="block">
+                    <div class="p-4 border-b">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="t-icon t-icon-class text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium">高三（2）班</h3>
+                                    <p class="text-xs text-gray-500">数学老师 • 42名学生</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="p-3 bg-gray-50 actions-scroll">
+                    <div class="flex min-w-max">
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-chart text-blue-500 mr-1"></i>
+                            <span>成绩分析</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-file-icon text-green-500 mr-1"></i>
+                            <span>发布作业</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-notification text-orange-500 mr-1"></i>
+                            <span>班级通知</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500">
+                            <i class="t-icon t-icon-setting text-purple-500 mr-1"></i>
+                            <span>班级设置</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 班级卡片2 -->
+            <div class="bg-white rounded-lg overflow-hidden">
+                <a href="class-detail.html?id=3" class="block">
+                    <div class="p-4 border-b">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="t-icon t-icon-class text-green-500"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium">高二（3）班</h3>
+                                    <p class="text-xs text-gray-500">数学老师 • 39名学生</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="p-3 bg-gray-50 actions-scroll">
+                    <div class="flex min-w-max">
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-chart text-blue-500 mr-1"></i>
+                            <span>成绩分析</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-file-icon text-green-500 mr-1"></i>
+                            <span>发布作业</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-notification text-orange-500 mr-1"></i>
+                            <span>班级通知</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500">
+                            <i class="t-icon t-icon-setting text-purple-500 mr-1"></i>
+                            <span>班级设置</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 班级卡片3 -->
+            <div class="bg-white rounded-lg overflow-hidden">
+                <a href="class-detail.html?id=5" class="block">
+                    <div class="p-4 border-b">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="t-icon t-icon-class text-red-500"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium">高一（4）班</h3>
+                                    <p class="text-xs text-gray-500">数学老师 • 45名学生</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="p-3 bg-gray-50 actions-scroll">
+                    <div class="flex min-w-max">
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-chart text-blue-500 mr-1"></i>
+                            <span>成绩分析</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-file-icon text-green-500 mr-1"></i>
+                            <span>发布作业</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500 mr-5">
+                            <i class="t-icon t-icon-notification text-orange-500 mr-1"></i>
+                            <span>班级通知</span>
+                        </button>
+                        <button class="flex items-center text-sm text-gray-500">
+                            <i class="t-icon t-icon-setting text-purple-500 mr-1"></i>
+                            <span>班级设置</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="h-16 bg-white border-t flex items-center justify-around">
+        <a href="../index.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-home text-xl"></i>
+            <span class="text-xs mt-1">首页</span>
+        </a>
+        <a href="class-list.html" class="flex flex-col items-center text-blue-500">
+            <i class="t-icon t-icon-class text-xl"></i>
+            <span class="text-xs mt-1">班级</span>
+        </a>
+        <a href="../teaching/teaching.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-edit text-xl"></i>
+            <span class="text-xs mt-1">教学</span>
+        </a>
+        <a href="../profile/profile.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-user-circle text-xl"></i>
+            <span class="text-xs mt-1">我的</span>
+        </a>
+    </div>
+    
+    <!-- 悬浮创建班级按钮 -->
+    <button class="floating-button" onclick="openCreateClassModal()" style="display: flex; justify-content: center; align-items: center;">
+        <span style="color: white; font-size: 40px; font-weight: 500; line-height: 1; margin-top: -2px;">+</span>
+    </button>
+    
+    <!-- 创建班级模态窗口 -->
+    <div id="createClassModal" class="modal-backdrop">
+        <div class="modal p-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-medium">创建班级</h3>
+                <button onclick="closeCreateClassModal()" class="text-gray-500">
+                    <i class="t-icon t-icon-close"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- 班级名称 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">班级名称</label>
+                    <input type="text" placeholder="例如：高一（3）班" class="w-full p-2 border border-gray-300 rounded-lg">
+                </div>
+                
+                <!-- 年级 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">所属年级</label>
+                    <select class="w-full p-2 border border-gray-300 rounded-lg">
+                        <option>高一</option>
+                        <option>高二</option>
+                        <option>高三</option>
+                    </select>
+                </div>
+                
+                <!-- 班主任 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">班主任</label>
+                    <div class="relative">
+                        <input type="text" placeholder="选择班主任" value="李老师" class="w-full p-2 border border-gray-300 rounded-lg">
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                            <i class="t-icon t-icon-chevron-down text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 科目和任课老师 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">科目和任课老师</label>
+                    <div class="space-y-3" id="subjectList">
+                        <div class="flex items-center border border-gray-300 rounded-lg p-3">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <span class="mr-2">语文</span>
+                                    <div class="h-6 border-l border-gray-300 mx-2"></div>
+                                    <span class="text-gray-600">王老师</span>
+                                </div>
+                            </div>
+                            <button type="button" class="text-blue-500">
+                                <i class="t-icon t-icon-edit"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center border border-gray-300 rounded-lg p-3">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <span class="mr-2">数学</span>
+                                    <div class="h-6 border-l border-gray-300 mx-2"></div>
+                                    <span class="text-gray-600">李老师</span>
+                                </div>
+                            </div>
+                            <button type="button" class="text-blue-500">
+                                <i class="t-icon t-icon-edit"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center border border-gray-300 rounded-lg p-3">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <span class="mr-2">英语</span>
+                                    <div class="h-6 border-l border-gray-300 mx-2"></div>
+                                    <span class="text-gray-600">张老师</span>
+                                </div>
+                            </div>
+                            <button type="button" class="text-blue-500">
+                                <i class="t-icon t-icon-edit"></i>
+                            </button>
+                        </div>
+                        
+                        <button type="button" onclick="openAddSubjectModal()" class="w-full flex items-center justify-center p-3 border border-dashed border-gray-300 rounded-lg text-blue-500">
+                            <i class="t-icon t-icon-add mr-1"></i>
+                            <span>添加科目</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 班级描述 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">班级描述（选填）</label>
+                    <textarea rows="3" placeholder="请输入班级描述信息..." class="w-full p-2 border border-gray-300 rounded-lg"></textarea>
+                </div>
+                
+                <!-- 弹窗按钮 -->
+                <div class="flex justify-end space-x-3 mt-6">
+                    <button onclick="closeCreateClassModal()" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700">
+                        取消
+                    </button>
+                    <button onclick="createClass()" class="px-4 py-2 bg-blue-500 text-white rounded-lg">
+                        创建
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 添加科目模态窗口 -->
+    <div id="addSubjectModal" class="modal-backdrop">
+        <div class="modal p-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-medium">添加科目</h3>
+                <button onclick="closeAddSubjectModal()" class="text-gray-500">
+                    <i class="t-icon t-icon-close"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- 科目名称 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">科目名称</label>
+                    <input id="subjectName" type="text" placeholder="请输入科目名称" class="w-full p-2 border border-gray-300 rounded-lg">
+                </div>
+                
+                <!-- 任课老师 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">任课老师</label>
+                    <input id="teacherName" type="text" placeholder="请输入或选择任课老师" class="w-full p-2 border border-gray-300 rounded-lg">
+                </div>
+                
+                <!-- 弹窗按钮 -->
+                <div class="flex justify-end space-x-3 mt-6">
+                    <button onclick="closeAddSubjectModal()" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700">
+                        取消
+                    </button>
+                    <button onclick="addSubject()" class="px-4 py-2 bg-blue-500 text-white rounded-lg">
+                        确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 获取DOM元素
+    const headmasterTab = document.getElementById('headmaster-tab');
+    const teacherTab = document.getElementById('teacher-tab');
+    const headmasterClasses = document.getElementById('headmaster-classes');
+    const teachingClasses = document.getElementById('teaching-classes');
+    
+    // 为选项卡添加点击事件
+    headmasterTab.addEventListener('click', function() {
+        // 更新选项卡样式
+        headmasterTab.classList.add('text-blue-500', 'border-b-2', 'border-blue-500', 'font-medium');
+        headmasterTab.classList.remove('text-gray-500');
+        teacherTab.classList.add('text-gray-500');
+        teacherTab.classList.remove('text-blue-500', 'border-b-2', 'border-blue-500', 'font-medium');
+        
+        // 显示/隐藏相应内容
+        headmasterClasses.classList.remove('hidden');
+        teachingClasses.classList.add('hidden');
+    });
+    
+    teacherTab.addEventListener('click', function() {
+        // 更新选项卡样式
+        teacherTab.classList.add('text-blue-500', 'border-b-2', 'border-blue-500', 'font-medium');
+        teacherTab.classList.remove('text-gray-500');
+        headmasterTab.classList.add('text-gray-500');
+        headmasterTab.classList.remove('text-blue-500', 'border-b-2', 'border-blue-500', 'font-medium');
+        
+        // 显示/隐藏相应内容
+        teachingClasses.classList.remove('hidden');
+        headmasterClasses.classList.add('hidden');
+    });
+    
+    // 打开创建班级模态窗口
+    function openCreateClassModal() {
+        document.getElementById('createClassModal').style.display = 'flex';
+    }
+    
+    // 关闭创建班级模态窗口
+    function closeCreateClassModal() {
+        document.getElementById('createClassModal').style.display = 'none';
+    }
+    
+    // 创建班级
+    function createClass() {
+        // 这里添加创建班级的逻辑
+        alert('班级创建成功！');
+        closeCreateClassModal();
+    }
+    
+    // 打开添加科目模态窗口
+    function openAddSubjectModal() {
+        document.getElementById('addSubjectModal').style.display = 'flex';
+    }
+    
+    // 关闭添加科目模态窗口
+    function closeAddSubjectModal() {
+        document.getElementById('addSubjectModal').style.display = 'none';
+        document.getElementById('subjectName').value = '';
+        document.getElementById('teacherName').value = '';
+    }
+    
+    // 添加科目
+    function addSubject() {
+        const subjectName = document.getElementById('subjectName').value;
+        const teacherName = document.getElementById('teacherName').value;
+        
+        if (subjectName && teacherName) {
+            const subjectList = document.getElementById('subjectList');
+            const addButton = subjectList.querySelector('button[type="button"]:last-child');
+            
+            // 创建新的科目元素
+            const newSubject = document.createElement('div');
+            newSubject.className = 'flex items-center border border-gray-300 rounded-lg p-3';
+            newSubject.innerHTML = `
+                <div class="flex-1">
+                    <div class="flex items-center">
+                        <span class="mr-2">${subjectName}</span>
+                        <div class="h-6 border-l border-gray-300 mx-2"></div>
+                        <span class="text-gray-600">${teacherName}</span>
+                    </div>
+                </div>
+                <button type="button" class="text-blue-500">
+                    <i class="t-icon t-icon-edit"></i>
+                </button>
+            `;
+            
+            // 将新科目插入到"添加科目"按钮之前
+            subjectList.insertBefore(newSubject, addButton);
+            
+            // 关闭弹窗
+            closeAddSubjectModal();
+        } else {
+            alert('请填写科目名称和任课老师');
+        }
+    }
+</script>
+</html> 

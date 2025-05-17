@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成绩管理</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="detail.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left"></i>
+        </a>
+        <h1 class="text-lg font-medium">成绩管理</h1>
+    </div>
+
+    <!-- 成绩类型选择 -->
+    <div class="bg-white p-4">
+        <div class="flex space-x-4">
+            <button class="flex-1 h-10 bg-blue-500 text-white rounded-lg">
+                总成绩
+            </button>
+            <button class="flex-1 h-10 bg-white text-gray-700 border border-gray-300 rounded-lg">
+                各科成绩
+            </button>
+        </div>
+    </div>
+
+    <!-- 成绩列表 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4 space-y-4">
+            <!-- 考试卡片 -->
+            <div class="bg-white rounded-lg p-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-medium">期中考试</h3>
+                        <p class="text-sm text-gray-500 mt-1">2024-03-15</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-xl font-medium text-blue-500">92</p>
+                        <p class="text-sm text-gray-500">班级排名：5</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg p-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-medium">月考</h3>
+                        <p class="text-sm text-gray-500 mt-1">2024-02-28</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-xl font-medium text-blue-500">88</p>
+                        <p class="text-sm text-gray-500">班级排名：8</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 成绩趋势图 -->
+    <div class="bg-white p-4">
+        <h3 class="text-lg font-medium mb-4">成绩趋势</h3>
+        <div class="h-48 bg-gray-50 rounded-lg flex items-center justify-center">
+            <p class="text-gray-500">成绩趋势图</p>
+        </div>
+    </div>
+
+    <!-- 科目选择 -->
+    <div class="bg-white p-4">
+        <div class="flex space-x-2 overflow-x-auto pb-2">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-full text-sm whitespace-nowrap">
+                全部
+            </button>
+            <button class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm whitespace-nowrap">
+                数学
+            </button>
+            <button class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm whitespace-nowrap">
+                英语
+            </button>
+            <button class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm whitespace-nowrap">
+                物理
+            </button>
+        </div>
+    </div>
+</body>
+</html> 

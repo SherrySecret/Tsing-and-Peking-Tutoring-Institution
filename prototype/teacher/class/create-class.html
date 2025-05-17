@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建班级 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+    <style>
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+        
+        .modal {
+            background-color: white;
+            border-radius: 0.5rem;
+            width: 90%;
+            max-width: 400px;
+            z-index: 60;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b relative">
+        <a href="class-list.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left"></i>
+        </a>
+        <h1 class="text-lg font-medium flex-grow">创建班级</h1>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="flex-1 overflow-auto p-4">
+        <div class="bg-white rounded-lg p-4">
+            <h2 class="text-lg font-medium mb-4">班级信息</h2>
+            
+            <form class="space-y-4">
+                <!-- 班级名称 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">班级名称</label>
+                    <input type="text" placeholder="例如：高一（3）班" class="w-full p-2 border border-gray-300 rounded-lg">
+                </div>
+                
+                <!-- 年级 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">所属年级</label>
+                    <select class="w-full p-2 border border-gray-300 rounded-lg">
+                        <option>高一</option>
+                        <option>高二</option>
+                        <option>高三</option>
+                    </select>
+                </div>
+                
+                <!-- 班主任 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">班主任</label>
+                    <div class="relative">
+                        <input type="text" placeholder="选择班主任" value="李老师" class="w-full p-2 border border-gray-300 rounded-lg">
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                            <i class="t-icon t-icon-chevron-down text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 科目和任课老师 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">科目和任课老师</label>
+                    <div class="space-y-3">
+                        <div class="flex items-center border border-gray-300 rounded-lg p-3">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <span class="mr-2">语文</span>
+                                    <div class="h-6 border-l border-gray-300 mx-2"></div>
+                                    <span class="text-gray-600">王老师</span>
+                                </div>
+                            </div>
+                            <button type="button" class="text-blue-500">
+                                <i class="t-icon t-icon-edit"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center border border-gray-300 rounded-lg p-3">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <span class="mr-2">数学</span>
+                                    <div class="h-6 border-l border-gray-300 mx-2"></div>
+                                    <span class="text-gray-600">李老师</span>
+                                </div>
+                            </div>
+                            <button type="button" class="text-blue-500">
+                                <i class="t-icon t-icon-edit"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center border border-gray-300 rounded-lg p-3">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <span class="mr-2">英语</span>
+                                    <div class="h-6 border-l border-gray-300 mx-2"></div>
+                                    <span class="text-gray-600">张老师</span>
+                                </div>
+                            </div>
+                            <button type="button" class="text-blue-500">
+                                <i class="t-icon t-icon-edit"></i>
+                            </button>
+                        </div>
+                        
+                        <button type="button" onclick="openAddSubjectModal()" class="w-full flex items-center justify-center p-3 border border-dashed border-gray-300 rounded-lg text-blue-500">
+                            <i class="t-icon t-icon-add mr-1"></i>
+                            <span>添加科目</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 导入学生 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">导入学生</label>
+                    <div class="space-y-3">
+                        <button type="button" class="w-full flex items-center justify-center p-3 border border-dashed border-gray-300 rounded-lg text-blue-500">
+                            <i class="t-icon t-icon-upload mr-1"></i>
+                            <span>导入学生名单</span>
+                        </button>
+                        
+                        <p class="text-xs text-gray-500">支持Excel、CSV格式文件，包含学号、姓名、性别、联系方式等信息</p>
+                    </div>
+                </div>
+                
+                <!-- 班级描述 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">班级描述（选填）</label>
+                    <textarea rows="3" placeholder="请输入班级描述信息..." class="w-full p-2 border border-gray-300 rounded-lg"></textarea>
+                </div>
+            </form>
+        </div>
+        
+        <!-- 提交按钮 -->
+        <div class="flex items-center justify-between mt-6 px-4">
+            <button type="button" class="w-1/3 py-2 border border-gray-300 rounded-lg text-gray-700">
+                取消
+            </button>
+            <button type="button" class="w-1/3 py-2 bg-blue-500 text-white rounded-lg">
+                创建
+            </button>
+        </div>
+    </div>
+    
+    <!-- 添加科目弹窗 -->
+    <div id="addSubjectModal" class="modal-backdrop">
+        <div class="modal p-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-medium">添加科目</h3>
+                <button onclick="closeAddSubjectModal()" class="text-gray-500">
+                    <i class="t-icon t-icon-close"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- 科目名称 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">科目名称</label>
+                    <input id="subjectName" type="text" placeholder="请输入科目名称" class="w-full p-2 border border-gray-300 rounded-lg">
+                </div>
+                
+                <!-- 任课老师 -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">任课老师</label>
+                    <input id="teacherName" type="text" placeholder="请输入或选择任课老师" class="w-full p-2 border border-gray-300 rounded-lg">
+                </div>
+                
+                <!-- 弹窗按钮 -->
+                <div class="flex justify-end space-x-3 mt-6">
+                    <button onclick="closeAddSubjectModal()" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700">
+                        取消
+                    </button>
+                    <button onclick="addSubject()" class="px-4 py-2 bg-blue-500 text-white rounded-lg">
+                        确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 打开添加科目弹窗
+        function openAddSubjectModal() {
+            document.getElementById('addSubjectModal').style.display = 'flex';
+        }
+        
+        // 关闭添加科目弹窗
+        function closeAddSubjectModal() {
+            document.getElementById('addSubjectModal').style.display = 'none';
+            document.getElementById('subjectName').value = '';
+            document.getElementById('teacherName').value = '';
+        }
+        
+        // 添加科目
+        function addSubject() {
+            const subjectName = document.getElementById('subjectName').value;
+            const teacherName = document.getElementById('teacherName').value;
+            
+            if (subjectName && teacherName) {
+                const subjectList = document.querySelector('.space-y-3');
+                const addButton = document.querySelector('.space-y-3 button:last-child');
+                
+                // 创建新的科目元素
+                const newSubject = document.createElement('div');
+                newSubject.className = 'flex items-center border border-gray-300 rounded-lg p-3';
+                newSubject.innerHTML = `
+                    <div class="flex-1">
+                        <div class="flex items-center">
+                            <span class="mr-2">${subjectName}</span>
+                            <div class="h-6 border-l border-gray-300 mx-2"></div>
+                            <span class="text-gray-600">${teacherName}</span>
+                        </div>
+                    </div>
+                    <button type="button" class="text-blue-500">
+                        <i class="t-icon t-icon-edit"></i>
+                    </button>
+                `;
+                
+                // 将新科目插入到"添加科目"按钮之前
+                subjectList.insertBefore(newSubject, addButton);
+                
+                // 关闭弹窗
+                closeAddSubjectModal();
+            } else {
+                alert('请填写科目名称和任课老师');
+            }
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级详情 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+    <style>
+        .menu-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        
+        .menu-scroll::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+        
+        .scroll-indicator {
+            height: 3px;
+            background-color: rgba(219, 234, 254, 0.5);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        
+        .scroll-thumb {
+            height: 100%;
+            width: 25%;
+            background-color: #3b82f6;
+            border-radius: 3px;
+            transition: transform 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b relative">
+        <a href="class-list.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left text-blue-700 text-xl"></i>
+        </a>
+        <h1 class="text-lg font-medium flex-grow">班级详情</h1>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="flex-1 overflow-auto">
+        <!-- 班级信息卡片 -->
+        <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-4 text-white mb-4 mx-4 mt-4">
+            <div class="flex items-center mb-4">
+                <div class="mr-4">
+                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                        <i class="t-icon t-icon-class text-white text-xl"></i>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-white/80 text-sm">班级信息</p>
+                    <h2 class="text-lg font-medium">高三（1）班</h2>
+                    <p class="text-white/80 text-sm">班主任：李老师</p>
+                </div>
+            </div>
+            <div class="mt-4 flex justify-between text-center">
+                <div>
+                    <div class="text-xl font-medium">38</div>
+                    <div class="text-xs text-white/70">学生总数</div>
+                </div>
+                <div>
+                    <div class="text-xl font-medium">12</div>
+                    <div class="text-xs text-white/70">今日出勤</div>
+                </div>
+                <div>
+                    <div class="text-xl font-medium">5</div>
+                    <div class="text-xs text-white/70">待批作业</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 功能菜单 -->
+        <div class="bg-white mb-4">
+            <div class="menu-scroll px-4 py-4">
+                <div class="flex items-center space-x-6">
+                    <a href="members.html" class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-1">
+                            <i class="t-icon t-icon-user text-blue-500"></i>
+                        </div>
+                        <span class="text-xs text-gray-600">班级成员</span>
+                    </a>
+                    <a href="homework.html" class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-1">
+                            <i class="t-icon t-icon-file-icon text-green-500"></i>
+                        </div>
+                        <span class="text-xs text-gray-600">作业管理</span>
+                    </a>
+                    <a href="scores.html" class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-1">
+                            <i class="t-icon t-icon-chart text-purple-500"></i>
+                        </div>
+                        <span class="text-xs text-gray-600">成绩管理</span>
+                    </a>
+                    <a href="attendance.html" class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-1">
+                            <i class="t-icon t-icon-check-circle text-orange-500"></i>
+                        </div>
+                        <span class="text-xs text-gray-600">考勤记录</span>
+                    </a>
+                    <a href="file-manage.html" class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-1">
+                            <i class="t-icon t-icon-file text-red-500"></i>
+                        </div>
+                        <span class="text-xs text-gray-600">文件管理</span>
+                    </a>
+                    <a href="notice-manage.html" class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-1">
+                            <i class="t-icon t-icon-notification text-yellow-500"></i>
+                        </div>
+                        <span class="text-xs text-gray-600">通知管理</span>
+                    </a>
+                    <a href="class-manage.html" class="flex flex-col items-center flex-shrink-0">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-1">
+                            <i class="t-icon t-icon-setting text-indigo-500"></i>
+                        </div>
+                        <span class="text-xs text-gray-600">班级管理</span>
+                    </a>
+                </div>
+            </div>
+            <div class="px-4 pb-2">
+                <div class="scroll-indicator">
+                    <div class="scroll-thumb" id="scrollThumb"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 最近动态 -->
+        <div class="bg-white mt-4">
+            <div class="p-4 border-b">
+                <h3 class="font-medium">最近动态</h3>
+            </div>
+            <div class="divide-y">
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-file-icon text-blue-500 mr-2"></i>
+                            <span class="font-medium">新作业发布</span>
+                        </div>
+                        <span class="text-xs text-gray-500">10分钟前</span>
+                    </div>
+                    <p class="text-sm text-gray-600">《牛顿运动定律》课后习题</p>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-chart text-green-500 mr-2"></i>
+                            <span class="font-medium">成绩更新</span>
+                        </div>
+                        <span class="text-xs text-gray-500">2小时前</span>
+                    </div>
+                    <p class="text-sm text-gray-600">期中考试成绩已录入</p>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="flex items-center">
+                            <i class="t-icon t-icon-notification text-orange-500 mr-2"></i>
+                            <span class="font-medium">班级通知</span>
+                        </div>
+                        <span class="text-xs text-gray-500">昨天</span>
+                    </div>
+                    <p class="text-sm text-gray-600">下周一进行班级大扫除</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 滚动指示器逻辑
+        const menuScroll = document.querySelector('.menu-scroll');
+        const scrollThumb = document.getElementById('scrollThumb');
+        
+        menuScroll.addEventListener('scroll', updateScrollIndicator);
+        
+        function updateScrollIndicator() {
+            const scrollWidth = menuScroll.scrollWidth;
+            const clientWidth = menuScroll.clientWidth;
+            const scrollLeft = menuScroll.scrollLeft;
+            
+            // 计算滑块位置
+            const scrollPercentage = scrollLeft / (scrollWidth - clientWidth);
+            const maxTranslate = clientWidth - scrollThumb.offsetWidth;
+            const translate = Math.max(0, Math.min(maxTranslate, scrollPercentage * maxTranslate));
+            
+            scrollThumb.style.transform = `translateX(${translate}px)`;
+        }
+        
+        // 初始化
+        updateScrollIndicator();
+    </script>
+</body>
+</html> 

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据分析 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="teaching.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left"></i>
+        </a>
+        <h1 class="text-lg font-medium">数据分析</h1>
+    </div>
+
+    <!-- 筛选栏 -->
+    <div class="bg-white p-4 border-b">
+        <div class="flex space-x-4">
+            <div class="flex-1">
+                <select class="w-full p-2 border border-gray-200 rounded-lg text-sm">
+                    <option>高三（1）班</option>
+                    <option>高三（2）班</option>
+                    <option>高二（3）班</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <select class="w-full p-2 border border-gray-200 rounded-lg text-sm">
+                    <option>本学期</option>
+                    <option>上学期</option>
+                    <option>全年</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="flex-1 overflow-auto">
+        <!-- 成绩统计卡片 -->
+        <div class="bg-white p-4 m-4 rounded-lg shadow-sm">
+            <h3 class="font-medium mb-3">成绩统计分析</h3>
+            <div class="h-40 bg-gray-100 rounded-lg mb-3 flex items-center justify-center">
+                <div class="text-center">
+                    <i class="t-icon t-icon-chart-bar text-blue-500 text-3xl"></i>
+                    <p class="text-sm text-gray-500 mt-2">柱状图展示区域</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 text-center">
+                <div>
+                    <div class="text-lg font-medium text-blue-500">86.5</div>
+                    <div class="text-xs text-gray-500">平均分</div>
+                </div>
+                <div>
+                    <div class="text-lg font-medium text-green-500">98</div>
+                    <div class="text-xs text-gray-500">最高分</div>
+                </div>
+                <div>
+                    <div class="text-lg font-medium text-red-500">65</div>
+                    <div class="text-xs text-gray-500">最低分</div>
+                </div>
+            </div>
+            <div class="mt-3 text-center">
+                <a href="#" class="text-sm text-blue-500">查看详细分析</a>
+            </div>
+        </div>
+
+        <!-- 学习进度卡片 -->
+        <div class="bg-white p-4 mx-4 mb-4 rounded-lg shadow-sm">
+            <h3 class="font-medium mb-3">学习进度跟踪</h3>
+            <div class="h-40 bg-gray-100 rounded-lg mb-3 flex items-center justify-center">
+                <div class="text-center">
+                    <i class="t-icon t-icon-chart-line text-green-500 text-3xl"></i>
+                    <p class="text-sm text-gray-500 mt-2">折线图展示区域</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 text-center">
+                <div>
+                    <div class="text-lg font-medium text-blue-500">92%</div>
+                    <div class="text-xs text-gray-500">作业完成率</div>
+                </div>
+                <div>
+                    <div class="text-lg font-medium text-green-500">85%</div>
+                    <div class="text-xs text-gray-500">课堂参与率</div>
+                </div>
+                <div>
+                    <div class="text-lg font-medium text-orange-500">78%</div>
+                    <div class="text-xs text-gray-500">知识点掌握率</div>
+                </div>
+            </div>
+            <div class="mt-3 text-center">
+                <a href="#" class="text-sm text-blue-500">查看详细进度</a>
+            </div>
+        </div>
+
+        <!-- 学生表现卡片 -->
+        <div class="bg-white p-4 mx-4 mb-4 rounded-lg shadow-sm">
+            <h3 class="font-medium mb-3">学生表现分析</h3>
+            <div class="space-y-3">
+                <div class="flex items-center">
+                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="t-icon t-icon-user text-blue-500"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-sm font-medium">张三</h4>
+                            <span class="text-xs text-gray-500">成绩：98分</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                            <div class="bg-green-500 h-1.5 rounded-full" style="width: 95%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>进步明显</span>
+                            <span>+15%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="t-icon t-icon-user text-blue-500"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-sm font-medium">李四</h4>
+                            <span class="text-xs text-gray-500">成绩：85分</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                            <div class="bg-blue-500 h-1.5 rounded-full" style="width: 80%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>稳定发挥</span>
+                            <span>+2%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="t-icon t-icon-user text-blue-500"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-sm font-medium">王五</h4>
+                            <span class="text-xs text-gray-500">成绩：72分</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                            <div class="bg-orange-500 h-1.5 rounded-full" style="width: 65%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>需要关注</span>
+                            <span>-5%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3 text-center">
+                <a href="#" class="text-sm text-blue-500">查看全部学生</a>
+            </div>
+        </div>
+
+        <!-- 知识点掌握情况 -->
+        <div class="bg-white p-4 mx-4 mb-4 rounded-lg shadow-sm">
+            <h3 class="font-medium mb-3">知识点掌握情况</h3>
+            <div class="h-40 bg-gray-100 rounded-lg mb-3 flex items-center justify-center">
+                <div class="text-center">
+                    <i class="t-icon t-icon-chart-pie text-purple-500 text-3xl"></i>
+                    <p class="text-sm text-gray-500 mt-2">雷达图展示区域</p>
+                </div>
+            </div>
+            <div class="space-y-3">
+                <div>
+                    <div class="flex justify-between text-sm mb-1">
+                        <span>函数与导数</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-1.5">
+                        <div class="bg-blue-500 h-1.5 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-sm mb-1">
+                        <span>概率统计</span>
+                        <span>72%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-1.5">
+                        <div class="bg-green-500 h-1.5 rounded-full" style="width: 72%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-sm mb-1">
+                        <span>三角函数</span>
+                        <span>65%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-1.5">
+                        <div class="bg-orange-500 h-1.5 rounded-full" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3 text-center">
+                <a href="#" class="text-sm text-blue-500">查看全部知识点</a>
+            </div>
+        </div>
+
+        <!-- 生成报告 -->
+        <div class="p-4 mb-4 text-center">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg w-full flex items-center justify-center">
+                <i class="t-icon t-icon-file-excel mr-2"></i>
+                <span>生成分析报告</span>
+            </button>
+        </div>
+    </div>
+</body>
+</html> 

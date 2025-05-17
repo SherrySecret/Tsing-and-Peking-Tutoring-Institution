@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级成员</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="detail.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left"></i>
+        </a>
+        <h1 class="text-lg font-medium">班级成员</h1>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="bg-white p-4">
+        <div class="relative">
+            <i class="t-icon t-icon-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            <input type="text" placeholder="搜索成员" class="w-full h-10 pl-10 pr-4 bg-gray-50 rounded-lg text-sm">
+        </div>
+    </div>
+
+    <!-- 成员列表 -->
+    <div class="flex-1 overflow-auto">
+        <!-- 班主任 -->
+        <div class="bg-white mt-2">
+            <div class="p-4 border-b">
+                <h3 class="text-lg font-medium mb-4">班主任</h3>
+                <div class="flex items-center">
+                    <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full">
+                    <div class="ml-3">
+                        <p class="font-medium">张老师</p>
+                        <p class="text-sm text-gray-500">数学</p>
+                    </div>
+                    <button class="ml-auto px-4 py-2 bg-blue-500 text-white rounded-lg text-sm">
+                        联系
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 任课教师 -->
+        <div class="bg-white mt-2">
+            <div class="p-4 border-b">
+                <h3 class="text-lg font-medium mb-4">任课教师</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full">
+                        <div class="ml-3">
+                            <p class="font-medium">李老师</p>
+                            <p class="text-sm text-gray-500">语文</p>
+                        </div>
+                        <button class="ml-auto px-4 py-2 bg-blue-500 text-white rounded-lg text-sm">
+                            联系
+                        </button>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full">
+                        <div class="ml-3">
+                            <p class="font-medium">王老师</p>
+                            <p class="text-sm text-gray-500">英语</p>
+                        </div>
+                        <button class="ml-auto px-4 py-2 bg-blue-500 text-white rounded-lg text-sm">
+                            联系
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 学生列表 -->
+        <div class="bg-white mt-2">
+            <div class="p-4">
+                <h3 class="text-lg font-medium mb-4">学生</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full">
+                        <div class="ml-3">
+                            <p class="font-medium">张三</p>
+                            <p class="text-sm text-gray-500">学号：2024001</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full">
+                        <div class="ml-3">
+                            <p class="font-medium">李四</p>
+                            <p class="text-sm text-gray-500">学号：2024002</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full">
+                        <div class="ml-3">
+                            <p class="font-medium">王五</p>
+                            <p class="text-sm text-gray-500">学号：2024003</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

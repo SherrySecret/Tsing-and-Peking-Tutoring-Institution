@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级主页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <h1 class="text-lg font-medium">我的班级</h1>
+        <div class="ml-auto">
+            <a href="join.html" class="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm inline-block">
+                加入班级
+            </a>
+        </div>
+    </div>
+
+    <!-- 班级列表 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4">
+            <div class="space-y-4">
+                <!-- 班级卡片 -->
+                <a href="detail.html" class="block">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="t-icon t-icon-class text-blue-500 text-3xl"></i>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h2 class="text-lg font-medium">高一(1)班</h2>
+                                <p class="text-sm text-gray-500 mt-1">班主任：张老师</p>
+                                <p class="text-sm text-blue-600 mt-1">学生：徐小明</p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-gray-500">45名学生</span>
+                                    <span class="mx-2 text-gray-300">|</span>
+                                    <span class="text-xs text-gray-500">6名教师</span>
+                                </div>
+                            </div>
+                            <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="detail.html" class="block">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i class="t-icon t-icon-class text-green-500 text-3xl"></i>
+                            </div>
+                            <div class="ml-4 flex-1">
+                                <h2 class="text-lg font-medium">高二(3)班</h2>
+                                <p class="text-sm text-gray-500 mt-1">班主任：李老师</p>
+                                <p class="text-sm text-blue-600 mt-1">学生：徐小华</p>
+                                <div class="flex items-center mt-2">
+                                    <span class="text-xs text-gray-500">42名学生</span>
+                                    <span class="mx-2 text-gray-300">|</span>
+                                    <span class="text-xs text-gray-500">5名教师</span>
+                                </div>
+                            </div>
+                            <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="h-16 bg-white border-t flex items-center justify-around">
+        <a href="../home.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-home text-xl"></i>
+            <span class="text-xs mt-1">首页</span>
+        </a>
+        <a href="index.html" class="flex flex-col items-center text-blue-500">
+            <i class="t-icon t-icon-class text-xl"></i>
+            <span class="text-xs mt-1">班级</span>
+        </a>
+        <a href="../features/index.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-apps text-xl"></i>
+            <span class="text-xs mt-1">功能</span>
+        </a>
+        <a href="../profile/index.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-user-circle text-xl"></i>
+            <span class="text-xs mt-1">我的</span>
+        </a>
+    </div>
+</body>
+</html> 

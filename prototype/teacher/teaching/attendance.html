@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>考勤记录 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="teaching.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left"></i>
+        </a>
+        <h1 class="text-lg font-medium">考勤记录</h1>
+        <button class="ml-auto bg-blue-500 text-white px-3 py-1 rounded-full text-sm flex items-center">
+            <i class="t-icon t-icon-add mr-1"></i>
+            <span>开始考勤</span>
+        </button>
+    </div>
+
+    <!-- 筛选栏 -->
+    <div class="bg-white p-4 border-b">
+        <div class="flex space-x-4">
+            <div class="flex-1">
+                <select class="w-full p-2 border border-gray-200 rounded-lg text-sm">
+                    <option>全部班级</option>
+                    <option>高三（1）班</option>
+                    <option>高三（2）班</option>
+                    <option>高二（3）班</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <select class="w-full p-2 border border-gray-200 rounded-lg text-sm">
+                    <option>今日考勤</option>
+                    <option>本周考勤</option>
+                    <option>本月考勤</option>
+                    <option>全部考勤</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- 考勤统计 -->
+    <div class="bg-white p-4 border-b">
+        <h3 class="font-medium mb-3">考勤统计</h3>
+        <div class="grid grid-cols-4 gap-4 text-center">
+            <div>
+                <div class="text-lg font-medium text-blue-500">38</div>
+                <div class="text-xs text-gray-500">总人数</div>
+            </div>
+            <div>
+                <div class="text-lg font-medium text-green-500">35</div>
+                <div class="text-xs text-gray-500">出勤</div>
+            </div>
+            <div>
+                <div class="text-lg font-medium text-orange-500">2</div>
+                <div class="text-xs text-gray-500">迟到</div>
+            </div>
+            <div>
+                <div class="text-lg font-medium text-red-500">1</div>
+                <div class="text-xs text-gray-500">缺勤</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 考勤记录列表 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4 space-y-4">
+            <!-- 今日考勤 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-medium">高三（1）班 - 今日考勤</h3>
+                        <span class="text-xs text-blue-500">2024-05-12</span>
+                    </div>
+                </div>
+                <div class="divide-y">
+                    <div class="p-4">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="t-icon t-icon-user text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium">张三</h4>
+                                    <p class="text-xs text-gray-500">学号：20240101</p>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-xs text-white bg-green-500 px-2 py-0.5 rounded">出勤</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="t-icon t-icon-user text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium">李四</h4>
+                                    <p class="text-xs text-gray-500">学号：20240102</p>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-xs text-white bg-orange-500 px-2 py-0.5 rounded">迟到</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="t-icon t-icon-user text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium">王五</h4>
+                                    <p class="text-xs text-gray-500">学号：20240103</p>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-xs text-white bg-red-500 px-2 py-0.5 rounded">缺勤</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 bg-gray-50 text-center">
+                    <a href="#" class="text-sm text-blue-500">查看更多</a>
+                </div>
+            </div>
+
+            <!-- 历史考勤 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-medium">高三（1）班 - 历史考勤</h3>
+                    </div>
+                </div>
+                <div class="divide-y">
+                    <a href="#" class="block p-4">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-sm font-medium">2024-05-11 考勤记录</h4>
+                                <p class="text-xs text-gray-500 mt-1">出勤率：97%（37/38人）</p>
+                            </div>
+                            <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="block p-4">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-sm font-medium">2024-05-10 考勤记录</h4>
+                                <p class="text-xs text-gray-500 mt-1">出勤率：100%（38/38人）</p>
+                            </div>
+                            <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="block p-4">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="text-sm font-medium">2024-05-09 考勤记录</h4>
+                                <p class="text-xs text-gray-500 mt-1">出勤率：95%（36/38人）</p>
+                            </div>
+                            <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="p-4 bg-gray-50 text-center">
+                    <a href="#" class="text-sm text-blue-500">查看更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

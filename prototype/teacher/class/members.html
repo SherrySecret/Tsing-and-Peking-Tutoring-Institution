@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级成员 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b relative">
+        <a href="class-detail.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left text-blue-700 text-xl"></i>
+        </a>
+        <h1 class="text-lg font-medium flex-grow">班级成员</h1>
+        <button class="flex-shrink-0 bg-blue-500 text-white px-3 py-1 rounded-full text-sm flex items-center">
+            <i class="t-icon t-icon-add mr-1"></i>
+            <span>添加成员</span>
+        </button>
+    </div>
+
+    <!-- 筛选栏 -->
+    <div class="bg-white p-4 border-b">
+        <div class="relative">
+            <input type="text" placeholder="搜索班级成员..." class="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-lg text-sm">
+            <i class="t-icon t-icon-search text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"></i>
+        </div>
+    </div>
+
+    <!-- 成员列表 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4">
+            <div class="mb-3 text-sm text-gray-500">共 38 位学生</div>
+            <div class="bg-white rounded-lg overflow-hidden">
+                <div class="divide-y">
+                    <!-- 学生1 -->
+                    <div class="p-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="t-icon t-icon-user text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">张三</h4>
+                                <p class="text-xs text-gray-500">学号：20240101</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="text-sm text-blue-500">
+                                <i class="t-icon t-icon-message"></i>
+                            </button>
+                            <button class="text-sm text-blue-500">
+                                <i class="t-icon t-icon-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 学生2 -->
+                    <div class="p-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="t-icon t-icon-user text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">李四</h4>
+                                <p class="text-xs text-gray-500">学号：20240102</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="text-sm text-blue-500">
+                                <i class="t-icon t-icon-message"></i>
+                            </button>
+                            <button class="text-sm text-blue-500">
+                                <i class="t-icon t-icon-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 学生3 -->
+                    <div class="p-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="t-icon t-icon-user text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">王五</h4>
+                                <p class="text-xs text-gray-500">学号：20240103</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="text-sm text-blue-500">
+                                <i class="t-icon t-icon-message"></i>
+                            </button>
+                            <button class="text-sm text-blue-500">
+                                <i class="t-icon t-icon-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 更多学生... -->
+                    <div class="p-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="t-icon t-icon-user text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">赵六</h4>
+                                <p class="text-xs text-gray-500">学号：20240104</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="text-sm text-blue-500">
+                                <i class="t-icon t-icon-message"></i>
+                            </button>
+                            <button class="text-sm text-blue-500">
+                                <i class="t-icon t-icon-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                                
+                </div>            
+            </div>        
+        </div>    
+    </div>                           
+</body>                          
+</html> 

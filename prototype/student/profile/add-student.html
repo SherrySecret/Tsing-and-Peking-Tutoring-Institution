@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加学生档案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="index.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left"></i>
+        </a>
+        <h1 class="text-lg font-medium">添加学生档案</h1>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="flex-1 overflow-auto">
+        <div class="p-4">
+            <!-- 说明卡片 -->
+            <div class="bg-white rounded-lg p-4 shadow-sm mb-6">
+                <h2 class="font-medium flex items-center mb-2">
+                    <i class="t-icon t-icon-info-circle-filled text-blue-500 mr-2"></i>
+                    学生档案说明
+                </h2>
+                <p class="text-sm text-gray-600">通过添加学生档案，您可以查看学生的作业、成绩和班级活动等信息。请填写学生ID并选择您与该学生的关系。</p>
+            </div>
+
+            <!-- 表单 -->
+            <div class="bg-white rounded-lg p-4 shadow-sm">
+                <form action="#" class="space-y-6">
+                    <!-- 学生ID输入 -->
+                    <div>
+                        <label for="student-id" class="block mb-2 text-sm font-medium">学生ID</label>
+                        <div class="relative">
+                            <i class="t-icon t-icon-id-card absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <input 
+                                type="text" 
+                                id="student-id" 
+                                class="w-full py-2 pl-10 pr-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                                placeholder="请输入学生唯一ID"
+                            >
+                        </div>
+                        <p class="mt-1 text-xs text-gray-500">学生ID由学校统一分配，如有疑问请联系班主任</p>
+                    </div>
+
+                    <!-- 关系选择 -->
+                    <div>
+                        <label class="block mb-2 text-sm font-medium">我是</label>
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <input 
+                                    type="radio" 
+                                    id="relation-self" 
+                                    name="relation" 
+                                    class="w-4 h-4 text-blue-500 border-gray-300 focus:ring-blue-500" 
+                                    checked
+                                >
+                                <label for="relation-self" class="ml-2 text-sm font-medium">学生本人</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input 
+                                    type="radio" 
+                                    id="relation-parent" 
+                                    name="relation" 
+                                    class="w-4 h-4 text-blue-500 border-gray-300 focus:ring-blue-500"
+                                >
+                                <label for="relation-parent" class="ml-2 text-sm font-medium">学生家长</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input 
+                                    type="radio" 
+                                    id="relation-other" 
+                                    name="relation" 
+                                    class="w-4 h-4 text-blue-500 border-gray-300 focus:ring-blue-500"
+                                >
+                                <label for="relation-other" class="ml-2 text-sm font-medium">其他监护人</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 额外信息（仅家长/监护人可见） -->
+                    <div class="hidden" id="guardian-info">
+                        <label for="guardian-name" class="block mb-2 text-sm font-medium">您的姓名</label>
+                        <div class="relative">
+                            <i class="t-icon t-icon-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <input 
+                                type="text" 
+                                id="guardian-name" 
+                                class="w-full py-2 pl-10 pr-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                                placeholder="请输入您的姓名"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- 提交按钮 -->
+                    <div>
+                        <a href="../class/index.html" class="block w-full bg-blue-500 text-white py-3 rounded-lg text-center font-medium">
+                            确认添加
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 简单脚本 -->
+    <script>
+        document.querySelectorAll('input[name="relation"]').forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                const guardianInfo = document.getElementById('guardian-info');
+                if (this.id === 'relation-parent' || this.id === 'relation-other') {
+                    guardianInfo.classList.remove('hidden');
+                } else {
+                    guardianInfo.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

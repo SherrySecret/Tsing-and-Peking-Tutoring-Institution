@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教师平台 - UI展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+    <style>
+        .phone-frame {
+            width: 375px;
+            height: 812px;
+            border: 12px solid #1a1a1a;
+            border-radius: 36px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .phone-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8 text-center">教师平台 - UI展示</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 首页 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">首页</h2>
+                <div class="phone-frame">
+                    <iframe src="index.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 作业管理 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">作业管理</h2>
+                <div class="phone-frame">
+                    <iframe src="teaching/homework-manage.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 作业详情 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">作业详情</h2>
+                <div class="phone-frame">
+                    <iframe src="teaching/homework-detail.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 教学中心 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">教学中心</h2>
+                <div class="phone-frame">
+                    <iframe src="teaching/teaching.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 个人中心 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">个人中心</h2>
+                <div class="phone-frame">
+                    <iframe src="profile/profile.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 班级列表 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">班级列表</h2>
+                <div class="phone-frame">
+                    <iframe src="class/class-list.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 班级详情 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">班级详情</h2>
+                <div class="phone-frame">
+                    <iframe src="class/class-detail.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 班级成员 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">班级成员</h2>
+                <div class="phone-frame">
+                    <iframe src="class/members.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 班级作业 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">班级作业</h2>
+                <div class="phone-frame">
+                    <iframe src="class/homework.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 班级成绩 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">班级成绩</h2>
+                <div class="phone-frame">
+                    <iframe src="class/scores.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 班级考勤 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">班级考勤</h2>
+                <div class="phone-frame">
+                    <iframe src="class/attendance.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 编辑资料 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">编辑资料</h2>
+                <div class="phone-frame">
+                    <iframe src="profile/edit-profile.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 教学资源 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">教学资源</h2>
+                <div class="phone-frame">
+                    <iframe src="teaching/resources.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 教研组 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">教研组</h2>
+                <div class="phone-frame">
+                    <iframe src="teaching/research-group.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 消息通知 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">消息通知</h2>
+                <div class="phone-frame">
+                    <iframe src="profile/notification-settings.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 账号安全 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">账号安全</h2>
+                <div class="phone-frame">
+                    <iframe src="profile/security.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 关于我们 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">关于我们</h2>
+                <div class="phone-frame">
+                    <iframe src="profile/about.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 成绩管理 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">成绩管理</h2>
+                <div class="phone-frame">
+                    <iframe src="teaching/grade-manage.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 课程安排 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">课程安排</h2>
+                <div class="phone-frame">
+                    <iframe src="teaching/course-schedule.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 考勤记录 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">考勤记录</h2>
+                <div class="phone-frame">
+                    <iframe src="teaching/attendance.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 考试管理 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">考试管理</h2>
+                <div class="phone-frame">
+                    <iframe src="teaching/exam-manage.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 在线课堂 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">在线课堂</h2>
+                <div class="phone-frame">
+                    <iframe src="teaching/classroom.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 数据分析 -->
+            <div class="flex flex-col items-center">
+                <h2 class="text-xl font-semibold mb-4">数据分析</h2>
+                <div class="phone-frame">
+                    <iframe src="teaching/analysis.html"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

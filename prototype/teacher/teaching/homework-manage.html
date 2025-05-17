@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业管理 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="teaching.html" class="flex-shrink-0 mr-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-100 bg-blue-50 shadow-sm z-10">
+            <i class="t-icon t-icon-chevron-left"></i>
+        </a>
+        <h1 class="text-lg font-medium">作业管理</h1>
+        <div class="ml-auto">
+            <button class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm flex items-center">
+                <i class="t-icon t-icon-add mr-1"></i>
+                <span>发布作业</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 搜索栏 -->
+    <div class="p-4 bg-white">
+        <div class="relative">
+            <i class="t-icon t-icon-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            <input type="text" placeholder="搜索作业" class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg bg-gray-50">
+        </div>
+    </div>
+
+    <!-- 类别选项卡 -->
+    <div class="bg-white border-b">
+        <div class="flex">
+            <button id="btn-all" class="flex-1 py-3 text-blue-500 border-b-2 border-blue-500 font-medium">
+                全部
+            </button>
+            <button id="btn-to-approve" class="flex-1 py-3 text-gray-500">
+                待批改
+            </button>
+            <button id="btn-approved" class="flex-1 py-3 text-gray-500">
+                已批改
+            </button>
+        </div>
+    </div>
+
+    <!-- 班级选择器 -->
+    <div class="p-3 bg-white border-b flex items-center">
+        <span class="text-gray-500 mr-2">班级:</span>
+        <select class="flex-1 bg-transparent outline-none text-gray-800">
+            <option value="all">全部班级</option>
+            <option value="1">高三（1）班</option>
+            <option value="2">高三（2）班</option>
+            <option value="3">高二（3）班</option>
+        </select>
+    </div>
+
+    <!-- 作业列表 -->
+    <div class="flex-1 overflow-auto p-4">
+        <div class="space-y-4">
+            <!-- 作业卡片1 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <a href="homework-detail.html?id=1" class="block">
+                    <div class="p-4">
+                        <div class="flex justify-between mb-2">
+                            <h3 class="font-medium">《牛顿运动定律》课后习题</h3>
+                            <span class="text-xs text-white bg-red-500 px-2 py-0.5 rounded">待批改</span>
+                        </div>
+                        <div class="text-sm text-gray-500 mb-3">
+                            <div class="flex items-center">
+                                <i class="t-icon t-icon-class mr-1"></i>
+                                <span>高三（1）班</span>
+                                <span class="mx-2">|</span>
+                                <i class="t-icon t-icon-file-icon mr-1"></i>
+                                <span>物理</span>
+                            </div>
+                        </div>
+                        <div class="text-xs text-gray-500 flex justify-between">
+                            <div>发布时间: 2024-05-10</div>
+                            <div>截止时间: 2024-05-12</div>
+                        </div>
+                        <div class="mt-3 flex justify-between items-center text-sm">
+                            <div class="text-blue-500">
+                                <span>已提交: 26/38人</span>
+                            </div>
+                            <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 作业卡片2 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <a href="homework-detail.html?id=2" class="block">
+                    <div class="p-4">
+                        <div class="flex justify-between mb-2">
+                            <h3 class="font-medium">《函数》练习题</h3>
+                            <span class="text-xs text-white bg-green-500 px-2 py-0.5 rounded">已批改</span>
+                        </div>
+                        <div class="text-sm text-gray-500 mb-3">
+                            <div class="flex items-center">
+                                <i class="t-icon t-icon-class mr-1"></i>
+                                <span>高三（2）班</span>
+                                <span class="mx-2">|</span>
+                                <i class="t-icon t-icon-file-icon mr-1"></i>
+                                <span>数学</span>
+                            </div>
+                        </div>
+                        <div class="text-xs text-gray-500 flex justify-between">
+                            <div>发布时间: 2024-05-08</div>
+                            <div>截止时间: 2024-05-09</div>
+                        </div>
+                        <div class="mt-3 flex justify-between items-center text-sm">
+                            <div class="text-blue-500">
+                                <span>已提交: 42/42人</span>
+                            </div>
+                            <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 作业卡片3 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <a href="homework-detail.html?id=3" class="block">
+                    <div class="p-4">
+                        <div class="flex justify-between mb-2">
+                            <h3 class="font-medium">《二次函数》作业</h3>
+                            <span class="text-xs text-white bg-red-500 px-2 py-0.5 rounded">待批改</span>
+                        </div>
+                        <div class="text-sm text-gray-500 mb-3">
+                            <div class="flex items-center">
+                                <i class="t-icon t-icon-class mr-1"></i>
+                                <span>高二（3）班</span>
+                                <span class="mx-2">|</span>
+                                <i class="t-icon t-icon-file-icon mr-1"></i>
+                                <span>数学</span>
+                            </div>
+                        </div>
+                        <div class="text-xs text-gray-500 flex justify-between">
+                            <div>发布时间: 2024-05-09</div>
+                            <div>截止时间: 2024-05-11</div>
+                        </div>
+                        <div class="mt-3 flex justify-between items-center text-sm">
+                            <div class="text-blue-500">
+                                <span>已提交: 35/39人</span>
+                            </div>
+                            <i class="t-icon t-icon-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 筛选功能脚本 -->
+    <script>
+        // 获取所有作业卡片
+        const homeworkCards = document.querySelectorAll('.rounded-lg.overflow-hidden');
+        
+        // 获取筛选按钮
+        const btnAll = document.getElementById('btn-all');
+        const btnToApprove = document.getElementById('btn-to-approve');
+        const btnApproved = document.getElementById('btn-approved');
+        
+        // 添加点击事件
+        btnAll.addEventListener('click', function() {
+            setActiveButton(btnAll);
+            showAllHomework();
+        });
+        
+        btnToApprove.addEventListener('click', function() {
+            setActiveButton(btnToApprove);
+            filterHomework('待批改');
+        });
+        
+        btnApproved.addEventListener('click', function() {
+            setActiveButton(btnApproved);
+            filterHomework('已批改');
+        });
+        
+        // 设置激活按钮样式
+        function setActiveButton(activeBtn) {
+            [btnAll, btnToApprove, btnApproved].forEach(btn => {
+                if (btn === activeBtn) {
+                    btn.classList.add('text-blue-500', 'border-b-2', 'border-blue-500');
+                    btn.classList.remove('text-gray-500');
+                } else {
+                    btn.classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
+                    btn.classList.add('text-gray-500');
+                }
+            });
+        }
+        
+        // 显示所有作业
+        function showAllHomework() {
+            homeworkCards.forEach(card => {
+                card.style.display = 'block';
+            });
+        }
+        
+        // 根据状态筛选作业
+        function filterHomework(status) {
+            homeworkCards.forEach(card => {
+                const statusElement = card.querySelector('.bg-red-500, .bg-green-500');
+                if (statusElement && statusElement.textContent === status) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html> 

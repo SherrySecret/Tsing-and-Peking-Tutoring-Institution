@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成绩管理 - 教师平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- 顶部标题栏 -->
+    <div class="h-12 bg-white flex items-center px-4 border-b">
+        <a href="teaching.html" class="mr-2">
+            <i class="t-icon t-icon-chevron-left text-gray-500"></i>
+        </a>
+        <h1 class="text-lg font-medium">成绩管理</h1>
+        <button class="ml-auto text-blue-500 flex items-center">
+            <i class="t-icon t-icon-add mr-1"></i>
+            <span>录入成绩</span>
+        </button>
+    </div>
+
+    <!-- 筛选栏 -->
+    <div class="bg-white p-4 border-b">
+        <div class="flex space-x-4">
+            <div class="flex-1">
+                <label class="block text-xs text-gray-500 mb-1">班级</label>
+                <select class="w-full p-2 border border-gray-200 rounded-lg text-sm">
+                    <option>全部班级</option>
+                    <option>高三（1）班</option>
+                    <option>高三（2）班</option>
+                    <option>高二（3）班</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <label class="block text-xs text-gray-500 mb-1">考试</label>
+                <select class="w-full p-2 border border-gray-200 rounded-lg text-sm">
+                    <option>全部考试</option>
+                    <option>期中考试</option>
+                    <option>期末考试</option>
+                    <option>单元测试</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- 成绩内容 -->
+    <div class="flex-1 overflow-auto">
+        <!-- 考试卡片 -->
+        <div class="p-4 space-y-4">
+            <!-- 考试1 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-medium">高三期中考试</h3>
+                        <span class="text-xs text-white bg-green-500 px-2 py-0.5 rounded">已完成</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">考试时间：2024-04-15</p>
+                </div>
+                <div class="p-4">
+                    <div class="grid grid-cols-3 gap-4 text-center mb-4">
+                        <div>
+                            <div class="text-sm text-gray-500">平均分</div>
+                            <div class="text-lg font-medium text-blue-500">86.5</div>
+                        </div>
+                        <div>
+                            <div class="text-sm text-gray-500">最高分</div>
+                            <div class="text-lg font-medium text-green-500">98</div>
+                        </div>
+                        <div>
+                            <div class="text-sm text-gray-500">最低分</div>
+                            <div class="text-lg font-medium text-red-500">65</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="text-sm text-gray-500">
+                            班级：高三（1）班
+                        </div>
+                        <a href="#" class="text-blue-500 text-sm flex items-center">
+                            <span>查看详情</span>
+                            <i class="t-icon t-icon-chevron-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 考试2 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-medium">高三数学单元测试</h3>
+                        <span class="text-xs text-white bg-green-500 px-2 py-0.5 rounded">已完成</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">考试时间：2024-03-25</p>
+                </div>
+                <div class="p-4">
+                    <div class="grid grid-cols-3 gap-4 text-center mb-4">
+                        <div>
+                            <div class="text-sm text-gray-500">平均分</div>
+                            <div class="text-lg font-medium text-blue-500">82.3</div>
+                        </div>
+                        <div>
+                            <div class="text-sm text-gray-500">最高分</div>
+                            <div class="text-lg font-medium text-green-500">95</div>
+                        </div>
+                        <div>
+                            <div class="text-sm text-gray-500">最低分</div>
+                            <div class="text-lg font-medium text-red-500">60</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="text-sm text-gray-500">
+                            班级：高三（2）班
+                        </div>
+                        <a href="#" class="text-blue-500 text-sm flex items-center">
+                            <span>查看详情</span>
+                            <i class="t-icon t-icon-chevron-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 考试3 -->
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div class="p-4 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-medium">高二期末考试</h3>
+                        <span class="text-xs text-white bg-red-500 px-2 py-0.5 rounded">未完成</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">考试时间：2024-01-15</p>
+                </div>
+                <div class="p-4">
+                    <div class="flex items-center justify-center py-4">
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center">
+                            <i class="t-icon t-icon-edit mr-1"></i>
+                            <span>录入成绩</span>
+                        </button>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="text-sm text-gray-500">
+                            班级：高二（3）班
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            0/39人已录入
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="h-16 bg-white border-t flex items-center justify-around">
+        <a href="../index.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-home text-xl"></i>
+            <span class="text-xs mt-1">首页</span>
+        </a>
+        <a href="../class/class-list.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-class text-xl"></i>
+            <span class="text-xs mt-1">班级</span>
+        </a>
+        <a href="teaching.html" class="flex flex-col items-center text-blue-500">
+            <i class="t-icon t-icon-edit text-xl"></i>
+            <span class="text-xs mt-1">教学</span>
+        </a>
+        <a href="../profile/profile.html" class="flex flex-col items-center text-gray-500">
+            <i class="t-icon t-icon-user-circle text-xl"></i>
+            <span class="text-xs mt-1">我的</span>
+        </a>
+    </div>
+</body>
+</html> 

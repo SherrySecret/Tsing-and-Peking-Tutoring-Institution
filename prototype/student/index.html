@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级管理系统 - 原型展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tdesign-cdn/0.30.0/tdesign.min.css" rel="stylesheet">
+    <style>
+        .phone-frame {
+            width: 375px;
+            height: 812px;
+            border: 12px solid #1a1a1a;
+            border-radius: 36px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .phone-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-12">班级管理系统 - 原型展示</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 首页 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">首页</h2>
+                <div class="phone-frame">
+                    <iframe src="home.html"></iframe>
+                </div>
+            </div>
+            
+            <!-- 入口页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">入口页面</h2>
+                <div class="phone-frame">
+                    <iframe src="entry.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 添加学生档案页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">添加学生档案页面</h2>
+                <div class="phone-frame">
+                    <iframe src="profile/add-student.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 学生档案页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">学生档案页面</h2>
+                <div class="phone-frame">
+                    <iframe src="profile/student-archives.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 班级加入页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">班级加入页面</h2>
+                <div class="phone-frame">
+                    <iframe src="class/join.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 选择学生页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">选择学生页面</h2>
+                <div class="phone-frame">
+                    <iframe src="class/select-student.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 教师详情页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">教师详情页面</h2>
+                <div class="phone-frame">
+                    <iframe src="teachers/detail.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 教师目录页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">教师目录页面</h2>
+                <div class="phone-frame">
+                    <iframe src="teachers/index.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 班级主页 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">班级主页</h2>
+                <div class="phone-frame">
+                    <iframe src="class/index.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 班级详情页 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">班级详情页</h2>
+                <div class="phone-frame">
+                    <iframe src="class/detail.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 作业管理页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">作业管理页面</h2>
+                <div class="phone-frame">
+                    <iframe src="class/homework.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 作业详情页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">作业详情页面</h2>
+                <div class="phone-frame">
+                    <iframe src="class/homework-detail.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 成绩管理页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">成绩管理页面</h2>
+                <div class="phone-frame">
+                    <iframe src="class/scores.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 班级成员页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">班级成员页面</h2>
+                <div class="phone-frame">
+                    <iframe src="class/members.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 功能页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">功能页面</h2>
+                <div class="phone-frame">
+                    <iframe src="features/index.html"></iframe>
+                </div>
+            </div>
+
+            <!-- 个人中心页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">个人中心页面</h2>
+                <div class="phone-frame">
+                    <iframe src="profile/index.html"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
