@@ -6,6 +6,7 @@ page {
   min-height: 100vh;
   padding-bottom: 120rpx;
   box-sizing: border-box;
+  font-size: 28rpx;
 }
 
 /* 顶部标题栏 */
@@ -25,6 +26,14 @@ page {
   padding-top: 40rpx;
 }
 
+.back-btn {
+  padding: 10rpx;
+  margin-right: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .title {
   font-size: 36rpx;
   font-weight: 700;
@@ -36,10 +45,13 @@ page {
   margin-top: 128rpx;
   height: calc(100vh - 128rpx);
   box-sizing: border-box;
+  width: 100%;
 }
 
 .container {
   padding: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 卡片样式 */
@@ -49,6 +61,8 @@ page {
   padding: 30rpx;
   margin-bottom: 30rpx;
   box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 作业标题 */
@@ -57,28 +71,38 @@ page {
   font-weight: 700;
   color: #333;
   margin-bottom: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 /* 元数据项 */
 .homework-meta {
   margin-bottom: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .meta-item {
   display: flex;
   margin-bottom: 14rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .meta-label {
   font-size: 28rpx;
   color: #888;
   width: 160rpx;
+  flex-shrink: 0;
 }
 
 .meta-value {
   font-size: 28rpx;
   color: #333;
   flex: 1;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
+  word-wrap: break-word;
 }
 
 .meta-value.overdue {
@@ -110,6 +134,8 @@ page {
   margin-bottom: 20rpx;
   position: relative;
   padding-left: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-title::before {
@@ -121,6 +147,7 @@ page {
   height: 32rpx;
   background-color: #0052d9;
   border-radius: 4rpx;
+  flex-shrink: 0;
 }
 
 /* 作业内容 */
@@ -131,11 +158,16 @@ page {
   padding: 20rpx;
   background-color: #f7f9fc;
   border-radius: 8rpx;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 /* 附件列表 */
 .attachment-list {
   margin-top: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .attachment-item {
@@ -145,20 +177,27 @@ page {
   background-color: #f7f9fc;
   border-radius: 8rpx;
   margin-bottom: 16rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .attachment-icon {
   margin-right: 20rpx;
+  flex-shrink: 0;
 }
 
 .attachment-name {
   flex: 1;
   font-size: 28rpx;
   color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .attachment-action {
   color: #0052d9;
+  flex-shrink: 0;
 }
 
 /* 老师评语 */
@@ -169,15 +208,22 @@ page {
   padding: 20rpx;
   background-color: #f7f9fc;
   border-radius: 8rpx;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 /* 上传部分 */
 .upload-section {
   margin-top: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .upload-list {
   margin-bottom: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .upload-item {
@@ -187,20 +233,27 @@ page {
   background-color: #f7f9fc;
   border-radius: 8rpx;
   margin-bottom: 16rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .upload-icon {
   margin-right: 20rpx;
+  flex-shrink: 0;
 }
 
 .upload-name {
   flex: 1;
   font-size: 28rpx;
   color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .upload-delete {
   color: #f53f3f;
+  flex-shrink: 0;
 }
 
 .upload-add {
@@ -213,6 +266,8 @@ page {
   border: 2rpx dashed #d9d9d9;
   color: #0052d9;
   font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .upload-add text {
@@ -222,6 +277,8 @@ page {
 /* 表单项 */
 .form-item {
   margin-top: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-label {
@@ -246,6 +303,8 @@ page {
 .action-buttons {
   margin-top: 40rpx;
   margin-bottom: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 已提交的备注 */
@@ -254,6 +313,8 @@ page {
   padding: 20rpx;
   background-color: #f7f9fc;
   border-radius: 8rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .remark-label {
@@ -266,6 +327,7 @@ page {
   font-size: 28rpx;
   color: #333;
   line-height: 1.6;
+  word-wrap: break-word;
 }
 
 .submitted-time {

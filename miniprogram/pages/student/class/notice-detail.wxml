@@ -4,10 +4,15 @@
 </view>
 
 <!-- 主要内容区域 -->
-<scroll-view scroll-y class="content">
+<scroll-view scroll-y class="content" enhanced="true" show-scrollbar="false">
   <view class="container">
     <!-- 通知标题 -->
-    <view class="notice-title">{{notice.title}}</view>
+    <view class="notice-title-container">
+      <view class="notice-title">{{notice.title}}</view>
+      <view wx:if="{{notice.type === 'important'}}" class="notice-tag important">重要通知</view>
+      <view wx:if="{{notice.type === 'activity'}}" class="notice-tag activity">活动通知</view>
+      <view wx:if="{{notice.type === 'academic'}}" class="notice-tag academic">学术通知</view>
+    </view>
 
     <!-- 通知元信息 -->
     <view class="notice-meta">
@@ -32,10 +37,6 @@
           <text class="meta-value {{notice.isOverdue ? 'overdue' : ''}}">{{notice.deadline}}</text>
         </view>
       </view>
-
-      <view wx:if="{{notice.type === 'important'}}" class="notice-tag important">重要通知</view>
-      <view wx:if="{{notice.type === 'activity'}}" class="notice-tag activity">活动通知</view>
-      <view wx:if="{{notice.type === 'academic'}}" class="notice-tag academic">学术通知</view>
     </view>
 
     <!-- 通知内容 -->
@@ -74,12 +75,4 @@
       <text class="confirmed-text">已于 {{notice.confirmTime}} 确认</text>
     </view>
   </view>
-</scroll-view>
-
-<!-- 底部导航栏 -->
-<t-tab-bar value="{{activeTabBar}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
-  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
-  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
-  <t-tab-bar-item value="features" icon="apps" badge-props="{{ { count: 0 } }}">功能</t-tab-bar-item>
-  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
-</t-tab-bar> 
+</scroll-view> 

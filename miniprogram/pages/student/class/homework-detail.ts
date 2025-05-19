@@ -90,6 +90,11 @@ Page({
     }
   },
 
+  // 返回上一页
+  onBackTap() {
+    wx.navigateBack();
+  },
+
   // 添加上传文件
   addUploadFile() {
     wx.chooseMessageFile({

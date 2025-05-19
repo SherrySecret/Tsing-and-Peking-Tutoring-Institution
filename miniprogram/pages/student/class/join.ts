@@ -28,6 +28,22 @@ Page({
     this.loadStudentProfiles();
   },
 
+  // 返回上一页
+  goBack() {
+    // 获取页面栈
+    const pages = getCurrentPages();
+    
+    // 如果有上一页，则返回上一页
+    if (pages.length > 1) {
+      wx.navigateBack();
+    } else {
+      // 如果没有上一页，则跳转到班级列表页
+      wx.navigateTo({
+        url: '/pages/student/class/index'
+      });
+    }
+  },
+
   // 加载学生档案
   loadStudentProfiles() {
     // 实际应用中应该从本地存储或API获取学生档案

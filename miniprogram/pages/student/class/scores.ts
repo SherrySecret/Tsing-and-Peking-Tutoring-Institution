@@ -21,7 +21,6 @@ Page({
     classId: '',
     className: '高一(3)班',
     semester: '2023-2024学年 第一学期',
-    activeTabBar: 'class',
     
     // 考试列表
     examList: [
@@ -134,29 +133,5 @@ Page({
       title: `查看考试ID: ${id}的详情`,
       icon: 'none'
     });
-  },
-
-  // 底部标签栏切换
-  onTabBarChange(e: any) {
-    const value = e.detail.value;
-    this.setData({ activeTabBar: value });
-    
-    // 根据切换的标签页进行页面跳转
-    switch(value) {
-      case 'home':
-        wx.navigateTo({ url: '/pages/student/home/home' });
-        break;
-      case 'class':
-        wx.navigateTo({ url: '/pages/student/class/index' });
-        break;
-      case 'features':
-        wx.navigateTo({ url: '/pages/student/features/index' });
-        break;
-      case 'profile':
-        wx.navigateTo({ url: '/pages/student/profile/index' });
-        break;
-      default:
-        break;
-    }
   }
 }); 

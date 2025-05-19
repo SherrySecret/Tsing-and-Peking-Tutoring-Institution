@@ -1,9 +1,23 @@
 /* pages/teacher/class/file-manage.wxss */
+page {
+  background-color: #f5f5f5;
+  height: 100%;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   background-color: #f5f5f5;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* 顶部标题栏 */
@@ -14,7 +28,11 @@
   align-items: center;
   padding: 0 24rpx;
   border-bottom: 1rpx solid #e6e6e6;
-  position: relative;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 10;
 }
 
 .back-btn {
@@ -27,19 +45,25 @@
   background-color: #f2f5ff;
   margin-right: 24rpx;
   z-index: 10;
+  flex-shrink: 0;
 }
 
 .header-title {
   font-size: 34rpx;
   font-weight: 500;
   flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 标签栏 */
 .tab-container {
   background-color: #fff;
   padding: 0 24rpx;
-  margin-bottom: 24rpx;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .custom-tabs .t-tabs-content {
@@ -55,6 +79,9 @@
   background-color: #fff;
   margin: 0 24rpx;
   border-radius: 12rpx;
+  width: calc(100% - 48rpx);
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 
 .list-header {
@@ -63,6 +90,8 @@
   align-items: center;
   padding: 16rpx 24rpx;
   border-bottom: 1rpx solid #f0f0f0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-title {
@@ -73,6 +102,7 @@
 .header-actions {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .action-btn {
@@ -89,6 +119,8 @@
 
 .file-list {
   padding: 8rpx 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .file-item {
@@ -96,6 +128,8 @@
   align-items: center;
   padding: 16rpx 24rpx;
   border-bottom: 1rpx solid #f0f0f0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .file-icon {
@@ -106,6 +140,7 @@
   justify-content: center;
   border-radius: 12rpx;
   margin-right: 24rpx;
+  flex-shrink: 0;
 }
 
 .file-icon.pdf {
@@ -126,22 +161,30 @@
 
 .file-info {
   flex: 1;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .file-name {
   font-size: 28rpx;
   font-weight: 500;
   margin-bottom: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .file-meta {
   font-size: 22rpx;
   color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .file-action {
   color: #888;
   padding: 8rpx;
+  flex-shrink: 0;
 }
 
 /* 悬浮按钮 */
@@ -175,6 +218,8 @@
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 
 .modal-header {
@@ -183,20 +228,29 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1rpx solid #f0f0f0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .modal-title {
   font-size: 34rpx;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .modal-content {
   padding: 32rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .upload-section,
 .visibility-section {
   margin: 32rpx 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-label {

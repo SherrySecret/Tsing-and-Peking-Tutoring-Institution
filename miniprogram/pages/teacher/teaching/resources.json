@@ -1,5 +1,5 @@
 {
-  "navigationStyle": "custom",
+  "navigationBarTitleText": "教学资源",
   "usingComponents": {},
   "disableScroll": false,
   "navigationBarTextStyle": "black"

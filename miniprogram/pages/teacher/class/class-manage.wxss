@@ -1,4 +1,13 @@
- /* 页面整体样式 */
+/* 页面整体样式 */
+page {
+  background-color: #f7f8fa;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
 .header {
   height: 88rpx;
   display: flex;
@@ -10,6 +19,7 @@
   top: 0;
   width: 100%;
   z-index: 10;
+  box-sizing: border-box;
 }
 
 .title {
@@ -25,6 +35,8 @@
   display: flex;
   align-items: center;
   background-color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .class-avatar {
@@ -36,6 +48,7 @@
   align-items: center;
   justify-content: center;
   margin-right: 24rpx;
+  flex-shrink: 0;
 }
 
 .class-avatar text {
@@ -46,6 +59,7 @@
 
 .class-detail {
   flex: 1;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .class-name {
@@ -53,20 +67,30 @@
   font-weight: 500;
   color: #333333;
   margin-bottom: 10rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .class-stats {
   font-size: 26rpx;
   color: #999999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 管理部分 */
 .manage-section {
   padding: 20rpx 0;
   margin-bottom: 100rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .action-buttons {
   padding: 30rpx;
   margin-bottom: 150rpx;
+  width: 100%;
+  box-sizing: border-box;
 }

@@ -1,15 +1,10 @@
-<!-- 顶部标题栏 -->
-<view class="header">
-  <text class="title">我的老师</text>
-</view>
-
 <!-- 主要内容区域 -->
-<scroll-view scroll-y class="content">
+<scroll-view scroll-y class="content" enhanced="true" show-scrollbar="false" bounces="true">
   <view class="container">
     <!-- 搜索栏 -->
     <view class="search-bar">
       <view class="search-inner">
-        <t-icon name="search" size="40rpx" color="#999" />
+        <t-icon name="search" size="36rpx" color="#999" />
         <input type="text" placeholder="搜索教师" bindinput="onSearchInput" value="{{searchKeyword}}" />
       </view>
     </view>
@@ -27,23 +22,14 @@
           <view class="teacher-class">{{item.classes}}</view>
         </view>
         <view class="teacher-arrow">
-          <t-icon name="chevron-right" color="#CCCCCC" />
+          <t-icon name="chevron-right" size="40rpx" color="#CCCCCC" />
         </view>
       </view>
     </view>
 
     <!-- 空状态 -->
     <view class="empty-state" wx:if="{{filteredTeachers.length === 0}}">
-      <t-icon name="user-circle" size="96rpx" color="#ddd" />
+      <t-icon name="user-circle" size="80rpx" color="#ddd" />
       <text class="empty-text">暂无教师信息</text>
     </view>
-  </view>
-</scroll-view>
-
-<!-- 底部导航栏 -->
-<t-tab-bar value="{{activeTabBar}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
-  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
-  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
-  <t-tab-bar-item value="features" icon="apps" badge-props="{{ { count: 0 } }}">功能</t-tab-bar-item>
-  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
-</t-tab-bar> 
+    </view></scroll-view> 

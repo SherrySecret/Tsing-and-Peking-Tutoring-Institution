@@ -4,6 +4,9 @@ page {
   height: 100%;
   display: flex;
   flex-direction: column;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
 /* 顶部标题栏 */
@@ -14,6 +17,10 @@ page {
   align-items: center;
   padding: 0 32rpx;
   border-bottom: 1rpx solid #eee;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
 }
 
 .title {
@@ -23,6 +30,7 @@ page {
 
 .action {
   margin-left: auto;
+  flex-shrink: 0;
 }
 
 .more-btn {
@@ -32,11 +40,17 @@ page {
 /* 内容区域 */
 .content {
   flex: 1;
-  overflow: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 120rpx;
 }
 
 .container {
   padding: 32rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 班级卡片 */
@@ -46,12 +60,16 @@ page {
   padding: 32rpx;
   margin-bottom: 32rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .class-header {
   display: flex;
   align-items: center;
   margin-bottom: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .class-icon {
@@ -62,6 +80,7 @@ page {
   align-items: center;
   justify-content: center;
   margin-right: 24rpx;
+  flex-shrink: 0;
 }
 
 .bg-blue {
@@ -94,6 +113,7 @@ page {
 
 .class-info {
   flex: 1;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .class-name {
@@ -101,17 +121,25 @@ page {
   font-weight: 500;
   display: block;
   margin-bottom: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .class-code {
   font-size: 26rpx;
   color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .teacher-role {
   padding: 16rpx 0;
   margin-bottom: 24rpx;
   border-bottom: 1rpx solid #eee;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .role-label {
@@ -129,10 +157,13 @@ page {
   display: flex;
   justify-content: space-between;
   text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .stat-item {
   flex: 1;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .stat-value {
@@ -140,11 +171,17 @@ page {
   font-weight: 500;
   display: block;
   margin-bottom: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .stat-label {
   font-size: 24rpx;
   color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 快捷功能 */
@@ -154,6 +191,8 @@ page {
   padding: 32rpx;
   margin-bottom: 32rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-title {
@@ -167,12 +206,16 @@ page {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24rpx 16rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .function-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .function-icon {
@@ -183,11 +226,17 @@ page {
   align-items: center;
   justify-content: center;
   margin-bottom: 12rpx;
+  flex-shrink: 0;
 }
 
 .function-name {
   font-size: 24rpx;
   color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: center;
 }
 
 /* 作业区域 */
@@ -197,6 +246,8 @@ page {
   padding: 32rpx;
   margin-bottom: 32rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-header {
@@ -204,15 +255,19 @@ page {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .view-all {
   font-size: 26rpx;
   color: #0052d9;
+  flex-shrink: 0;
 }
 
 .homework-list {
-  
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .homework-item {
@@ -221,6 +276,8 @@ page {
   align-items: center;
   padding: 24rpx 0;
   border-bottom: 1rpx solid #eee;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .homework-item:last-child {
@@ -229,6 +286,7 @@ page {
 
 .homework-content {
   flex: 1;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .homework-title {
@@ -236,6 +294,9 @@ page {
   font-weight: 500;
   display: block;
   margin-bottom: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .homework-desc {
@@ -243,11 +304,17 @@ page {
   color: #666;
   display: block;
   margin-bottom: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .homework-time {
   font-size: 24rpx;
   color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .homework-action {
@@ -261,10 +328,12 @@ page {
   padding: 32rpx;
   margin-bottom: 32rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .notice-list {
-  
+  width: 100%;
 }
 
 .notice-item {
@@ -300,6 +369,9 @@ page {
   border-radius: 16rpx;
   padding: 32rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 120rpx;
 }
 
 .attendance-stats {

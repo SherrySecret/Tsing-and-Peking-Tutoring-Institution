@@ -4,6 +4,8 @@ page {
   height: 100%;
   display: flex;
   flex-direction: column;
+  font-size: 28rpx;
+  box-sizing: border-box;
 }
 
 /* 顶部标题栏 */
@@ -14,6 +16,10 @@ page {
   align-items: center;
   padding: 0 32rpx;
   border-bottom: 1rpx solid #eee;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
 }
 
 .title {
@@ -25,10 +31,15 @@ page {
 .content {
   flex: 1;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .container {
   padding: 32rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 用户信息卡片 */
@@ -38,6 +49,8 @@ page {
   padding: 32rpx;
   margin-bottom: 32rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .user-header {
@@ -45,11 +58,14 @@ page {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 32rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .avatar-container {
   display: flex;
   align-items: center;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .avatar {
@@ -61,11 +77,15 @@ page {
   align-items: center;
   justify-content: center;
   margin-right: 24rpx;
+  flex-shrink: 0;
 }
 
 .nickname {
   font-size: 32rpx;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .edit-btn {
@@ -76,16 +96,21 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  margin-left: 16rpx;
 }
 
 .user-info {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .info-item {
   flex: 1;
   text-align: center;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .label {
@@ -93,12 +118,18 @@ page {
   color: #999;
   display: block;
   margin-bottom: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .value {
   font-size: 28rpx;
   color: #333;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 功能区块 */
@@ -108,10 +139,14 @@ page {
   padding: 32rpx;
   margin-bottom: 32rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-header {
   margin-bottom: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-title {
@@ -120,7 +155,8 @@ page {
 }
 
 .section-content {
-  
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 菜单项 */
@@ -129,6 +165,8 @@ page {
   align-items: center;
   padding: 24rpx 0;
   border-bottom: 1rpx solid #eee;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .menu-item:last-child {
@@ -143,6 +181,7 @@ page {
   align-items: center;
   justify-content: center;
   margin-right: 24rpx;
+  flex-shrink: 0;
 }
 
 .bg-blue {
@@ -168,12 +207,16 @@ page {
 .menu-name {
   font-size: 28rpx;
   flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .version-text {
   font-size: 24rpx;
   color: #999;
   margin-right: 16rpx;
+  flex-shrink: 0;
 }
 
 /* 退出登录按钮 */
@@ -187,4 +230,6 @@ page {
   font-size: 32rpx;
   font-weight: 500;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
 } 

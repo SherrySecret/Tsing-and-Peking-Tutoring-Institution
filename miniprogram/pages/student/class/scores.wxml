@@ -4,7 +4,7 @@
 </view>
 
 <!-- 主要内容区域 -->
-<scroll-view scroll-y class="content">
+<scroll-view scroll-y class="content" enhanced="true" show-scrollbar="false">
   <view class="container">
     <!-- 班级信息 -->
     <view class="class-info">
@@ -34,22 +34,24 @@
           </view>
         </view>
 
-        <view class="subject-scores">
-          <view class="subject-item" wx:for="{{currentExamScores}}" wx:key="subject">
-            <view class="subject-name">{{item.subject}}</view>
-            <view class="score-bar">
-              <view class="score-progress" style="width: {{item.score / item.fullScore * 100}}%;"></view>
-            </view>
-            <view class="score-info">
-              <text class="score-value">{{item.score}}</text>
-              <text class="score-divider">/</text>
-              <text class="score-full">{{item.fullScore}}</text>
-            </view>
-            <view class="score-rank" wx:if="{{item.rank}}">
-              <text>班级排名: {{item.rank}}</text>
+        <scroll-view scroll-y class="subject-scores-container" enhanced="true" show-scrollbar="false">
+          <view class="subject-scores">
+            <view class="subject-item" wx:for="{{currentExamScores}}" wx:key="subject">
+              <view class="subject-name">{{item.subject}}</view>
+              <view class="score-bar">
+                <view class="score-progress" style="width: {{item.score / item.fullScore * 100}}%;"></view>
+              </view>
+              <view class="score-info">
+                <text class="score-value">{{item.score}}</text>
+                <text class="score-divider">/</text>
+                <text class="score-full">{{item.fullScore}}</text>
+              </view>
+              <view class="score-rank" wx:if="{{item.rank}}">
+                <text>班级排名: {{item.rank}}</text>
+              </view>
             </view>
           </view>
-        </view>
+        </scroll-view>
       </view>
     </view>
 
@@ -59,29 +61,23 @@
         <text class="card-title">历史成绩记录</text>
       </view>
 
-      <view class="history-list">
-        <view class="history-item" wx:for="{{historyExams}}" wx:key="id" bindtap="viewExamDetail" data-id="{{item.id}}">
-          <view class="history-info">
-            <text class="history-name">{{item.name}}</text>
-            <text class="history-date">{{item.date}}</text>
-          </view>
-          <view class="history-score">
-            <text class="total-score">总分: {{item.totalScore}}</text>
-            <text class="rank-info">排名: {{item.rank}}/{{item.totalStudents}}</text>
-          </view>
-          <view class="history-arrow">
-            <t-icon name="chevron-right" color="#CCCCCC" />
+      <scroll-view scroll-y class="history-container" enhanced="true" show-scrollbar="false">
+        <view class="history-list">
+          <view class="history-item" wx:for="{{historyExams}}" wx:key="id" bindtap="viewExamDetail" data-id="{{item.id}}">
+            <view class="history-info">
+              <text class="history-name">{{item.name}}</text>
+              <text class="history-date">{{item.date}}</text>
+            </view>
+            <view class="history-score">
+              <text class="total-score">总分: {{item.totalScore}}</text>
+              <text class="rank-info">排名: {{item.rank}}/{{item.totalStudents}}</text>
+            </view>
+            <view class="history-arrow">
+              <t-icon name="chevron-right" color="#CCCCCC" />
+            </view>
           </view>
         </view>
-      </view>
+      </scroll-view>
     </view>
   </view>
-</scroll-view>
-
-<!-- 底部导航栏 -->
-<t-tab-bar value="{{activeTabBar}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
-  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
-  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
-  <t-tab-bar-item value="features" icon="apps" badge-props="{{ { count: 0 } }}">功能</t-tab-bar-item>
-  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
-</t-tab-bar> 
+</scroll-view> 

@@ -9,71 +9,108 @@
 </view>
 
 <!-- 主要内容区域 -->
-<scroll-view scroll-y class="content">
-  <view class="container">
-    <!-- 欢迎信息 -->
-    <view class="welcome-box">
-      <text class="welcome-title">欢迎使用班级管理系统</text>
-      <text class="welcome-desc">这是一个便捷的班级管理平台，为家长、学生和老师提供互动与管理功能。</text>
-    </view>
-
-    <!-- 快速入口 -->
-    <view class="quick-entry">
-      <navigator url="/pages/student/class/index" class="entry-item bg-blue">
-        <t-icon name="class" size="48rpx" />
-        <text>我的班级</text>
-      </navigator>
-      <navigator url="/pages/student/teachers/index" class="entry-item bg-green">
-        <t-icon name="user" size="48rpx" />
-        <text>名师互动</text>
-      </navigator>
-      <navigator url="/pages/student/features/index" class="entry-item bg-purple">
-        <t-icon name="apps" size="48rpx" />
-        <text>教学功能</text>
-      </navigator>
-      <navigator url="/pages/student/profile/index" class="entry-item bg-orange">
-        <t-icon name="user-circle" size="48rpx" />
-        <text>个人中心</text>
-      </navigator>
-    </view>
-
-    <!-- 学生档案入口 -->
-    <view class="student-archive">
-      <view class="archive-icon">
-        <t-icon name="user-add" color="#f59e0b" size="48rpx" />
-      </view>
-      <view class="archive-info">
-        <text class="archive-title">绑定学生档案</text>
-        <text class="archive-desc">填写学生ID，绑定学生身份以便使用班级功能</text>
-      </view>
-      <navigator url="/pages/student/profile/add-student" class="archive-btn">
-        <text>立即绑定</text>
-      </navigator>
-    </view>
-
-    <!-- 公告信息 -->
-    <view class="notice">
-      <view class="notice-header">
-        <t-icon name="notification" color="#0052d9" size="40rpx" />
-        <text class="notice-title">最新公告</text>
-      </view>
-      <view class="notice-list">
-        <view class="notice-item">
-          <text class="notice-item-title">2023年春季学期开学通知</text>
-          <text class="notice-item-date">2023-02-15</text>
-        </view>
-        <view class="notice-item">
-          <text class="notice-item-title">系统更新：作业批改功能上线</text>
-          <text class="notice-item-date">2023-02-10</text>
-        </view>
-        <view class="notice-item">
-          <text class="notice-item-title">关于线上家长会的通知</text>
-          <text class="notice-item-date">2023-02-05</text>
-        </view>
-      </view>
-    </view>
+<view class="page-container">
+  <!-- 侧边导航栏 -->
+  <view class="sidebar-nav">
+    <view class="nav-dot {{currentSection === 'welcome' ? 'active' : ''}}" bindtap="scrollToSection" data-section="welcome"></view>
+    <view class="nav-dot {{currentSection === 'entry' ? 'active' : ''}}" bindtap="scrollToSection" data-section="entry"></view>
+    <view class="nav-dot {{currentSection === 'archive' ? 'active' : ''}}" bindtap="scrollToSection" data-section="archive"></view>
+    <view class="nav-dot {{currentSection === 'notice' ? 'active' : ''}}" bindtap="scrollToSection" data-section="notice"></view>
+    <view class="nav-line"></view>
   </view>
-</scroll-view>
+
+  <!-- 滚动内容区域 -->
+  <scroll-view 
+    scroll-y 
+    class="content" 
+    scroll-into-view="{{scrollToView}}"
+    bindscroll="onPageScroll"
+    enhanced="{{true}}"
+    show-scrollbar="{{false}}">
+    <view class="container">
+      <!-- 欢迎信息 -->
+      <view class="welcome-box" id="section-welcome">
+        <text class="welcome-title">欢迎使用班级管理系统</text>
+        <text class="welcome-desc">这是一个便捷的班级管理平台，为家长、学生和老师提供互动与管理功能。</text>
+      </view>
+
+      <!-- 快速入口 -->
+      <view class="quick-entry" id="section-entry">
+        <navigator url="/pages/student/class/index" class="entry-item bg-blue">
+          <t-icon name="class" size="48rpx" />
+          <text>我的班级</text>
+        </navigator>
+        <navigator url="/pages/student/teachers/index" class="entry-item bg-green">
+          <t-icon name="user" size="48rpx" />
+          <text>名师互动</text>
+        </navigator>
+        <navigator url="/pages/student/features/index" class="entry-item bg-purple">
+          <t-icon name="apps" size="48rpx" />
+          <text>教学功能</text>
+        </navigator>
+        <navigator url="/pages/student/profile/index" class="entry-item bg-orange">
+          <t-icon name="user-circle" size="48rpx" />
+          <text>个人中心</text>
+        </navigator>
+      </view>
+
+      <!-- 学生档案入口 -->
+      <view class="student-archive" id="section-archive">
+        <view class="archive-icon">
+          <t-icon name="user-add" color="#f59e0b" size="48rpx" />
+        </view>
+        <view class="archive-info">
+          <text class="archive-title">绑定学生档案</text>
+          <text class="archive-desc">填写学生ID，绑定学生身份使用班级功能</text>
+        </view>
+        <navigator url="/pages/student/profile/add-student" class="archive-btn">
+          <text>立即绑定</text>
+        </navigator>
+      </view>
+
+      <!-- 公告信息 -->
+      <view class="notice" id="section-notice">
+        <view class="notice-header">
+          <t-icon name="notification" color="#0052d9" size="40rpx" />
+          <text class="notice-title">最新公告</text>
+        </view>
+        <view class="notice-list">
+          <view class="notice-item">
+            <text class="notice-item-title">2023年春季学期开学通知</text>
+            <text class="notice-item-date">2023-02-15</text>
+          </view>
+          <view class="notice-item">
+            <text class="notice-item-title">系统更新：作业批改功能上线</text>
+            <text class="notice-item-date">2023-02-10</text>
+          </view>
+          <view class="notice-item">
+            <text class="notice-item-title">关于线上家长会的通知</text>
+            <text class="notice-item-date">2023-02-05</text>
+          </view>
+          <view class="notice-item">
+            <text class="notice-item-title">期末考试安排已公布</text>
+            <text class="notice-item-date">2023-02-01</text>
+          </view>
+          <view class="notice-item">
+            <text class="notice-item-title">寒假作业提交截止日期延长</text>
+            <text class="notice-item-date">2023-01-25</text>
+          </view>
+        </view>
+        
+        <!-- 查看更多按钮 -->
+        <view class="view-more">
+          <navigator url="/pages/student/notice/index" class="view-more-btn">
+            查看更多通知
+            <t-icon name="chevron-right" size="32rpx" />
+          </navigator>
+        </view>
+      </view>
+      
+      <!-- 底部填充 -->
+      <view class="bottom-spacing"></view>
+    </view>
+  </scroll-view>
+</view>
 
 <!-- 底部导航栏 -->
 <t-tab-bar value="{{activeTab}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">

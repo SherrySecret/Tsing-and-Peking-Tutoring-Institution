@@ -4,17 +4,17 @@
 </view>
 
 <!-- 主要内容区域 -->
-<scroll-view scroll-y class="content">
-  <view class="container">
-    <!-- 状态筛选 -->
-    <t-tabs value="{{activeTab}}" bind:change="onTabChange">
-      <t-tab-panel label="全部" value="all" />
-      <t-tab-panel label="待提交" value="pending" />
-      <t-tab-panel label="已提交" value="submitted" />
-      <t-tab-panel label="已批改" value="graded" />
-    </t-tabs>
+<view class="content">
+  <!-- 状态筛选 -->
+  <t-tabs value="{{activeTab}}" bind:change="onTabChange">
+    <t-tab-panel label="全部" value="all" />
+    <t-tab-panel label="待提交" value="pending" />
+    <t-tab-panel label="已提交" value="submitted" />
+    <t-tab-panel label="已批改" value="graded" />
+  </t-tabs>
 
-    <!-- 作业列表 -->
+  <!-- 作业列表 -->
+  <scroll-view scroll-y class="homework-container" enhanced="true" show-scrollbar="false">
     <view class="homework-list">
       <block wx:if="{{filteredHomework.length > 0}}">
         <navigator wx:for="{{filteredHomework}}" wx:key="id" 
@@ -57,13 +57,5 @@
         <text class="empty-text">暂无作业</text>
       </view>
     </view>
-  </view>
-</scroll-view>
-
-<!-- 底部导航栏 -->
-<t-tab-bar value="{{activeTabBar}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
-  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
-  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
-  <t-tab-bar-item value="features" icon="apps" badge-props="{{ { count: 0 } }}">功能</t-tab-bar-item>
-  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
-</t-tab-bar> 
+  </scroll-view>
+</view> 

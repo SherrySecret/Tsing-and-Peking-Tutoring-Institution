@@ -103,13 +103,6 @@ Page({
     this.filterGrades();
   },
 
-  // 返回上一页
-  handleBack() {
-    wx.navigateBack({
-      delta: 1
-    });
-  },
-
   // 筛选成绩列表
   filterGrades() {
     let filtered = [...this.data.grades];

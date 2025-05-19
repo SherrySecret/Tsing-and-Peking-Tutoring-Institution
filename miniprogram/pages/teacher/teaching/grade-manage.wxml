@@ -1,15 +1,4 @@
 <view class="container">
-  <view class="header flex items-center">
-    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
-      <i class="t-icon t-icon-chevron-left"></i>
-    </view>
-    <text class="title">成绩管理</text>
-    <view class="add-button" bindtap="enterGrades">
-      <i class="t-icon t-icon-add"></i>
-      <text>录入成绩</text>
-    </view>
-  </view>
-
   <view class="content">
     <!-- 筛选栏 -->
     <view class="filter-bar">
@@ -40,6 +29,10 @@
             <i class="t-icon t-icon-chevron-down"></i>
           </view>
         </picker>
+      </view>
+      <view class="add-button" bindtap="enterGrades">
+        <i class="t-icon t-icon-add"></i>
+        <text>录入成绩</text>
       </view>
     </view>
 

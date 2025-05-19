@@ -1,34 +1,20 @@
+page {
+  box-sizing: border-box;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: #f5f5f5;
-}
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 44px;
-  padding: 8px 16px;
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-}
-
-.title {
-  font-size: 18px;
-  font-weight: 500;
-  color: #333;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .content {
   flex: 1;
-  padding: 16px;
-  margin-top: 44px;
+  padding: 0 32rpx 32rpx 32rpx;
+  width: 100%;
 }
 
 .flex {
@@ -44,7 +30,7 @@
 }
 
 .mr-2 {
-  margin-right: 8px;
+  margin-right: 16rpx;
 }
 
 .flex-shrink-0 {
@@ -54,75 +40,90 @@
 /* 日期选择器 */
 .date-selector {
   background-color: #fff;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
 }
 
 .selector-arrow {
-  width: 32px;
-  height: 32px;
+  width: 64rpx;
+  height: 64rpx;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #666;
+  flex-shrink: 0;
 }
 
 .date-info {
   text-align: center;
+  flex: 1;
+  overflow: hidden;
 }
 
 .month {
-  font-size: 16px;
+  font-size: 32rpx;
   font-weight: 500;
   color: #333;
-  margin-bottom: 4px;
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .week {
-  font-size: 12px;
+  font-size: 24rpx;
   color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* 星期选择器 */
 .weekday-selector {
   background-color: #fff;
-  border-radius: 8px;
-  padding: 12px 8px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 16rpx;
+  padding: 24rpx 16rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
   overflow: hidden;
+  width: 100%;
 }
 
 .weekday-list {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .weekday-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8px 0;
+  padding: 16rpx 0;
   flex: 1;
 }
 
 .weekday-name {
-  font-size: 12px;
+  font-size: 24rpx;
   color: #999;
-  margin-bottom: 8px;
+  margin-bottom: 16rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .weekday-date {
-  width: 32px;
-  height: 32px;
+  width: 64rpx;
+  height: 64rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #333;
-  border-radius: 16px;
+  border-radius: 32rpx;
 }
 
 .weekday-date.weekend {
@@ -140,44 +141,49 @@
 
 /* 课程列表 */
 .schedule-list {
-  margin-bottom: 20px;
+  margin-bottom: 40rpx;
+  width: 100%;
 }
 
 .schedule-item {
-  margin-bottom: 16px;
-  border-radius: 8px;
+  margin-bottom: 32rpx;
+  border-radius: 16rpx;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
 }
 
 .schedule-item.has-class {
-  border-left: 4px solid #0052d9;
+  border-left: 8rpx solid #0052d9;
 }
 
 .schedule-item.empty {
-  border-left: 4px solid #ddd;
+  border-left: 8rpx solid #ddd;
 }
 
 .schedule-item.note {
-  border-left: 4px solid #0052d9;
+  border-left: 8rpx solid #0052d9;
 }
 
 .schedule-content {
   background-color: #fff;
-  padding: 16px;
+  padding: 32rpx;
   display: flex;
+  width: 100%;
 }
 
 .schedule-left {
-  margin-right: 12px;
-  min-width: 40px;
+  margin-right: 24rpx;
+  min-width: 80rpx;
+  flex-shrink: 0;
 }
 
 .schedule-number {
-  font-size: 20px;
+  font-size: 40rpx;
   font-weight: 500;
   color: #0052d9;
-  margin-bottom: 4px;
+  margin-bottom: 8rpx;
+  text-align: center;
 }
 
 .schedule-item.empty .schedule-number {
@@ -185,30 +191,44 @@
 }
 
 .schedule-time {
-  font-size: 12px;
+  font-size: 24rpx;
   color: #999;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .schedule-details {
   flex: 1;
+  overflow: hidden;
 }
 
 .schedule-title {
-  font-size: 15px;
+  font-size: 30rpx;
   font-weight: 500;
   color: #333;
-  margin-bottom: 4px;
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .schedule-subtitle {
-  font-size: 14px;
+  font-size: 28rpx;
   color: #666;
-  margin-bottom: 4px;
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .schedule-location {
-  font-size: 12px;
+  font-size: 24rpx;
   color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .schedule-empty {
@@ -216,35 +236,39 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 64px;
+  height: 128rpx;
   color: #999;
 }
 
 /* 备注区域 */
 .note-content {
-  padding: 12px;
+  padding: 24rpx;
   background-color: #f0f6ff;
-  border-radius: 8px;
+  border-radius: 16rpx;
   width: 100%;
 }
 
 .note-title {
   display: flex;
   align-items: center;
-  font-size: 15px;
+  font-size: 30rpx;
   font-weight: 500;
   color: #0052d9;
-  margin-bottom: 8px;
+  margin-bottom: 16rpx;
 }
 
 .note-title i {
-  margin-right: 6px;
+  margin-right: 12rpx;
+  flex-shrink: 0;
 }
 
 .note-time, .note-location {
-  font-size: 13px;
+  font-size: 26rpx;
   color: #666;
-  margin-top: 4px;
+  margin-top: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* 无数据提示 */
@@ -253,16 +277,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 0;
+  padding: 80rpx 0;
+  width: 100%;
 }
 
 .empty-tip image {
-  width: 120px;
-  height: 120px;
-  margin-bottom: 16px;
+  width: 240rpx;
+  height: 240rpx;
+  margin-bottom: 32rpx;
 }
 
 .empty-tip text {
-  font-size: 14px;
+  font-size: 28rpx;
   color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 } 

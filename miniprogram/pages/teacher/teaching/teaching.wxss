@@ -1,4 +1,12 @@
- /* 页面整体样式 */
+/* 页面整体样式 */
+page {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .header {
   height: 88rpx;
   display: flex;
@@ -10,12 +18,18 @@
   top: 0;
   width: 100%;
   z-index: 10;
+  box-sizing: border-box;
+  left: 0;
+  right: 0;
 }
 
 .title {
   font-size: 34rpx;
   font-weight: 500;
   color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .content {
@@ -25,6 +39,10 @@
   right: 0;
   bottom: 112rpx;
   background-color: #f5f5f5;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 /* 通用板块样式 */
@@ -33,6 +51,8 @@
   padding: 30rpx;
   background-color: #ffffff;
   border-radius: 12rpx;
+  width: calc(100% - 40rpx);
+  box-sizing: border-box;
 }
 
 .section-header {
@@ -40,17 +60,24 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20rpx;
+  width: 100%;
 }
 
 .section-title {
   font-size: 32rpx;
   font-weight: 500;
   color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .section-date, .section-more {
   font-size: 26rpx;
   color: #999999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .section-more {
@@ -60,6 +87,7 @@
 /* 今日课程 */
 .course-list {
   margin-top: 10rpx;
+  width: 100%;
 }
 
 .course-card {
@@ -68,6 +96,7 @@
   background-color: #f9f9f9;
   border-radius: 8rpx;
   margin-bottom: 20rpx;
+  width: 100%;
 }
 
 .course-card:last-child {
@@ -78,22 +107,32 @@
   width: 120rpx;
   font-size: 26rpx;
   color: #0052d9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .course-info {
   flex: 1;
+  overflow: hidden;
 }
 
 .course-name {
   font-size: 30rpx;
   font-weight: 500;
   color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .course-location, .course-class {
   font-size: 24rpx;
   color: #999999;
   margin-top: 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .course-actions {
@@ -113,6 +152,9 @@
 .action-btn text {
   font-size: 22rpx;
   margin-top: 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* 空状态提示 */
@@ -123,16 +165,21 @@
   align-items: center;
   justify-content: center;
   color: #999999;
+  width: 100%;
 }
 
 .empty-tip text {
   font-size: 28rpx;
   margin-top: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* 待批改作业 */
 .homework-list {
   margin-top: 10rpx;
+  width: 100%;
 }
 
 .homework-item {
@@ -141,6 +188,7 @@
   align-items: center;
   padding: 24rpx 0;
   border-bottom: 1rpx solid #f5f5f5;
+  width: 100%;
 }
 
 .homework-item:last-child {
@@ -149,11 +197,15 @@
 
 .homework-info {
   flex: 1;
+  overflow: hidden;
 }
 
 .homework-title {
   font-size: 30rpx;
   color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .homework-meta {
@@ -162,6 +214,7 @@
   margin-top: 8rpx;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 /* 班级统计 */
@@ -169,6 +222,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 30rpx;
+  width: 100%;
 }
 
 .stat-card {
@@ -180,10 +234,16 @@
   font-size: 36rpx;
   font-weight: 600;
   color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .stat-label {
   font-size: 24rpx;
   color: #999999;
   margin-top: 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

@@ -1,9 +1,23 @@
 /* pages/teacher/class/scores.wxss */
+page {
+  background-color: #f5f5f5;
+  height: 100%;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   background-color: #f5f5f5;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* 顶部标题栏 */
@@ -14,7 +28,11 @@
   align-items: center;
   padding: 0 24rpx;
   border-bottom: 1rpx solid #e6e6e6;
-  position: relative;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 10;
 }
 
 .back-btn {
@@ -27,12 +45,16 @@
   background-color: #f2f5ff;
   margin-right: 24rpx;
   z-index: 10;
+  flex-shrink: 0;
 }
 
 .header-title {
   font-size: 34rpx;
   font-weight: 500;
   flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 筛选栏 */
@@ -42,11 +64,14 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1rpx solid #e6e6e6;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .filter-item {
   flex: 1;
   margin: 0 8rpx;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 /* 成绩概览卡片 */
@@ -55,12 +80,17 @@
   padding: 24rpx;
   margin-bottom: 24rpx;
   border-bottom: 1rpx solid #e6e6e6;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-title {
   font-size: 28rpx;
   font-weight: 500;
   margin-bottom: 24rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .stat-row {
@@ -68,16 +98,22 @@
   justify-content: space-between;
   text-align: center;
   margin-bottom: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .stat-item {
   flex: 1;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .stat-value {
   font-size: 36rpx;
   font-weight: 600;
   margin-bottom: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .stat-value.primary {
@@ -95,6 +131,9 @@
 .stat-label {
   font-size: 24rpx;
   color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 成绩分布图 */
@@ -104,6 +143,8 @@
   border-radius: 12rpx;
   overflow: hidden;
   margin-bottom: 16rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .distribution-segment {
@@ -115,6 +156,8 @@
   justify-content: space-between;
   font-size: 22rpx;
   color: #888;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 成绩列表 */
@@ -122,6 +165,9 @@
   flex: 1;
   overflow: auto;
   padding: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 
 .score-list {
@@ -129,6 +175,8 @@
   border-radius: 12rpx;
   overflow: hidden;
   margin-bottom: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .student-score-item {
@@ -137,11 +185,15 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1rpx solid #f0f0f0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .student-info {
   display: flex;
   align-items: center;
+  flex: 1;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .avatar {
@@ -154,26 +206,36 @@
   justify-content: center;
   margin-right: 24rpx;
   color: #0052d9;
+  flex-shrink: 0;
 }
 
 .student-details {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .student-name {
   font-weight: 500;
   margin-bottom: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .student-id {
   font-size: 22rpx;
   color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .score {
   font-size: 36rpx;
   font-weight: 600;
+  flex-shrink: 0;
 }
 
 .score.good {
@@ -197,6 +259,8 @@
   color: #0052d9;
   padding: 24rpx 0;
   font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 悬浮按钮 */

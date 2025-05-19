@@ -1,7 +1,6 @@
 // 学生班级详情页面
 Page({
   data: {
-    activeTab: 'class',
     classId: null, // 班级ID
     classInfo: {
       id: 1,
@@ -123,28 +122,5 @@ Page({
         }, 1500);
       }
     });
-  },
-  
-  onTabBarChange(e: any) {
-    const { value } = e.detail;
-    this.setData({ activeTab: value });
-    
-    // 根据切换的标签页进行页面跳转
-    switch(value) {
-      case 'home':
-        wx.navigateTo({ url: '/pages/student/home/home' });
-        break;
-      case 'class':
-        wx.navigateTo({ url: '/pages/student/class/index' });
-        break;
-      case 'features':
-        wx.navigateTo({ url: '/pages/student/features/index' });
-        break;
-      case 'profile':
-        wx.navigateTo({ url: '/pages/student/profile/index' });
-        break;
-      default:
-        break;
-    }
   }
 }) 

@@ -1,46 +1,20 @@
+page {
+  box-sizing: border-box;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: #f5f5f5;
-}
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 44px;
-  padding: 8px 16px;
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-}
-
-.title {
-  font-size: 18px;
-  font-weight: 500;
-  color: #333;
-  flex: 1;
-}
-
-.add-button {
-  display: flex;
-  align-items: center;
-  color: #0052d9;
-  font-size: 14px;
-}
-
-.add-button i {
-  margin-right: 4px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .content {
   flex: 1;
-  padding: 16px;
-  margin-top: 44px;
+  padding: 0 32rpx 32rpx 32rpx;
+  width: 100%;
 }
 
 .flex {
@@ -52,7 +26,7 @@
 }
 
 .mr-2 {
-  margin-right: 8px;
+  margin-right: 16rpx;
 }
 
 .flex-shrink-0 {
@@ -62,8 +36,10 @@
 /* 筛选栏 */
 .filter-bar {
   display: flex;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 32rpx;
+  margin-bottom: 32rpx;
+  width: 100%;
+  align-items: flex-end;
 }
 
 .filter-item {
@@ -71,64 +47,77 @@
 }
 
 .filter-label {
-  font-size: 12px;
+  font-size: 24rpx;
   color: #999;
-  margin-bottom: 4px;
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .picker-view {
   background-color: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  padding: 8px 12px;
+  border: 1rpx solid #e5e5e5;
+  border-radius: 16rpx;
+  padding: 16rpx 24rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #333;
+  width: 100%;
 }
 
 .picker-view i {
   color: #999;
-  font-size: 12px;
+  font-size: 24rpx;
 }
 
 /* 成绩卡片 */
 .grade-list {
-  margin-bottom: 20px;
+  margin-bottom: 40rpx;
+  width: 100%;
 }
 
 .grade-card {
   background-color: #fff;
-  border-radius: 8px;
-  margin-bottom: 16px;
+  border-radius: 16rpx;
+  margin-bottom: 32rpx;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
 }
 
 .card-header {
-  padding: 16px;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 32rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  width: 100%;
 }
 
 .header-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 4px;
+  margin-bottom: 8rpx;
+  width: 100%;
 }
 
 .header-title text {
-  font-size: 16px;
+  font-size: 32rpx;
   font-weight: 500;
   color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
 }
 
 .status-tag {
-  font-size: 12px;
+  font-size: 24rpx;
   color: #fff;
-  padding: 2px 8px;
-  border-radius: 12px;
+  padding: 4rpx 16rpx;
+  border-radius: 24rpx;
+  flex-shrink: 0;
 }
 
 .status-tag.completed {
@@ -140,20 +129,25 @@
 }
 
 .exam-date {
-  font-size: 14px;
+  font-size: 28rpx;
   color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-content {
-  padding: 16px;
+  padding: 32rpx;
+  width: 100%;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 16rpx;
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 32rpx;
+  width: 100%;
 }
 
 .stat-item {
@@ -161,9 +155,12 @@
 }
 
 .stat-value {
-  font-size: 18px;
+  font-size: 36rpx;
   font-weight: 500;
-  margin-bottom: 4px;
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .stat-value.avg {
@@ -179,52 +176,64 @@
 }
 
 .stat-label {
-  font-size: 12px;
+  font-size: 24rpx;
   color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .grade-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .grade-class {
-  font-size: 14px;
+  font-size: 28rpx;
   color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .grade-action {
-  font-size: 14px;
+  font-size: 28rpx;
   color: #0052d9;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .grade-action i {
-  margin-left: 4px;
+  margin-left: 8rpx;
 }
 
 .grade-count {
-  font-size: 14px;
+  font-size: 28rpx;
   color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .enter-grade {
   display: flex;
   justify-content: center;
-  padding: 16px 0;
+  padding: 32rpx 0;
+  width: 100%;
 }
 
 .enter-button {
   background-color: #0052d9;
   color: #fff;
-  font-size: 14px;
+  font-size: 28rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: 16rpx 32rpx;
+  border-radius: 8rpx;
   line-height: 1.5;
 }
 
@@ -233,7 +242,7 @@
 }
 
 .enter-button i {
-  margin-right: 4px;
+  margin-right: 8rpx;
 }
 
 /* 无数据提示 */
@@ -242,16 +251,32 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 0;
+  padding: 80rpx 0;
+  width: 100%;
 }
 
 .empty-tip image {
-  width: 120px;
-  height: 120px;
-  margin-bottom: 16px;
+  width: 240rpx;
+  height: 240rpx;
+  margin-bottom: 32rpx;
 }
 
 .empty-tip text {
-  font-size: 14px;
+  font-size: 28rpx;
   color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  color: #0052d9;
+  font-size: 28rpx;
+  flex-shrink: 0;
+}
+
+.add-button i {
+  margin-right: 8rpx;
 } 

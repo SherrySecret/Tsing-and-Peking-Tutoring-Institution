@@ -4,6 +4,8 @@ page {
   height: 100%;
   display: flex;
   flex-direction: column;
+  font-size: 28rpx;
+  box-sizing: border-box;
 }
 
 /* 顶部标题栏 */
@@ -14,10 +16,11 @@ page {
   align-items: center;
   padding: 0 32rpx;
   border-bottom: 1rpx solid #eee;
+  margin-bottom: 16rpx;
 }
 
 .title {
-  font-size: 34rpx;
+  font-size: 32rpx;
   font-weight: 500;
 }
 
@@ -26,7 +29,7 @@ page {
 }
 
 .add-btn {
-  padding: 12rpx 32rpx;
+  padding: 12rpx 24rpx;
   background-color: #0052d9;
   color: #fff;
   border-radius: 32rpx;
@@ -37,25 +40,40 @@ page {
 .content {
   flex: 1;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  /* 默认隐藏滚动条 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* 隐藏滚动条但保留功能 */
+.content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .container {
-  padding: 32rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 欢迎信息 */
 .welcome-box {
   background-color: #fff;
   border-radius: 16rpx;
-  padding: 32rpx;
-  margin-bottom: 48rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .welcome-title {
-  font-size: 36rpx;
+  font-size: 34rpx;
   font-weight: 500;
-  margin-bottom: 16rpx;
+  margin-bottom: 12rpx;
   display: block;
 }
 
@@ -68,23 +86,31 @@ page {
 /* 快速入口 */
 .quick-entry {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32rpx;
-  margin-bottom: 48rpx;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18rpx;
+  margin-bottom: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .entry-item {
   border-radius: 16rpx;
-  padding: 32rpx;
+  padding: 16rpx 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   color: #fff;
+  aspect-ratio: 1 / 1; /* 保持1:1的宽高比 */
+}
+
+.entry-item t-icon {
+  font-size: 48rpx !important;
+  margin-bottom: 8rpx;
 }
 
 .entry-item text {
-  margin-top: 16rpx;
-  font-size: 28rpx;
+  font-size: 26rpx;
 }
 
 .bg-blue {
@@ -107,16 +133,19 @@ page {
 .student-archive {
   background-color: #fff;
   border-radius: 16rpx;
-  padding: 32rpx;
-  margin-bottom: 48rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
   display: flex;
   align-items: center;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .archive-icon {
-  width: 96rpx;
-  height: 96rpx;
+  width: 80rpx;
+  height: 80rpx;
+  flex-shrink: 0;
   background-color: #fef3c7;
   border-radius: 16rpx;
   display: flex;
@@ -126,7 +155,8 @@ page {
 
 .archive-info {
   flex: 1;
-  margin-left: 32rpx;
+  margin: 0 16rpx;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .archive-title {
@@ -134,11 +164,17 @@ page {
   font-weight: 500;
   margin-bottom: 8rpx;
   display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .archive-desc {
   font-size: 24rpx;
   color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .archive-btn {
@@ -147,20 +183,26 @@ page {
   color: #fff;
   border-radius: 32rpx;
   font-size: 26rpx;
+  flex-shrink: 0;
 }
 
 /* 公告信息 */
 .notice {
   background-color: #fff;
   border-radius: 16rpx;
-  padding: 32rpx;
+  padding: 24rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
 }
 
 .notice-header {
   display: flex;
   align-items: center;
-  margin-bottom: 24rpx;
+  margin-bottom: 16rpx;
+  padding-bottom: 12rpx;
+  border-bottom: 1rpx solid #f0f0f0;
 }
 
 .notice-title {
@@ -170,12 +212,13 @@ page {
 }
 
 .notice-list {
-  
+  width: 100%;
+  max-height: unset; /* 移除最大高度限制 */
 }
 
 .notice-item {
-  padding-bottom: 16rpx;
-  margin-bottom: 16rpx;
+  padding-bottom: 12rpx;
+  margin-bottom: 12rpx;
   border-bottom: 1rpx solid #eee;
 }
 
@@ -189,6 +232,9 @@ page {
   font-size: 28rpx;
   font-weight: 500;
   display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .notice-item-date {
@@ -196,4 +242,25 @@ page {
   color: #999;
   margin-top: 8rpx;
   display: block;
-} 
+}
+
+/* 查看更多按钮 */
+.view-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 24rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #eee;
+}
+
+.view-more-btn {
+  display: flex;
+  align-items: center;
+  color: #0052d9;
+  font-size: 28rpx;
+}
+
+/* 底部空间 */
+.bottom-spacing {
+  height: 100rpx;
+}

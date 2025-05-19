@@ -47,11 +47,3 @@
 <view class="action-buttons">
   <t-button theme="danger" size="large" block bindtap="disbandClass">解散班级</t-button>
 </view>
-
-<!-- 底部导航栏 -->
-<t-tab-bar value="{{activeTabBar}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
-  <t-tab-bar-item value="home" icon="home">首页</t-tab-bar-item>
-  <t-tab-bar-item value="class" icon="view-list">班级</t-tab-bar-item>
-  <t-tab-bar-item value="teaching" icon="edit">教学</t-tab-bar-item>
-  <t-tab-bar-item value="profile" icon="user">我的</t-tab-bar-item>
-</t-tab-bar>

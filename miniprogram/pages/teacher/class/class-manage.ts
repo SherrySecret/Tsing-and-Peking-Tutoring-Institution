@@ -26,8 +26,7 @@ interface ClassInfo {
         allowJoin: true,
         allowViewScores: true,
         privacyLevel: '仅班级成员'
-      } as ClassInfo,
-      activeTabBar: 'class'
+      } as ClassInfo
     },
   
     onLoad(options: any) {
@@ -211,29 +210,5 @@ interface ClassInfo {
       wx.navigateTo({
         url: `${url}?classId=${this.data.classId}`
       });
-    },
-  
-    // 底部标签栏切换
-    onTabBarChange(e: any) {
-      const value = e.detail.value;
-      this.setData({ activeTabBar: value });
-      
-      // 根据切换的标签页进行页面跳转
-      switch(value) {
-        case 'home':
-          wx.navigateTo({ url: '/pages/teacher/index/index' });
-          break;
-        case 'class':
-          wx.navigateTo({ url: '/pages/teacher/class/class-list' });
-          break;
-        case 'teaching':
-          wx.navigateTo({ url: '/pages/teacher/teaching/teaching' });
-          break;
-        case 'profile':
-          wx.navigateTo({ url: '/pages/teacher/profile/profile' });
-          break;
-        default:
-          break;
-      }
     }
   });

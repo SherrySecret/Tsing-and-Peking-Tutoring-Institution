@@ -1,7 +1,6 @@
 // 教师班级详情页面
 Page({
   data: {
-    activeTab: 'class',
     classId: null, // 班级ID
     classInfo: {
       id: 1,
@@ -123,28 +122,5 @@ Page({
     wx.navigateTo({
       url: `/pages/teacher/class/attendance?id=${this.data.classId}&action=start`
     });
-  },
-  
-  onTabBarChange(e: any) {
-    const { value } = e.detail;
-    this.setData({ activeTab: value });
-    
-    // 根据切换的标签页进行页面跳转
-    switch(value) {
-      case 'home':
-        wx.navigateTo({ url: '/pages/teacher/index/index' });
-        break;
-      case 'class':
-        wx.navigateTo({ url: '/pages/teacher/class/class-list' });
-        break;
-      case 'teaching':
-        wx.navigateTo({ url: '/pages/teacher/teaching/teaching' });
-        break;
-      case 'profile':
-        wx.navigateTo({ url: '/pages/teacher/profile/profile' });
-        break;
-      default:
-        break;
-    }
   }
 }) 

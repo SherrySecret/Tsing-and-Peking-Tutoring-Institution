@@ -75,13 +75,6 @@ Page({
     // 页面加载时执行的逻辑
   },
 
-  // 返回上一页
-  handleBack() {
-    wx.navigateBack({
-      delta: 1
-    });
-  },
-
   // 查看教研组详情
   viewGroupDetail(e: WechatMiniprogram.Touch) {
     const groupId = e.currentTarget.dataset.id;

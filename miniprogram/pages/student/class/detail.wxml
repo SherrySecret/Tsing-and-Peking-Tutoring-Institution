@@ -122,12 +122,4 @@
       </view>
     </view>
   </view>
-</scroll-view>
-
-<!-- 底部导航栏 -->
-<t-tab-bar value="{{activeTab}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
-  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
-  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
-  <t-tab-bar-item value="features" icon="apps" badge-props="{{ { count: 0 } }}">功能</t-tab-bar-item>
-  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
-</t-tab-bar> 
+</scroll-view> 

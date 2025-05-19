@@ -1,4 +1,13 @@
  /* 整体布局 */
+page {
+  background-color: #f5f5f5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -11,6 +20,7 @@
   align-items: center;
   justify-content: center;
   z-index: 100;
+  box-sizing: border-box;
 }
 
 .title {
@@ -26,10 +36,15 @@
   right: 0;
   bottom: 112rpx;
   background-color: #f5f5f5;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
 }
 
 .container {
   padding: 30rpx 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 功能网格样式 */
@@ -38,6 +53,8 @@
   border-radius: 12rpx;
   margin-bottom: 30rpx;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 板块通用样式 */
@@ -46,6 +63,8 @@
   border-radius: 12rpx;
   padding: 24rpx;
   margin-bottom: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-header {
@@ -53,17 +72,25 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-title {
   font-size: 32rpx;
   font-weight: 500;
   color: #333333;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .section-more {
   font-size: 26rpx;
   color: #0052d9;
+  flex-shrink: 0;
+  margin-left: 16rpx;
 }
 
 /* 活动列表样式 */
@@ -71,6 +98,9 @@
   display: flex;
   overflow-x: auto;
   padding: 10rpx 0;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 
 .activity-card {
@@ -81,15 +111,19 @@
   box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
   margin-right: 20rpx;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .activity-image {
   width: 100%;
   height: 160rpx;
+  box-sizing: border-box;
 }
 
 .activity-info {
   padding: 16rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .activity-title {
@@ -106,11 +140,16 @@
   color: #999999;
   margin-top: 8rpx;
   display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 资源列表样式 */
 .resource-list {
   margin-top: 10rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .resource-item {
@@ -118,6 +157,8 @@
   align-items: center;
   padding: 24rpx 0;
   border-bottom: 1rpx solid #f5f5f5;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .resource-item:last-child {
@@ -128,6 +169,7 @@
   flex: 1;
   margin-left: 20rpx;
   overflow: hidden;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .resource-title {

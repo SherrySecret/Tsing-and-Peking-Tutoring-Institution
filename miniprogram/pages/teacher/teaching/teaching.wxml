@@ -42,7 +42,7 @@
       <text class="section-title">教学功能</text>
     </view>
     
-    <t-grid column="4" border="{{false}}">
+    <t-grid column="4" border="{{false}}" align="center">
       <t-grid-item text="课程表" image="/assets/icons/calendar.png" bindtap="navigateTo" data-url="/pages/teacher/teaching/course-schedule" />
       <t-grid-item text="作业管理" image="/assets/icons/homework.png" bindtap="navigateTo" data-url="/pages/teacher/teaching/homework-manage" />
       <t-grid-item text="考试管理" image="/assets/icons/exam.png" bindtap="navigateTo" data-url="/pages/teacher/teaching/exam-manage" />

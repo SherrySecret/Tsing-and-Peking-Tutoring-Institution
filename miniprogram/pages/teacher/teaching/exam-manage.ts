@@ -83,13 +83,6 @@ Page({
     this.filterExams();
   },
 
-  // 返回上一页
-  handleBack() {
-    wx.navigateBack({
-      delta: 1
-    });
-  },
-
   // 筛选考试列表
   filterExams() {
     let filtered = [...this.data.exams];

@@ -1,5 +1,5 @@
 {
-  "navigationStyle": "custom",
+  "navigationBarTitleText": "成绩管理",
   "usingComponents": {},
   "disableScroll": false,
   "navigationBarTextStyle": "black"

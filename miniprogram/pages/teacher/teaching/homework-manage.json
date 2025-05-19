@@ -1,5 +1,5 @@
 {
-  "navigationStyle": "custom",
+  "navigationBarTitleText": "作业管理",
   "usingComponents": {},
   "disableScroll": false,
   "navigationBarTextStyle": "black"

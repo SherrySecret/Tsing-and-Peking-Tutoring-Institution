@@ -86,13 +86,6 @@ Page({
     this.filterHomeworks();
   },
 
-  // 返回上一页
-  handleBack() {
-    wx.navigateBack({
-      delta: 1
-    });
-  },
-
   // 设置筛选条件
   setFilter(e: WechatMiniprogram.Touch) {
     const filter = e.currentTarget.dataset.filter;

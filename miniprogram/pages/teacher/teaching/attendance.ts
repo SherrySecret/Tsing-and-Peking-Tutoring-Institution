@@ -66,11 +66,6 @@ Page({
     this.filterStudents();
   },
   
-  // 返回上一页
-  handleBack() {
-    wx.navigateBack();
-  },
-  
   // 显示班级选择器
   showClassPicker() {
     this.setData({

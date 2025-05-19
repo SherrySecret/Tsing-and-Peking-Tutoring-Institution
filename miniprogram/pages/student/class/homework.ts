@@ -14,7 +14,6 @@ interface HomeworkItem {
 Page({
   data: {
     activeTab: 'all',
-    activeTabBar: 'class',
     classId: null, // 班级ID
     homework: [
       {
@@ -98,28 +97,5 @@ Page({
     this.setData({
       filteredHomework: filtered
     });
-  },
-  
-  onTabBarChange(e: any) {
-    const { value } = e.detail;
-    this.setData({ activeTabBar: value });
-    
-    // 根据切换的标签页进行页面跳转
-    switch(value) {
-      case 'home':
-        wx.navigateTo({ url: '/pages/student/home/home' });
-        break;
-      case 'class':
-        wx.navigateTo({ url: '/pages/student/class/index' });
-        break;
-      case 'features':
-        wx.navigateTo({ url: '/pages/student/features/index' });
-        break;
-      case 'profile':
-        wx.navigateTo({ url: '/pages/student/profile/index' });
-        break;
-      default:
-        break;
-    }
   }
 }) 

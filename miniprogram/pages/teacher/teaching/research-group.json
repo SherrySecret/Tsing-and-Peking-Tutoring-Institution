@@ -1,5 +1,5 @@
 {
-  "navigationStyle": "custom",
+  "navigationBarTitleText": "教研组",
   "usingComponents": {},
   "disableScroll": false,
   "navigationBarTextStyle": "black"

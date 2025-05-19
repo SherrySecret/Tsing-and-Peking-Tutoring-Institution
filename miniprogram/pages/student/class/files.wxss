@@ -4,6 +4,8 @@ page {
   height: 100%;
   display: flex;
   flex-direction: column;
+  font-size: 28rpx;
+  box-sizing: border-box;
 }
 
 /* 顶部标题栏 */
@@ -14,6 +16,10 @@ page {
   align-items: center;
   padding: 0 32rpx;
   border-bottom: 1rpx solid #eee;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .title {
@@ -24,29 +30,35 @@ page {
 /* 内容区域 */
 .content {
   flex: 1;
-  overflow: auto;
-}
-
-.container {
-  padding: 0 0 32rpx 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f8fa;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* 搜索栏 */
 .search-bar {
-  padding: 24rpx 32rpx;
+  padding: 16rpx 32rpx;
   background-color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #f0f0f0;
 }
 
 .search-inner {
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .search-icon {
   position: absolute;
   left: 24rpx;
   color: #999;
+  z-index: 1;
 }
 
 .search-inner input {
@@ -56,53 +68,77 @@ page {
   border-radius: 36rpx;
   padding: 0 24rpx 0 72rpx;
   font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 文件列表容器 */
+.file-container {
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 文件列表 */
 .file-list {
-  padding: 0 32rpx;
+  padding: 24rpx 32rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .file-item {
   display: flex;
   align-items: center;
-  padding: 32rpx;
+  padding: 24rpx;
   background-color: #fff;
   border-radius: 16rpx;
   margin-bottom: 24rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .file-icon {
-  width: 80rpx;
-  height: 80rpx;
+  width: 72rpx;
+  height: 72rpx;
   background-color: #f7f8fa;
   border-radius: 16rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 24rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
 }
 
 .file-info {
   flex: 1;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .file-name {
-  font-size: 30rpx;
+  font-size: 28rpx;
   font-weight: 500;
   display: block;
   margin-bottom: 8rpx;
   color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .file-meta {
   font-size: 24rpx;
   color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .file-action {
   margin-left: 16rpx;
+  flex-shrink: 0;
 }
 
 /* 空内容提示 */
@@ -113,10 +149,13 @@ page {
   justify-content: center;
   padding: 64rpx 32rpx;
   margin-top: 64rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .empty-text {
   font-size: 28rpx;
   color: #999;
   margin-top: 24rpx;
+  text-align: center;
 } 

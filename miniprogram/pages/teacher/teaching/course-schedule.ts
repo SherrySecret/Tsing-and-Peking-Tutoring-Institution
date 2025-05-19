@@ -137,13 +137,6 @@ Page({
     this.updateCurrentDaySchedule();
   },
 
-  // 返回上一页
-  handleBack() {
-    wx.navigateBack({
-      delta: 1
-    });
-  },
-
   // 切换到上一周
   prevWeek() {
     // 真实环境下应该基于当前日期计算上一周的日期

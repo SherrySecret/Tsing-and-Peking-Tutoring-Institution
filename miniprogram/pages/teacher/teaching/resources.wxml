@@ -1,20 +1,15 @@
 <view class="container">
-  <view class="header flex items-center">
-    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
-      <i class="t-icon t-icon-chevron-left"></i>
-    </view>
-    <text class="title">教学资源</text>
-    <view class="upload-button" bindtap="uploadResource">
-      <i class="t-icon t-icon-add"></i>
-      <text>上传</text>
-    </view>
-  </view>
-
   <view class="content">
     <!-- 搜索栏 -->
-    <view class="search-box">
-      <i class="t-icon t-icon-search"></i>
-      <input type="text" placeholder="搜索资源" bindinput="searchResource" />
+    <view class="page-header">
+      <view class="search-box">
+        <i class="t-icon t-icon-search"></i>
+        <input type="text" placeholder="搜索资源" bindinput="searchResource" />
+      </view>
+      <view class="upload-button" bindtap="uploadResource">
+        <i class="t-icon t-icon-add"></i>
+        <text>上传</text>
+      </view>
     </view>
 
     <!-- 分类选项卡 -->

@@ -1,5 +1,8 @@
 <!-- 顶部标题栏 -->
 <view class="header">
+  <view class="back-btn" bindtap="onBackTap">
+    <t-icon name="chevron-left" size="48rpx" />
+  </view>
   <text class="title">作业详情</text>
 </view>
 

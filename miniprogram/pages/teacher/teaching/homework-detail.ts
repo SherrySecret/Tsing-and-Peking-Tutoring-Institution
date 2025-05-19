@@ -135,13 +135,6 @@ Page({
     });
   },
 
-  // 返回上一页
-  handleBack() {
-    wx.navigateBack({
-      delta: 1
-    });
-  },
-
   // 预览文件
   previewFile(e: WechatMiniprogram.Touch) {
     const url = e.currentTarget.dataset.url;
@@ -154,6 +147,7 @@ Page({
     // 模拟文件预览
     setTimeout(() => {
       wx.hideToast();
+      
       wx.showModal({
         title: '文件预览',
         content: '由于微信小程序限制，部分文件格式可能无法直接预览，是否下载？',

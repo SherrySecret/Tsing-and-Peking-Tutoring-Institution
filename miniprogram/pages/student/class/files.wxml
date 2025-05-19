@@ -4,25 +4,25 @@
 </view>
 
 <!-- 主要内容区域 -->
-<scroll-view scroll-y class="content">
-  <view class="container">
-    <!-- 资料分类标签页 -->
-    <t-tabs value="{{activeTab}}" bind:change="onTabChange">
-      <t-tab-panel label="课件" value="0" />
-      <t-tab-panel label="作业资料" value="1" />
-      <t-tab-panel label="复习资料" value="2" />
-      <t-tab-panel label="其他" value="3" />
-    </t-tabs>
+<view class="content">
+  <!-- 资料分类标签页 -->
+  <t-tabs value="{{activeTab}}" bind:change="onTabChange">
+    <t-tab-panel label="课件" value="0" />
+    <t-tab-panel label="作业资料" value="1" />
+    <t-tab-panel label="复习资料" value="2" />
+    <t-tab-panel label="其他" value="3" />
+  </t-tabs>
 
-    <!-- 搜索栏 -->
-    <view class="search-bar">
-      <view class="search-inner">
-        <t-icon name="search" class="search-icon" />
-        <input type="text" placeholder="搜索资料" confirm-type="search" bindinput="onSearchInput" />
-      </view>
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-inner">
+      <t-icon name="search" class="search-icon" />
+      <input type="text" placeholder="搜索资料" confirm-type="search" bindinput="onSearchInput" />
     </view>
+  </view>
 
-    <!-- 文件列表 -->
+  <!-- 文件列表 -->
+  <scroll-view scroll-y class="file-container" enhanced="true" show-scrollbar="false">
     <view class="file-list">
       <block wx:if="{{filteredFiles.length > 0}}">
         <view wx:for="{{filteredFiles}}" wx:key="id" class="file-item">
@@ -43,13 +43,5 @@
         <text class="empty-text">暂无资料</text>
       </view>
     </view>
-  </view>
-</scroll-view>
-
-<!-- 底部导航栏 -->
-<t-tab-bar value="{{activeTabBar}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
-  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
-  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
-  <t-tab-bar-item value="features" icon="apps" badge-props="{{ { count: 0 } }}">功能</t-tab-bar-item>
-  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
-</t-tab-bar> 
+  </scroll-view>
+</view> 

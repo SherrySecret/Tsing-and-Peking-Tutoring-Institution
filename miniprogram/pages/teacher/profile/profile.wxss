@@ -1,7 +1,16 @@
+page {
+  background-color: #f7f8fa;
+  height: 100%;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
 .container {
   min-height: 100vh;
   background-color: #f7f8fa;
   padding-bottom: 60rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 顶部用户信息区域 */
@@ -9,6 +18,8 @@
   position: relative;
   height: 340rpx;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .bg-image {
@@ -28,11 +39,14 @@
   padding: 0 30rpx;
   box-sizing: border-box;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+  width: 100%;
 }
 
 .user-info {
   display: flex;
   align-items: center;
+  flex: 1;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .avatar {
@@ -42,10 +56,13 @@
   border: 4rpx solid #fff;
   box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
   margin-right: 24rpx;
+  flex-shrink: 0;
 }
 
 .user-details {
   color: #fff;
+  flex: 1;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .name {
@@ -53,12 +70,18 @@
   font-weight: 500;
   margin-bottom: 8rpx;
   text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .school {
   font-size: 26rpx;
   opacity: 0.9;
   text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .edit-btn {
@@ -70,6 +93,8 @@
   align-items: center;
   justify-content: center;
   color: #fff;
+  flex-shrink: 0;
+  margin-left: 16rpx;
 }
 
 /* 统计信息栏 */
@@ -82,6 +107,8 @@
   position: relative;
   z-index: 2;
   box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  width: calc(100% - 60rpx);
+  box-sizing: border-box;
 }
 
 .stat-item {
@@ -90,6 +117,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .stat-value {
@@ -97,11 +125,17 @@
   font-weight: 600;
   color: #0052d9;
   margin-bottom: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .stat-label {
   font-size: 24rpx;
   color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .divider {
@@ -109,11 +143,14 @@
   height: 60rpx;
   background-color: #eee;
   align-self: center;
+  flex-shrink: 0;
 }
 
 /* 菜单部分 */
 .menu-section {
   padding: 0 30rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .menu-group {
@@ -122,6 +159,8 @@
   box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.03);
   margin-bottom: 30rpx;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .menu-item {
@@ -129,6 +168,8 @@
   align-items: center;
   padding: 30rpx;
   border-bottom: 1rpx solid #f5f5f5;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .menu-item:last-child {
@@ -144,6 +185,7 @@
   justify-content: center;
   margin-right: 24rpx;
   color: #fff;
+  flex-shrink: 0;
 }
 
 .security-icon {
@@ -171,16 +213,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .menu-label {
   font-size: 30rpx;
   color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .arrow-icon {
   color: #bbb;
   font-size: 24rpx;
+  flex-shrink: 0;
+  margin-left: 16rpx;
 }
 
 /* 版本信息 */
@@ -190,4 +238,6 @@
   padding: 20rpx 0;
   font-size: 24rpx;
   color: #999;
+  width: 100%;
+  box-sizing: border-box;
 }

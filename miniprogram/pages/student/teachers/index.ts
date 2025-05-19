@@ -48,8 +48,7 @@ Page({
         introduction: '毕业于北京外国语大学，英语专业，有海外学习经历，口语教学见长。'
       }
     ] as Teacher[],
-    filteredTeachers: [] as Teacher[],
-    activeTabBar: 'profile'
+    filteredTeachers: [] as Teacher[]
   },
 
   onLoad() {
@@ -106,29 +105,5 @@ Page({
     wx.navigateTo({
       url: `/pages/student/teachers/detail?id=${id}`
     });
-  },
-
-  // 底部标签栏切换
-  onTabBarChange(e: any) {
-    const value = e.detail.value;
-    this.setData({ activeTabBar: value });
-    
-    // 根据切换的标签页进行页面跳转
-    switch(value) {
-      case 'home':
-        wx.navigateTo({ url: '/pages/student/home/home' });
-        break;
-      case 'class':
-        wx.navigateTo({ url: '/pages/student/class/index' });
-        break;
-      case 'features':
-        wx.navigateTo({ url: '/pages/student/features/index' });
-        break;
-      case 'profile':
-        wx.navigateTo({ url: '/pages/student/profile/index' });
-        break;
-      default:
-        break;
-    }
   }
 }); 

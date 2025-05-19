@@ -1,15 +1,4 @@
 <view class="container">
-  <view class="header flex items-center">
-    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
-      <i class="t-icon t-icon-chevron-left"></i>
-    </view>
-    <text class="title">考试管理</text>
-    <view class="create-button" bindtap="createExam">
-      <i class="t-icon t-icon-add"></i>
-      <text>创建考试</text>
-    </view>
-  </view>
-
   <view class="content">
     <!-- 筛选栏 -->
     <view class="filter-bar">
@@ -38,6 +27,10 @@
             <i class="t-icon t-icon-chevron-down"></i>
           </view>
         </picker>
+      </view>
+      <view class="create-button" bindtap="createExam">
+        <i class="t-icon t-icon-add"></i>
+        <text>创建考试</text>
       </view>
     </view>
 

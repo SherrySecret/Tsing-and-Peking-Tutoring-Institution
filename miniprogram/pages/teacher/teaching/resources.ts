@@ -79,13 +79,6 @@ Page({
     this.filterResources();
   },
 
-  // 返回上一页
-  handleBack() {
-    wx.navigateBack({
-      delta: 1
-    });
-  },
-
   // 切换标签
   switchTab(e: WechatMiniprogram.Touch) {
     const tab = e.currentTarget.dataset.tab;

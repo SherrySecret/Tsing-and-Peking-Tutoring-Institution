@@ -1,6 +1,15 @@
+page {
+  background-color: #f7f8fa;
+  height: 100%;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
 .container {
   min-height: 100vh;
   background-color: #f7f8fa;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .header {
@@ -12,16 +21,23 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  width: 100%;
+  z-index: 10;
 }
 
 .title {
   font-size: 34rpx;
   font-weight: 500;
   color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .content {
   padding: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section {
@@ -30,12 +46,16 @@
   border-radius: 12rpx;
   overflow: hidden;
   box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.03);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-header {
   font-size: 28rpx;
   color: #888;
   padding: 30rpx 30rpx 10rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .menu-item {
@@ -44,6 +64,8 @@
   align-items: center;
   padding: 30rpx;
   border-bottom: 1rpx solid #f5f5f5;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .menu-item:last-child {
@@ -53,6 +75,8 @@
 .menu-item-left {
   display: flex;
   align-items: center;
+  flex: 1;
+  min-width: 0; /* 确保文本溢出处理正常工作 */
 }
 
 .icon-wrapper {
@@ -63,27 +87,38 @@
   align-items: center;
   margin-right: 24rpx;
   color: #0052d9;
+  flex-shrink: 0;
 }
 
 .menu-text {
   font-size: 30rpx;
   color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .menu-item-right {
   display: flex;
   align-items: center;
   color: #bbb;
+  flex-shrink: 0;
+  margin-left: 16rpx;
 }
 
 .status-text {
   font-size: 26rpx;
   color: #888;
   margin-right: 10rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .danger {
   margin-top: 40rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .logout-icon {
