@@ -1,0 +1,125 @@
+/* pages/teacher/class/members.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* 顶部标题栏 */
+.header {
+  height: 88rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+  position: relative;
+}
+
+.back-btn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f2f5ff;
+  margin-right: 24rpx;
+  z-index: 10;
+}
+
+.header-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  flex: 1;
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  background-color: #0052d9;
+  color: #fff;
+  font-size: 22rpx;
+  padding: 8rpx 16rpx;
+  border-radius: 24rpx;
+}
+
+.add-btn text {
+  margin-left: 4rpx;
+}
+
+/* 搜索栏 */
+.search-container {
+  background-color: #fff;
+  padding: 24rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+
+.custom-search {
+  border-radius: 8rpx;
+  --td-search-bg-color: #f5f5f5;
+}
+
+/* 成员列表 */
+.member-list-container {
+  flex: 1;
+  overflow: auto;
+  padding: 24rpx;
+}
+
+.member-count {
+  font-size: 24rpx;
+  color: #888;
+  margin-bottom: 16rpx;
+}
+
+.member-list {
+  background-color: #fff;
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.member-item {
+  padding: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.member-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  margin-right: 24rpx;
+}
+
+.custom-avatar {
+  background-color: #f2f5ff;
+  color: #0052d9;
+}
+
+.member-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.member-name {
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.member-id {
+  font-size: 22rpx;
+  color: #888;
+}
+
+.member-actions {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+} 

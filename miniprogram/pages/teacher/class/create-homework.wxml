@@ -1,0 +1,71 @@
+<!-- pages/teacher/class/create-homework.wxml -->
+<view class="container">
+  <!-- 顶部标题栏 -->
+  <view class="header">
+    <navigator url="homework" open-type="navigate" class="back-btn">
+      <t-icon name="chevron-left" size="xl" color="#0052D9" />
+    </navigator>
+    <view class="header-title">布置作业</view>
+  </view>
+
+  <!-- 表单内容 -->
+  <view class="form-container">
+    <view class="form-content">
+      <!-- 作业标题 -->
+      <t-input 
+        label="作业标题" 
+        placeholder="请输入作业标题" 
+        value="{{homeworkTitle}}" 
+        bind:change="onTitleInput"
+        required
+      />
+      
+      <!-- 科目选择 -->
+      <t-picker 
+        title="选择科目"
+        visible="{{subjectPickerVisible}}"
+        value="{{homeworkSubjectIndex}}"
+        cancelBtn="取消"
+        confirmBtn="确认"
+        bind:confirm="onSubjectChange"
+        bind:cancel="onSubjectPickerCancel"
+      >
+        <t-picker-item options="{{subjects}}"/>
+      </t-picker>
+      
+      <view class="subject-select" bind:tap="showSubjectPicker">
+        <view class="subject-label">科目选择</view>
+        <view class="subject-value">{{homeworkSubject || '请选择科目'}}</view>
+        <t-icon name="chevron-right" size="small" color="#BBBBBB" />
+      </view>
+      
+      <!-- 截止时间 -->
+      <t-date-time-picker 
+        mode="datetime" 
+        title="截止时间" 
+        value="{{homeworkDeadline}}" 
+        bind:change="onDeadlineChange"
+        format="YYYY-MM-DD HH:mm"
+        label="截止时间"
+        placeholder="请选择截止时间"
+        required
+      />
+      
+      <!-- 作业描述 -->
+      <t-textarea 
+        label="作业描述" 
+        placeholder="请输入作业内容描述..." 
+        value="{{homeworkDesc}}" 
+        bind:change="onDescInput"
+        disableDefaultPadding="{{true}}" 
+        autosize 
+        maxcharacter="500"
+      />
+      
+      <!-- 提交按钮 -->
+      <view class="button-container">
+        <t-button theme="primary" size="large" block bindtap="submitHomework">发布作业</t-button>
+      </view>
+    </view>
+  </view>
+</view> 

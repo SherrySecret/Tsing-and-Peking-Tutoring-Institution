@@ -1,0 +1,171 @@
+/* 页面容器 */
+page {
+  background-color: #f7f8fa;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部标题栏 */
+.header {
+  height: 88rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: 500;
+}
+
+/* 内容区域 */
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+.container {
+  padding: 32rpx;
+}
+
+/* 表单卡片 */
+.form-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.form-header {
+  margin-bottom: 32rpx;
+}
+
+.form-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.form-desc {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 表单字段 */
+.form-fields {
+  
+}
+
+.form-item {
+  margin-bottom: 24rpx;
+}
+
+.form-label {
+  font-size: 28rpx;
+  color: #333;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.required {
+  color: #ff4d4f;
+}
+
+.form-input {
+  width: 100%;
+  height: 88rpx;
+  padding: 0 24rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+
+.form-textarea {
+  width: 100%;
+  height: 180rpx;
+  padding: 16rpx 24rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+
+/* 单选按钮组 */
+.radio-group {
+  display: flex;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  margin-right: 48rpx;
+}
+
+.radio-dot {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  border: 1rpx solid #ddd;
+  margin-right: 8rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-item.checked .radio-dot {
+  border-color: #0052d9;
+  background-color: #0052d9;
+  position: relative;
+}
+
+.radio-item.checked .radio-dot::after {
+  content: '';
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+}
+
+.radio-text {
+  font-size: 28rpx;
+}
+
+/* 选择器样式 */
+.picker-view {
+  width: 100%;
+  height: 88rpx;
+  padding: 0 24rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+
+/* 提示文本 */
+.form-tips {
+  margin-bottom: 32rpx;
+}
+
+.tips-text {
+  font-size: 26rpx;
+  color: #999;
+  line-height: 1.6;
+}
+
+/* 表单操作按钮 */
+.form-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32rpx;
+} 

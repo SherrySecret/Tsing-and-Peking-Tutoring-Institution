@@ -1,0 +1,97 @@
+<view class="container">
+  <view class="header flex items-center">
+    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
+      <i class="t-icon t-icon-chevron-left"></i>
+    </view>
+    <text class="title">通知设置</text>
+  </view>
+
+  <view class="content">
+    <view class="section">
+      <view class="section-header">消息通知</view>
+      
+      <view class="menu-item">
+        <view class="menu-item-left">
+          <text class="menu-text">课堂通知</text>
+        </view>
+        <view class="menu-item-right">
+          <switch checked="{{classNotification}}" bindchange="toggleClassNotification" color="#0052d9"></switch>
+        </view>
+      </view>
+      
+      <view class="menu-item">
+        <view class="menu-item-left">
+          <text class="menu-text">作业提醒</text>
+        </view>
+        <view class="menu-item-right">
+          <switch checked="{{homeworkNotification}}" bindchange="toggleHomeworkNotification" color="#0052d9"></switch>
+        </view>
+      </view>
+      
+      <view class="menu-item">
+        <view class="menu-item-left">
+          <text class="menu-text">学生请假提醒</text>
+        </view>
+        <view class="menu-item-right">
+          <switch checked="{{leaveNotification}}" bindchange="toggleLeaveNotification" color="#0052d9"></switch>
+        </view>
+      </view>
+      
+      <view class="menu-item">
+        <view class="menu-item-left">
+          <text class="menu-text">成绩公布提醒</text>
+        </view>
+        <view class="menu-item-right">
+          <switch checked="{{scoreNotification}}" bindchange="toggleScoreNotification" color="#0052d9"></switch>
+        </view>
+      </view>
+    </view>
+    
+    <view class="section">
+      <view class="section-header">提醒方式</view>
+      
+      <view class="menu-item">
+        <view class="menu-item-left">
+          <text class="menu-text">声音</text>
+        </view>
+        <view class="menu-item-right">
+          <switch checked="{{soundEnabled}}" bindchange="toggleSound" color="#0052d9"></switch>
+        </view>
+      </view>
+      
+      <view class="menu-item">
+        <view class="menu-item-left">
+          <text class="menu-text">振动</text>
+        </view>
+        <view class="menu-item-right">
+          <switch checked="{{vibrationEnabled}}" bindchange="toggleVibration" color="#0052d9"></switch>
+        </view>
+      </view>
+    </view>
+    
+    <view class="section">
+      <view class="section-header">免打扰</view>
+      
+      <view class="menu-item">
+        <view class="menu-item-left">
+          <text class="menu-text">开启免打扰</text>
+        </view>
+        <view class="menu-item-right">
+          <switch checked="{{doNotDisturbEnabled}}" bindchange="toggleDoNotDisturb" color="#0052d9"></switch>
+        </view>
+      </view>
+      
+      <view class="menu-item {{!doNotDisturbEnabled ? 'disabled' : ''}}">
+        <view class="menu-item-left">
+          <text class="menu-text">免打扰时段</text>
+        </view>
+        <view class="menu-item-right">
+          <text class="time-text">{{doNotDisturbStartTime}} - {{doNotDisturbEndTime}}</text>
+          <i class="t-icon t-icon-chevron-right"></i>
+        </view>
+      </view>
+    </view>
+    
+    <view class="tip">注：开启"课堂通知"后，将会收到班级动态、学生互动等相关通知</view>
+  </view>
+</view> 

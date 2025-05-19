@@ -1,0 +1,54 @@
+<!-- 顶部标题栏 -->
+<view class="header">
+  <text class="title">我的班级</text>
+  <view class="action">
+    <navigator url="/pages/student/class/join" class="add-btn">
+      <text>加入班级</text>
+    </navigator>
+  </view>
+</view>
+
+<!-- 班级列表 -->
+<scroll-view scroll-y class="content">
+  <view class="container">
+    <view class="class-list">
+      <block wx:for="{{classes}}" wx:key="id">
+        <navigator url="/pages/student/class/detail?id={{item.id}}" class="class-item">
+          <view class="flex-row">
+            <view class="class-icon bg-{{item.color}}">
+              <t-icon name="class" color="#{{item.iconColor}}" size="48rpx" />
+            </view>
+            <view class="class-info">
+              <text class="class-name">{{item.name}}</text>
+              <text class="class-teacher">班主任：{{item.teacher}}</text>
+              <text class="class-student">学生：{{item.student}}</text>
+              <view class="class-stats">
+                <text class="stat-text">{{item.studentCount}}名学生</text>
+                <text class="divider">|</text>
+                <text class="stat-text">{{item.teacherCount}}名教师</text>
+              </view>
+            </view>
+            <t-icon name="chevron-right" color="#aaa" />
+          </view>
+        </navigator>
+      </block>
+
+      <!-- 无班级提示 -->
+      <view wx:if="{{classes.length === 0}}" class="empty-tip">
+        <t-icon name="info-circle" size="96rpx" color="#aaa" />
+        <text class="empty-text">暂无班级信息</text>
+        <navigator url="/pages/student/class/join" class="join-btn">
+          <text>立即加入班级</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 底部导航栏 -->
+<t-tab-bar value="{{activeTab}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
+  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
+  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
+  <t-tab-bar-item value="features" icon="apps" badge-props="{{ { count: 0 } }}">功能</t-tab-bar-item>
+  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
+</t-tab-bar> 

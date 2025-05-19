@@ -1,0 +1,69 @@
+<!-- 顶部标题栏 -->
+<view class="header">
+  <text class="title">班级作业</text>
+</view>
+
+<!-- 主要内容区域 -->
+<scroll-view scroll-y class="content">
+  <view class="container">
+    <!-- 状态筛选 -->
+    <t-tabs value="{{activeTab}}" bind:change="onTabChange">
+      <t-tab-panel label="全部" value="all" />
+      <t-tab-panel label="待提交" value="pending" />
+      <t-tab-panel label="已提交" value="submitted" />
+      <t-tab-panel label="已批改" value="graded" />
+    </t-tabs>
+
+    <!-- 作业列表 -->
+    <view class="homework-list">
+      <block wx:if="{{filteredHomework.length > 0}}">
+        <navigator wx:for="{{filteredHomework}}" wx:key="id" 
+                  url="/pages/student/class/homework-detail?id={{item.id}}" 
+                  class="homework-item {{item.status === 'pending' ? 'status-pending' : item.status === 'submitted' ? 'status-submitted' : 'status-graded'}}">
+          <view class="homework-header">
+            <text class="homework-title">{{item.title}}</text>
+            <view class="homework-status">
+              <text class="status-text">{{item.status === 'pending' ? '待提交' : item.status === 'submitted' ? '已提交' : '已批改'}}</text>
+            </view>
+          </view>
+          <view class="homework-info">
+            <view class="info-item">
+              <t-icon name="user" size="32rpx" color="#999" />
+              <text class="info-text">{{item.teacher}}</text>
+            </view>
+            <view class="info-item">
+              <t-icon name="file" size="32rpx" color="#999" />
+              <text class="info-text">{{item.subject}}</text>
+            </view>
+          </view>
+          <view class="homework-time">
+            <view class="time-item">
+              <text class="time-label">发布时间：</text>
+              <text class="time-value">{{item.publishTime}}</text>
+            </view>
+            <view class="time-item">
+              <text class="time-label">截止时间：</text>
+              <text class="time-value {{item.isOverdue ? 'overdue' : ''}}">{{item.deadline}}</text>
+            </view>
+          </view>
+          <view wx:if="{{item.score}}" class="homework-score">
+            <text class="score-label">得分：</text>
+            <text class="score-value">{{item.score}}</text>
+          </view>
+        </navigator>
+      </block>
+      <view wx:else class="empty-tip">
+        <t-icon name="file-icon" size="96rpx" color="#ddd" />
+        <text class="empty-text">暂无作业</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 底部导航栏 -->
+<t-tab-bar value="{{activeTabBar}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
+  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
+  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
+  <t-tab-bar-item value="features" icon="apps" badge-props="{{ { count: 0 } }}">功能</t-tab-bar-item>
+  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
+</t-tab-bar> 

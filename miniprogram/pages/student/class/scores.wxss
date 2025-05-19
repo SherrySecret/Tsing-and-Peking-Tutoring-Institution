@@ -1,0 +1,232 @@
+/* pages/student/class/scores.wxss */
+page {
+  background-color: #f5f7fa;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部标题栏 */
+.header {
+  height: 88rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: 500;
+}
+
+/* 内容区域 */
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+.container {
+  padding: 32rpx;
+}
+
+/* 班级信息 */
+.class-info {
+  margin-bottom: 24rpx;
+}
+
+.class-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.semester {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 8rpx;
+}
+
+/* 卡片通用样式 */
+.stats-card, .history-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+  margin-bottom: 32rpx;
+  overflow: hidden;
+}
+
+/* 成绩统计卡片 */
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.stats-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.stats-selector {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.picker-content {
+  display: flex;
+  align-items: center;
+}
+
+.picker-content text {
+  margin-right: 8rpx;
+}
+
+.stats-content {
+  padding: 24rpx;
+}
+
+.chart-container {
+  width: 100%;
+  height: 360rpx;
+  margin-bottom: 32rpx;
+}
+
+.chart-placeholder {
+  background-color: #f8f8f8;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  border-radius: 8rpx;
+}
+
+/* 科目成绩 */
+.subject-scores {
+  margin-top: 16rpx;
+}
+
+.subject-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24rpx;
+}
+
+.subject-name {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.score-bar {
+  height: 20rpx;
+  background-color: #f0f0f0;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-bottom: 8rpx;
+}
+
+.score-progress {
+  height: 100%;
+  background-color: #0052d9;
+  border-radius: 10rpx;
+}
+
+.score-info {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  margin-top: 8rpx;
+}
+
+.score-value {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #0052d9;
+}
+
+.score-divider {
+  margin: 0 4rpx;
+  color: #999;
+}
+
+.score-full {
+  color: #999;
+}
+
+.score-rank {
+  font-size: 24rpx;
+  color: #666;
+  text-align: right;
+  margin-top: 4rpx;
+}
+
+/* 历史成绩卡片 */
+.card-header {
+  padding: 24rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.history-list {
+  padding: 0 24rpx;
+}
+
+.history-item {
+  display: flex;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-info {
+  flex: 1;
+}
+
+.history-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.history-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.history-score {
+  margin-right: 24rpx;
+  text-align: right;
+}
+
+.total-score {
+  font-size: 28rpx;
+  color: #333;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.rank-info {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.history-arrow {
+  display: flex;
+  align-items: center;
+} 

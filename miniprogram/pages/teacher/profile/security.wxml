@@ -1,0 +1,91 @@
+<view class="container">
+  <view class="header flex items-center">
+    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
+      <i class="t-icon t-icon-chevron-left"></i>
+    </view>
+    <text class="title">安全设置</text>
+  </view>
+
+  <view class="content">
+    <view class="section">
+      <view class="section-header">账号安全</view>
+      
+      <view class="menu-item" bindtap="navigateToPasswordChange">
+        <view class="menu-item-left">
+          <view class="icon-wrapper">
+            <i class="t-icon t-icon-lock"></i>
+          </view>
+          <text class="menu-text">修改密码</text>
+        </view>
+        <view class="menu-item-right">
+          <i class="t-icon t-icon-chevron-right"></i>
+        </view>
+      </view>
+      
+      <view class="menu-item" bindtap="navigateToPhoneBinding">
+        <view class="menu-item-left">
+          <view class="icon-wrapper">
+            <i class="t-icon t-icon-mobile"></i>
+          </view>
+          <text class="menu-text">手机绑定</text>
+        </view>
+        <view class="menu-item-right">
+          <text class="status-text">已绑定</text>
+          <i class="t-icon t-icon-chevron-right"></i>
+        </view>
+      </view>
+      
+      <view class="menu-item" bindtap="navigateToEmailBinding">
+        <view class="menu-item-left">
+          <view class="icon-wrapper">
+            <i class="t-icon t-icon-mail"></i>
+          </view>
+          <text class="menu-text">邮箱绑定</text>
+        </view>
+        <view class="menu-item-right">
+          <text class="status-text">未绑定</text>
+          <i class="t-icon t-icon-chevron-right"></i>
+        </view>
+      </view>
+    </view>
+    
+    <view class="section">
+      <view class="section-header">安全验证</view>
+      
+      <view class="menu-item">
+        <view class="menu-item-left">
+          <view class="icon-wrapper">
+            <i class="t-icon t-icon-user-avatar"></i>
+          </view>
+          <text class="menu-text">面容识别登录</text>
+        </view>
+        <view class="menu-item-right">
+          <switch checked="{{faceIdEnabled}}" bindchange="toggleFaceId" color="#0052d9"></switch>
+        </view>
+      </view>
+      
+      <view class="menu-item">
+        <view class="menu-item-left">
+          <view class="icon-wrapper">
+            <i class="t-icon t-icon-fingerprint"></i>
+          </view>
+          <text class="menu-text">指纹识别登录</text>
+        </view>
+        <view class="menu-item-right">
+          <switch checked="{{fingerprintEnabled}}" bindchange="toggleFingerprint" color="#0052d9"></switch>
+        </view>
+      </view>
+    </view>
+    
+    <view class="section">
+      <view class="menu-item danger" bindtap="showLogoutConfirm">
+        <view class="menu-item-left">
+          <view class="icon-wrapper logout-icon">
+            <i class="t-icon t-icon-logout"></i>
+          </view>
+          <text class="menu-text logout-text">退出登录</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

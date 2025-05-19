@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="header flex items-center">
+    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
+      <i class="t-icon t-icon-chevron-left"></i>
+    </view>
+    <text class="title">关于我们</text>
+  </view>
+
+  <view class="content">
+    <view class="logo-container">
+      <image src="/assets/images/logo.png" mode="aspectFit" class="logo"></image>
+      <text class="app-name">班级管理系统</text>
+      <text class="version">版本 1.0.0</text>
+    </view>
+
+    <view class="section">
+      <view class="section-title">产品介绍</view>
+      <view class="section-content">
+        本系统是一款专为教育机构设计的班级管理平台，旨在提供全面的教学管理解决方案。系统集教师与学生端于一体，实现了课堂管理、作业布置与批改、考勤记录、成绩统计等核心功能。
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">联系我们</view>
+      <view class="contact-item">
+        <view class="label">官方网站</view>
+        <view class="value">www.edumanage.com</view>
+      </view>
+      <view class="contact-item">
+        <view class="label">客服电话</view>
+        <view class="value">400-123-4567</view>
+      </view>
+      <view class="contact-item">
+        <view class="label">服务邮箱</view>
+        <view class="value">support@edumanage.com</view>
+      </view>
+    </view>
+
+    <view class="copyright">
+      <text>© 2023 班级管理系统 保留所有权利</text>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,257 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  padding: 8px 16px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  color: #0052d9;
+  font-size: 14px;
+}
+
+.add-button i {
+  margin-right: 4px;
+}
+
+.content {
+  flex: 1;
+  padding: 16px;
+  margin-top: 44px;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.mr-2 {
+  margin-right: 8px;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+/* 筛选栏 */
+.filter-bar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.filter-item {
+  flex: 1;
+}
+
+.filter-label {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.picker-view {
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.picker-view i {
+  color: #999;
+  font-size: 12px;
+}
+
+/* 成绩卡片 */
+.grade-list {
+  margin-bottom: 20px;
+}
+
+.grade-card {
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.header-title text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.status-tag {
+  font-size: 12px;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.status-tag.completed {
+  background-color: #00a870;
+}
+
+.status-tag.incomplete {
+  background-color: #ff7d00;
+}
+
+.exam-date {
+  font-size: 14px;
+  color: #666;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.stat-value.avg {
+  color: #0052d9;
+}
+
+.stat-value.high {
+  color: #00a870;
+}
+
+.stat-value.low {
+  color: #ff7d00;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #666;
+}
+
+.grade-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grade-class {
+  font-size: 14px;
+  color: #666;
+}
+
+.grade-action {
+  font-size: 14px;
+  color: #0052d9;
+  display: flex;
+  align-items: center;
+}
+
+.grade-action i {
+  margin-left: 4px;
+}
+
+.grade-count {
+  font-size: 14px;
+  color: #666;
+}
+
+.enter-grade {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.enter-button {
+  background-color: #0052d9;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 4px;
+  line-height: 1.5;
+}
+
+.enter-button::after {
+  display: none;
+}
+
+.enter-button i {
+  margin-right: 4px;
+}
+
+/* 无数据提示 */
+.empty-tip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.empty-tip image {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 16px;
+}
+
+.empty-tip text {
+  font-size: 14px;
+  color: #999;
+} 

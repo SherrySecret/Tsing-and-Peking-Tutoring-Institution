@@ -1,0 +1,125 @@
+<!-- pages/teacher/class/notice-manage.wxml -->
+<view class="container">
+  <!-- 顶部标题栏 -->
+  <view class="header">
+    <navigator url="class-detail" open-type="navigate" class="back-btn">
+      <t-icon name="chevron-left" size="xl" color="#0052D9" />
+    </navigator>
+    <view class="header-title">通知管理</view>
+  </view>
+
+  <!-- 通知分类标签 -->
+  <view class="tab-container">
+    <t-tabs value="{{activeTab}}" bind:change="onTabChange" t-class="custom-tabs">
+      <t-tab-panel wx:for="{{tabs}}" wx:key="value" label="{{item.text}}" value="{{item.value}}" />
+    </t-tabs>
+  </view>
+
+  <!-- 通知列表 -->
+  <view class="notice-list-container">
+    <view class="notice-header">
+      <text class="section-title">通知列表</text>
+      <view class="header-actions">
+        <view class="action-btn">
+          <t-icon name="filter" size="xs" />
+          <text>筛选</text>
+        </view>
+        <view class="action-btn">
+          <t-icon name="sort" size="xs" />
+          <text>排序</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="notice-list">
+      <view wx:for="{{noticeList}}" wx:key="id" class="notice-item">
+        <view class="notice-top">
+          <view class="notice-title-wrap">
+            <text class="notice-type {{item.typeClass}}">{{item.type}}</text>
+            <text class="notice-title">{{item.title}}</text>
+          </view>
+          <text class="notice-time">{{item.time}}</text>
+        </view>
+        
+        <view class="notice-content">{{item.content}}</view>
+        
+        <view class="notice-bottom">
+          <text class="notice-read-count">已读：{{item.readCount}}/{{item.totalCount}}</text>
+          <view class="notice-actions">
+            <text class="edit-btn" bindtap="editNotice" data-id="{{item.id}}">编辑</text>
+            <text class="delete-btn" bindtap="deleteNotice" data-id="{{item.id}}">删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 悬浮添加按钮 -->
+  <view class="floating-btn" bindtap="openPublishModal">
+    <text>+</text>
+  </view>
+
+  <!-- 发布通知弹窗 -->
+  <t-popup visible="{{showPublishModal}}" bind:visible-change="closePublishModal" placement="bottom">
+    <view class="publish-modal">
+      <view class="modal-header">
+        <text class="modal-title">发布新通知</text>
+        <t-icon name="close" size="xl" bind:tap="closePublishModal" />
+      </view>
+
+      <view class="modal-content">
+        <!-- 通知标题 -->
+        <t-input label="通知标题" placeholder="请输入通知标题" value="{{noticeTitle}}" bindchange="onTitleInput" />
+        
+        <!-- 通知类型选择器 -->
+        <t-picker 
+          title="选择通知类型"
+          visible="{{typePickerVisible}}"
+          value="{{noticeTypeIndex}}"
+          cancelBtn="取消"
+          confirmBtn="确认"
+          bind:confirm="onTypeConfirm"
+          bind:cancel="onTypePickerCancel"
+        >
+          <t-picker-item options="{{noticeTypes}}"/>
+        </t-picker>
+        
+        <view class="type-select" bind:tap="showTypePicker">
+          <view class="type-label">通知类型</view>
+          <view class="type-value">{{noticeType || '请选择通知类型'}}</view>
+          <t-icon name="chevron-right" size="small" color="#BBBBBB" />
+        </view>
+        
+        <!-- 通知内容 -->
+        <t-textarea label="通知内容" placeholder="请输入通知内容" value="{{noticeContent}}" disableDefaultPadding="{{true}}" autosize bindchange="onContentInput" />
+        
+        <!-- 附件 -->
+        <view class="attachment-section">
+          <text class="section-label">附件</text>
+          <view class="attachment-box" bindtap="addAttachment">
+            <view class="add-attachment">
+              <t-icon name="attach" size="xl" />
+              <text>添加附件</text>
+            </view>
+          </view>
+          
+          <view wx:if="{{attachment}}" class="attachment-preview">
+            <t-icon name="file" />
+            <text>{{attachment.name}}</text>
+          </view>
+        </view>
+        
+        <!-- 发送通知提醒 -->
+        <view class="notify-option">
+          <t-checkbox value="{{sendNotify}}" bind:change="toggleNotify" label="发送通知提醒" />
+        </view>
+        
+        <!-- 按钮区域 -->
+        <view class="modal-footer">
+          <t-button theme="light" bindtap="closePublishModal">取消</t-button>
+          <t-button theme="primary" bindtap="submitNotice">发布通知</t-button>
+        </view>
+      </view>
+    </view>
+  </t-popup>
+</view> 

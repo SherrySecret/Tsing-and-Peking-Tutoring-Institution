@@ -1,0 +1,72 @@
+<view class="container">
+  <view class="header flex items-center">
+    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
+      <i class="t-icon t-icon-chevron-left"></i>
+    </view>
+    <text class="title">作业管理</text>
+  </view>
+
+  <view class="content">
+    <!-- 筛选和搜索 -->
+    <view class="filter-bar">
+      <view class="filter-options">
+        <view class="filter-item {{filter === 'all' ? 'active' : ''}}" bindtap="setFilter" data-filter="all">全部</view>
+        <view class="filter-item {{filter === 'pending' ? 'active' : ''}}" bindtap="setFilter" data-filter="pending">未批改</view>
+        <view class="filter-item {{filter === 'corrected' ? 'active' : ''}}" bindtap="setFilter" data-filter="corrected">已批改</view>
+      </view>
+      <view class="search-box">
+        <i class="t-icon t-icon-search"></i>
+        <input type="text" placeholder="搜索作业名称" bindinput="searchHomework" />
+      </view>
+    </view>
+
+    <!-- 班级选择器 -->
+    <view class="class-selector" bindtap="showClassPicker">
+      <text>{{selectedClass || '选择班级'}}</text>
+      <i class="t-icon t-icon-chevron-down"></i>
+    </view>
+
+    <!-- 作业列表 -->
+    <view class="homework-list">
+      <view class="homework-item" wx:for="{{filteredHomeworks}}" wx:key="id" bindtap="goToHomeworkDetail" data-id="{{item.id}}">
+        <view class="homework-info">
+          <view class="homework-title">{{item.title}}</view>
+          <view class="homework-meta">
+            <view class="homework-class">{{item.className}}</view>
+            <view class="homework-date">发布时间：{{item.publishDate}}</view>
+            <view class="homework-deadline">截止时间：{{item.deadline}}</view>
+          </view>
+          <view class="homework-stats">
+            <view class="stat-item">
+              <text class="stat-label">提交人数</text>
+              <text class="stat-value">{{item.submittedCount}}/{{item.totalCount}}</text>
+            </view>
+            <view class="stat-item">
+              <text class="stat-label">批改进度</text>
+              <text class="stat-value">{{item.correctedCount}}/{{item.submittedCount}}</text>
+            </view>
+            <view class="stat-item">
+              <text class="stat-label">平均分</text>
+              <text class="stat-value">{{item.averageScore || '-'}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="homework-status {{item.status === 'pending' ? 'pending' : (item.status === 'correcting' ? 'correcting' : 'completed')}}">
+          {{item.status === 'pending' ? '未批改' : (item.status === 'correcting' ? '批改中' : '已批改')}}
+        </view>
+        <i class="t-icon t-icon-chevron-right"></i>
+      </view>
+      
+      <!-- 暂无作业提示 -->
+      <view class="empty-tip" wx:if="{{filteredHomeworks.length === 0}}">
+        <image src="/assets/images/empty-homework.png" mode="aspectFit"></image>
+        <text>暂无相关作业</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 新建作业按钮 -->
+  <view class="float-button" bindtap="createHomework">
+    <i class="t-icon t-icon-add"></i>
+  </view>
+</view> 

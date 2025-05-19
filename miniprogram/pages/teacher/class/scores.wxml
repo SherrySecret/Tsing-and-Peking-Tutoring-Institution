@@ -1,0 +1,132 @@
+<!-- pages/teacher/class/scores.wxml -->
+<view class="container">
+  <!-- 顶部标题栏 -->
+  <view class="header">
+    <navigator url="class-detail" open-type="navigate" class="back-btn">
+      <t-icon name="chevron-left" size="xl" color="#0052D9" />
+    </navigator>
+    <view class="header-title">班级成绩</view>
+  </view>
+
+  <!-- 筛选栏 -->
+  <view class="filter-bar">
+    <view class="filter-item">
+      <t-dropdown-menu>
+        <t-dropdown-item options="{{examTypeList}}" value="{{selectedExamType}}" bindchange="changeExamType" />
+      </t-dropdown-menu>
+    </view>
+    <view class="filter-item">
+      <t-dropdown-menu>
+        <t-dropdown-item options="{{semesterList}}" value="{{selectedSemester}}" bindchange="changeSemester" />
+      </t-dropdown-menu>
+    </view>
+  </view>
+
+  <!-- 成绩概览 -->
+  <view class="overview-card">
+    <view class="section-title">班级成绩概览</view>
+    <view class="stat-row">
+      <view class="stat-item">
+        <view class="stat-value primary">{{overview.averageScore}}</view>
+        <view class="stat-label">平均分</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-value success">{{overview.highestScore}}</view>
+        <view class="stat-label">最高分</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-value danger">{{overview.lowestScore}}</view>
+        <view class="stat-label">最低分</view>
+      </view>
+    </view>
+
+    <!-- 成绩分布图 -->
+    <view class="distribution-bar">
+      <view wx:for="{{overview.distribution}}" wx:key="label" class="distribution-segment" 
+        style="width: {{item.percentage}}%; background-color: {{item.color}};">
+      </view>
+    </view>
+    <view class="distribution-legend">
+      <view wx:for="{{overview.distribution}}" wx:key="label" class="legend-item">
+        <text>{{item.label}}：{{item.percentage}}%</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 成绩列表 -->
+  <view class="score-list-section">
+    <view class="section-title">{{currentExamName}}</view>
+    <view class="score-list">
+      <view wx:for="{{studentScores}}" wx:key="id" class="student-score-item">
+        <view class="student-info">
+          <view class="avatar">
+            <t-icon name="user" size="lg" />
+          </view>
+          <view class="student-details">
+            <view class="student-name">{{item.name}}</view>
+            <view class="student-id">学号：{{item.id}}</view>
+          </view>
+        </view>
+        <view class="score {{item.status}}">{{item.score}}</view>
+      </view>
+    </view>
+
+    <view class="more-btn" bindtap="viewMoreStudents">
+      查看更多学生
+    </view>
+  </view>
+
+  <!-- 悬浮添加按钮 -->
+  <view class="floating-btn" bindtap="openImportModal">
+    <text>+</text>
+  </view>
+
+  <!-- 导入成绩弹窗 -->
+  <t-popup visible="{{showImportModal}}" bind:visible-change="closeImportModal" placement="bottom">
+    <view class="import-modal">
+      <view class="modal-header">
+        <text class="modal-title">录入成绩</text>
+        <t-icon name="close" size="xl" bind:tap="closeImportModal" />
+      </view>
+
+      <view class="modal-content">
+        <!-- 考试信息 -->
+        <t-input label="考试名称" placeholder="请输入考试名称，如：期中考试" value="{{examName}}" bindchange="onExamNameInput" />
+        
+        <!-- 考试科目 -->
+        <t-select label="考试科目" value="{{examSubject}}" options="['全科', '数学', '语文', '英语', '物理', '化学', '生物']" bindchange="onSubjectChange" />
+        
+        <!-- 考试时间 -->
+        <t-date-time-picker mode="date" title="考试时间" value="{{examDate}}" bindchange="onDateChange" />
+        
+        <!-- 导入文件 -->
+        <view class="upload-section">
+          <text class="section-label">导入成绩文件</text>
+          <view class="upload-box" bindtap="chooseFile">
+            <t-icon name="upload" size="xl" color="#a6a6a6" />
+            <text class="upload-hint">点击上传或拖拽文件到此处</text>
+            <text class="upload-format">支持 Excel、CSV 格式文件</text>
+            <t-button theme="primary" size="small">选择文件</t-button>
+          </view>
+          
+          <view wx:if="{{filePreview}}" class="file-preview">
+            <t-icon name="file" />
+            <text>{{filePreview}}</text>
+          </view>
+        </view>
+        
+        <!-- 文件模板 -->
+        <view class="template-hint">
+          <text>请确保文件包含"学号"、"姓名"、"成绩"等必要信息。</text>
+          <text class="link" bindtap="downloadTemplate">下载模板</text>
+        </view>
+        
+        <!-- 按钮区域 -->
+        <view class="modal-footer">
+          <t-button theme="light" bindtap="closeImportModal">取消</t-button>
+          <t-button theme="primary" bindtap="submitImport">导入成绩</t-button>
+        </view>
+      </view>
+    </view>
+  </t-popup>
+</view> 

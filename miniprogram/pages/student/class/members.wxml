@@ -1,0 +1,88 @@
+<!-- 顶部标题栏 -->
+<view class="header">
+  <text class="title">班级成员</text>
+</view>
+
+<!-- 主要内容区域 -->
+<scroll-view scroll-y class="content">
+  <view class="container">
+    <!-- 班级信息 -->
+    <view class="class-info">
+      <view class="class-name">{{className}}</view>
+      <view class="class-meta">
+        <text class="meta-item">{{classMembers.length}}名成员</text>
+        <text class="meta-item">{{teacherCount}}名教师</text>
+      </view>
+    </view>
+
+    <!-- 搜索栏 -->
+    <view class="search-bar">
+      <view class="search-inner">
+        <t-icon name="search" size="40rpx" color="#999" />
+        <input type="text" placeholder="搜索成员" bindinput="onSearchInput" value="{{searchKeyword}}" />
+      </view>
+    </view>
+
+    <!-- 成员分类标签 -->
+    <view class="tabs">
+      <view class="tab {{activeTab === 'all' ? 'active' : ''}}" bindtap="switchTab" data-tab="all">全部</view>
+      <view class="tab {{activeTab === 'teacher' ? 'active' : ''}}" bindtap="switchTab" data-tab="teacher">老师</view>
+      <view class="tab {{activeTab === 'student' ? 'active' : ''}}" bindtap="switchTab" data-tab="student">同学</view>
+    </view>
+
+    <!-- 成员列表 -->
+    <view class="member-list">
+      <!-- 教师列表 -->
+      <block wx:if="{{activeTab === 'all' || activeTab === 'teacher'}}">
+        <view class="member-group" wx:if="{{filteredTeachers.length > 0}}">
+          <view class="group-title" wx:if="{{activeTab === 'all'}}">老师 ({{filteredTeachers.length}})</view>
+          <view class="member-items">
+            <view class="member-item" wx:for="{{filteredTeachers}}" wx:key="id">
+              <image class="member-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+              <view class="member-info">
+                <view class="member-name">
+                  <text>{{item.name}}</text>
+                  <view class="member-tag teacher">{{item.role}}</view>
+                </view>
+                <view class="member-subject">{{item.subject}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <!-- 学生列表 -->
+      <block wx:if="{{activeTab === 'all' || activeTab === 'student'}}">
+        <view class="member-group" wx:if="{{filteredStudents.length > 0}}">
+          <view class="group-title" wx:if="{{activeTab === 'all'}}">同学 ({{filteredStudents.length}})</view>
+          <view class="member-items">
+            <view class="member-item" wx:for="{{filteredStudents}}" wx:key="id">
+              <image class="member-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+              <view class="member-info">
+                <view class="member-name">
+                  <text>{{item.name}}</text>
+                  <view class="member-tag student" wx:if="{{item.isMonitor}}">班长</view>
+                </view>
+                <view class="member-meta">{{item.studentId}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <!-- 空状态 -->
+      <view class="empty-state" wx:if="{{(activeTab === 'teacher' && filteredTeachers.length === 0) || (activeTab === 'student' && filteredStudents.length === 0) || (activeTab === 'all' && filteredTeachers.length === 0 && filteredStudents.length === 0)}}">
+        <t-icon name="user-circle" size="96rpx" color="#ddd" />
+        <text class="empty-text">暂无{{activeTab === 'teacher' ? '教师' : activeTab === 'student' ? '学生' : '成员'}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 底部导航栏 -->
+<t-tab-bar value="{{activeTabBar}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
+  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
+  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
+  <t-tab-bar-item value="features" icon="apps" badge-props="{{ { count: 0 } }}">功能</t-tab-bar-item>
+  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
+</t-tab-bar> 

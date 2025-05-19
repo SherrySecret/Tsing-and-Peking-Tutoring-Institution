@@ -1,0 +1,70 @@
+<!-- 顶部标题栏 -->
+<view class="header">
+  <text class="title">学生档案</text>
+</view>
+
+<!-- 主要内容区域 -->
+<scroll-view scroll-y class="content">
+  <view class="container">
+    <!-- 搜索栏 -->
+    <view class="search-bar">
+      <view class="search-inner">
+        <t-icon name="search" size="40rpx" color="#999" />
+        <input type="text" placeholder="搜索学生" bindinput="onSearchInput" value="{{searchKeyword}}" />
+      </view>
+    </view>
+
+    <!-- 学生列表 -->
+    <view class="student-list">
+      <view class="student-item" wx:for="{{filteredStudents}}" wx:key="id" bindtap="onStudentTap" data-id="{{item.id}}">
+        <image class="student-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="student-info">
+          <view class="student-name-row">
+            <text class="student-name">{{item.name}}</text>
+            <text class="student-gender">{{item.gender}}</text>
+          </view>
+          <view class="student-meta">{{item.school}} · {{item.grade}}</view>
+          <view class="student-id">学号: {{item.studentId || '未设置'}}</view>
+        </view>
+        <view class="student-actions">
+          <view class="action-btn edit" catchtap="editStudent" data-id="{{item.id}}">
+            <t-icon name="edit" size="44rpx" color="#0052d9" />
+          </view>
+          <view class="action-btn delete" catchtap="deleteStudent" data-id="{{item.id}}">
+            <t-icon name="delete" size="44rpx" color="#f53f3f" />
+          </view>
+        </view>
+      </view>
+
+      <!-- 空状态 -->
+      <view class="empty-state" wx:if="{{filteredStudents.length === 0}}">
+        <image class="empty-image" src="/assets/images/empty-box.png" mode="aspectFit"></image>
+        <text class="empty-text">暂无学生档案</text>
+      </view>
+    </view>
+
+    <!-- 添加学生按钮 -->
+    <view class="add-button" bindtap="addStudent">
+      <t-icon name="add" size="48rpx" color="#fff" />
+    </view>
+
+    <!-- 删除确认弹窗 -->
+    <t-dialog
+      visible="{{showDeleteConfirm}}"
+      title="删除确认"
+      content="确定要删除该学生档案吗？此操作不可恢复。"
+      confirm-btn="{{ { content: '确认删除', variant: 'danger' } }}"
+      cancel-btn="取消"
+      bind:confirm="confirmDelete"
+      bind:cancel="cancelDelete"
+    />
+  </view>
+</scroll-view>
+
+<!-- 底部导航栏 -->
+<t-tab-bar value="{{activeTabBar}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
+  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
+  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
+  <t-tab-bar-item value="features" icon="apps" badge-props="{{ { count: 0 } }}">功能</t-tab-bar-item>
+  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
+</t-tab-bar> 

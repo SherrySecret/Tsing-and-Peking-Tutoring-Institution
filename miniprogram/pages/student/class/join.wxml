@@ -1,0 +1,61 @@
+<!-- 顶部标题栏 -->
+<view class="header">
+  <text class="title">加入班级</text>
+</view>
+
+<!-- 主要内容区域 -->
+<view class="content">
+  <view class="container">
+    <view class="form-card">
+      <view class="form-item">
+        <text class="form-label">班级邀请码</text>
+        <view class="code-input-area">
+          <input class="code-input" type="text" value="{{inviteCode}}" bindinput="onInviteCodeInput" placeholder="请输入6位班级邀请码" maxlength="6" />
+          <view class="scan-btn" bindtap="scanQRCode">
+            <t-icon name="scan" size="48rpx" />
+          </view>
+        </view>
+        <text class="form-tips">请输入老师分享的6位班级邀请码，或扫描二维码加入</text>
+      </view>
+
+      <view class="student-select" wx:if="{{students.length > 0}}">
+        <text class="form-label">选择身份</text>
+        <radio-group class="student-list" bindchange="onStudentSelect">
+          <label class="student-item" wx:for="{{students}}" wx:key="id">
+            <radio value="{{item.id}}" checked="{{selectedStudentId === item.id}}" />
+            <view class="student-info">
+              <image class="student-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+              <view class="student-detail">
+                <text class="student-name">{{item.name}}</text>
+                <text class="student-meta">{{item.school}} {{item.grade}}</text>
+              </view>
+            </view>
+          </label>
+        </radio-group>
+
+        <view class="add-student" bindtap="addNewStudent">
+          <t-icon name="add-circle" size="40rpx" color="#0052d9" />
+          <text>添加新学生档案</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="action-area">
+      <t-button theme="primary" size="large" block bindtap="joinClass" disabled="{{!canJoin}}">加入班级</t-button>
+    </view>
+
+    <!-- 班级加入成功提示 -->
+    <t-popup visible="{{joinSuccess}}" bind:visible-change="onPopupChange" placement="center">
+      <view class="popup-content">
+        <view class="success-icon">
+          <t-icon name="check-circle-filled" size="96rpx" color="#00a870" />
+        </view>
+        <text class="success-title">加入班级成功</text>
+        <text class="success-desc">您已成功加入 {{className}}</text>
+        <view class="popup-btns">
+          <t-button theme="primary" size="large" block bindtap="goToClassDetail">进入班级</t-button>
+        </view>
+      </view>
+    </t-popup>
+  </view>
+</view> 

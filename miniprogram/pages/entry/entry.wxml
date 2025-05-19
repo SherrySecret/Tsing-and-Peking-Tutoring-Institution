@@ -1,0 +1,26 @@
+<view class="container">
+  <!-- Logo和标题 -->
+  <view class="logo-container">
+    <view class="logo">
+      <t-icon name="class" size="48" color="#fff" />
+    </view>
+    <text class="title">筑梦清北</text>
+  </view>
+
+  <!-- 角色选择按钮 -->
+  <view class="button-group">
+    <t-button theme="primary" size="large" block bind:tap="navigateToTeacher">
+      <t-icon name="user" size="24" slot="icon" />
+      我是老师
+    </t-button>
+    <t-button theme="default" size="large" block bind:tap="navigateToStudent" class="mt-4">
+      <t-icon name="user-circle" size="24" slot="icon" />
+      我是学生/家长
+    </t-button>
+  </view>
+
+  <!-- 底部版权信息 -->
+  <view class="footer">
+    © 2024 班级管理系统
+  </view>
+</view> 

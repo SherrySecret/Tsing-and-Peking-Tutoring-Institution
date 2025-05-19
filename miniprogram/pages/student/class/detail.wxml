@@ -1,0 +1,133 @@
+<!-- 顶部标题栏 -->
+<view class="header">
+  <text class="title">班级详情</text>
+  <view class="action">
+    <view class="more-btn" bindtap="showMoreActions">
+      <t-icon name="more" />
+    </view>
+  </view>
+</view>
+
+<!-- 班级基本信息卡片 -->
+<scroll-view scroll-y class="content">
+  <view class="container">
+    <view class="class-card">
+      <view class="class-header">
+        <view class="class-icon bg-{{classInfo.color}}">
+          <t-icon name="class" color="#{{classInfo.iconColor}}" size="48rpx" />
+        </view>
+        <view class="class-info">
+          <text class="class-name">{{classInfo.name}}</text>
+          <text class="class-code">班级码：{{classInfo.code}}</text>
+        </view>
+      </view>
+      <view class="class-data">
+        <view class="data-item">
+          <text class="data-value">{{classInfo.studentCount}}</text>
+          <text class="data-label">学生</text>
+        </view>
+        <view class="data-item">
+          <text class="data-value">{{classInfo.teacherCount}}</text>
+          <text class="data-label">教师</text>
+        </view>
+        <view class="data-item">
+          <text class="data-value">{{classInfo.noticeCount}}</text>
+          <text class="data-label">通知</text>
+        </view>
+        <view class="data-item">
+          <text class="data-value">{{classInfo.homeworkCount}}</text>
+          <text class="data-label">作业</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 功能入口 -->
+    <view class="function-grid">
+      <navigator url="/pages/student/class/notice-detail?id={{classInfo.id}}" class="function-item">
+        <view class="function-icon bg-blue">
+          <t-icon name="notification" color="#0052d9" size="40rpx" />
+        </view>
+        <text class="function-name">班级通知</text>
+      </navigator>
+      <navigator url="/pages/student/class/homework?id={{classInfo.id}}" class="function-item">
+        <view class="function-icon bg-green">
+          <t-icon name="file-icon" color="#00a870" size="40rpx" />
+        </view>
+        <text class="function-name">班级作业</text>
+      </navigator>
+      <navigator url="/pages/student/class/files?id={{classInfo.id}}" class="function-item">
+        <view class="function-icon bg-orange">
+          <t-icon name="folder" color="#f59e0b" size="40rpx" />
+        </view>
+        <text class="function-name">班级资料</text>
+      </navigator>
+      <navigator url="/pages/student/class/scores?id={{classInfo.id}}" class="function-item">
+        <view class="function-icon bg-purple">
+          <t-icon name="chart" color="#9e67e7" size="40rpx" />
+        </view>
+        <text class="function-name">成绩查询</text>
+      </navigator>
+      <navigator url="/pages/student/class/members?id={{classInfo.id}}" class="function-item">
+        <view class="function-icon bg-cyan">
+          <t-icon name="usergroup" color="#06b6d4" size="40rpx" />
+        </view>
+        <text class="function-name">班级成员</text>
+      </navigator>
+    </view>
+
+    <!-- 最新通知 -->
+    <view class="notice-section">
+      <view class="section-header">
+        <text class="section-title">最新通知</text>
+        <navigator url="/pages/student/class/notice-detail?id={{classInfo.id}}" class="view-all">查看全部</navigator>
+      </view>
+      <view class="notice-list">
+        <block wx:if="{{notices.length > 0}}">
+          <view wx:for="{{notices}}" wx:key="id" class="notice-item">
+            <view class="notice-content">
+              <text class="notice-title">{{item.title}}</text>
+              <text class="notice-time">{{item.time}}</text>
+            </view>
+            <t-icon name="chevron-right" color="#bbb" />
+          </view>
+        </block>
+        <view wx:else class="empty-tip">
+          <text>暂无通知</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 作业列表 -->
+    <view class="homework-section">
+      <view class="section-header">
+        <text class="section-title">最新作业</text>
+        <navigator url="/pages/student/class/homework?id={{classInfo.id}}" class="view-all">查看全部</navigator>
+      </view>
+      <view class="homework-list">
+        <block wx:if="{{homeworks.length > 0}}">
+          <view wx:for="{{homeworks}}" wx:key="id" class="homework-item">
+            <view class="homework-content">
+              <text class="homework-title">{{item.title}}</text>
+              <text class="homework-desc">{{item.subject}} • {{item.status}}</text>
+              <text class="homework-time">截止时间：{{item.deadline}}</text>
+            </view>
+            <view class="homework-status {{item.submitted ? 'status-done' : 'status-pending'}}">
+              {{item.submitted ? '已提交' : '待提交'}}
+            </view>
+          </view>
+        </block>
+        <view wx:else class="empty-tip">
+          <text>暂无作业</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 底部导航栏 -->
+<t-tab-bar value="{{activeTab}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
+  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
+  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
+  <t-tab-bar-item value="features" icon="apps" badge-props="{{ { count: 0 } }}">功能</t-tab-bar-item>
+  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
+</t-tab-bar> 

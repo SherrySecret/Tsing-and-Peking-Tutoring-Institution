@@ -1,0 +1,72 @@
+ /* 页面整体样式 */
+.header {
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #f0f0f0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+/* 班级信息卡片 */
+.class-info {
+  margin-top: 88rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.class-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  background: linear-gradient(135deg, #0052d9, #00a870);
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 24rpx;
+}
+
+.class-avatar text {
+  font-size: 50rpx;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.class-detail {
+  flex: 1;
+}
+
+.class-name {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 10rpx;
+}
+
+.class-stats {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+/* 管理部分 */
+.manage-section {
+  padding: 20rpx 0;
+  margin-bottom: 100rpx;
+}
+
+.action-buttons {
+  padding: 30rpx;
+  margin-bottom: 150rpx;
+}

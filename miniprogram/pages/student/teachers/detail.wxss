@@ -1,0 +1,183 @@
+/* pages/student/teachers/detail.wxss */
+page {
+  background-color: #f5f7fa;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部标题栏 */
+.header {
+  height: 88rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: 500;
+}
+
+/* 内容区域 */
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+.container {
+  padding: 32rpx;
+}
+
+/* 教师卡片 */
+.teacher-card {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.teacher-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.teacher-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  margin-right: 24rpx;
+  background-color: #f0f0f0;
+}
+
+.teacher-info {
+  flex: 1;
+}
+
+.teacher-name-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.teacher-name {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #333;
+  margin-right: 12rpx;
+}
+
+.teacher-tag {
+  font-size: 20rpx;
+  padding: 4rpx 8rpx;
+  border-radius: 4rpx;
+  color: #fff;
+  background-color: #0052d9;
+}
+
+.teacher-subject {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.teacher-details {
+  border-top: 1rpx solid #f0f0f0;
+  padding-top: 24rpx;
+}
+
+.detail-item {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.detail-label {
+  width: 160rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.detail-value {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 卡片通用样式 */
+.section-card {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 16rpx;
+  display: flex;
+  align-items: center;
+}
+
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 6rpx;
+  height: 30rpx;
+  background-color: #0052d9;
+  margin-right: 12rpx;
+  border-radius: 3rpx;
+}
+
+.section-content {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 课程列表 */
+.course-list {
+  margin-top: 16rpx;
+}
+
+.course-item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.course-item:last-child {
+  border-bottom: none;
+}
+
+.course-icon {
+  margin-right: 16rpx;
+}
+
+.course-info {
+  flex: 1;
+}
+
+.course-name {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 4rpx;
+  display: block;
+}
+
+.course-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 联系按钮 */
+.contact-button {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+} 

@@ -1,0 +1,175 @@
+<view class="container">
+  <view class="header flex items-center">
+    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
+      <i class="t-icon t-icon-chevron-left"></i>
+    </view>
+    <text class="title">数据分析</text>
+  </view>
+
+  <view class="content">
+    <!-- 切换标签 -->
+    <view class="tabs">
+      <view class="tab-item {{currentTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">教学数据</view>
+      <view class="tab-item {{currentTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">班级数据</view>
+      <view class="tab-item {{currentTab === 2 ? 'active' : ''}}" bindtap="switchTab" data-index="2">学生数据</view>
+      <view class="tab-line" style="left: {{currentTab * 33.33}}%"></view>
+    </view>
+
+    <!-- 教学数据 -->
+    <view class="tab-content" hidden="{{currentTab !== 0}}">
+      <!-- 数据卡片 -->
+      <view class="data-cards">
+        <view class="data-card">
+          <view class="card-title">本月批改作业</view>
+          <view class="card-value">265<text class="card-unit">份</text></view>
+          <view class="card-trend up">
+            <i class="t-icon t-icon-arrow-up"></i>
+            <text>15.2%</text>
+          </view>
+        </view>
+        <view class="data-card">
+          <view class="card-title">本周授课课时</view>
+          <view class="card-value">18<text class="card-unit">课时</text></view>
+          <view class="card-trend down">
+            <i class="t-icon t-icon-arrow-down"></i>
+            <text>5.3%</text>
+          </view>
+        </view>
+        <view class="data-card">
+          <view class="card-title">教研活动</view>
+          <view class="card-value">8<text class="card-unit">次</text></view>
+          <view class="card-trend up">
+            <i class="t-icon t-icon-arrow-up"></i>
+            <text>25%</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 作业批改分析 -->
+      <view class="chart-card">
+        <view class="chart-header">
+          <text class="chart-title">作业批改分析</text>
+          <view class="chart-legend">
+            <view class="legend-item">
+              <view class="legend-color bg-primary"></view>
+              <text>已批改</text>
+            </view>
+            <view class="legend-item">
+              <view class="legend-color bg-warning"></view>
+              <text>待批改</text>
+            </view>
+          </view>
+        </view>
+        <view class="chart-container">
+          <!-- 这里会放置一个图表组件 -->
+          <image class="chart-placeholder" src="/assets/images/chart-homework.png" mode="aspectFit"></image>
+        </view>
+      </view>
+
+      <!-- 课堂活跃度 -->
+      <view class="chart-card">
+        <view class="chart-header">
+          <text class="chart-title">课堂活跃度趋势</text>
+        </view>
+        <view class="chart-container">
+          <!-- 这里会放置一个图表组件 -->
+          <image class="chart-placeholder" src="/assets/images/chart-activity.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+
+    <!-- 班级数据 -->
+    <view class="tab-content" hidden="{{currentTab !== 1}}">
+      <!-- 班级选择器 -->
+      <view class="class-selector" bindtap="showClassPicker">
+        <text>{{selectedClass || '选择班级'}}</text>
+        <i class="t-icon t-icon-chevron-down"></i>
+      </view>
+
+      <!-- 班级数据卡片 -->
+      <view class="data-cards">
+        <view class="data-card">
+          <view class="card-title">平均分</view>
+          <view class="card-value">86.5<text class="card-unit">分</text></view>
+          <view class="card-trend up">
+            <i class="t-icon t-icon-arrow-up"></i>
+            <text>3.2%</text>
+          </view>
+        </view>
+        <view class="data-card">
+          <view class="card-title">作业提交率</view>
+          <view class="card-value">92<text class="card-unit">%</text></view>
+          <view class="card-trend up">
+            <i class="t-icon t-icon-arrow-up"></i>
+            <text>4.5%</text>
+          </view>
+        </view>
+        <view class="data-card">
+          <view class="card-title">出勤率</view>
+          <view class="card-value">98<text class="card-unit">%</text></view>
+          <view class="card-trend down">
+            <i class="t-icon t-icon-arrow-down"></i>
+            <text>1.2%</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 成绩分布 -->
+      <view class="chart-card">
+        <view class="chart-header">
+          <text class="chart-title">成绩分布</text>
+        </view>
+        <view class="chart-container">
+          <!-- 这里会放置一个图表组件 -->
+          <image class="chart-placeholder" src="/assets/images/chart-grades.png" mode="aspectFit"></image>
+        </view>
+      </view>
+
+      <!-- 作业完成情况 -->
+      <view class="chart-card">
+        <view class="chart-header">
+          <text class="chart-title">作业完成情况</text>
+        </view>
+        <view class="chart-container">
+          <!-- 这里会放置一个图表组件 -->
+          <image class="chart-placeholder" src="/assets/images/chart-homework-completion.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+
+    <!-- 学生数据 -->
+    <view class="tab-content" hidden="{{currentTab !== 2}}">
+      <!-- 学生搜索 -->
+      <view class="search-bar">
+        <i class="t-icon t-icon-search"></i>
+        <input type="text" placeholder="搜索学生姓名" bindinput="searchStudent" />
+      </view>
+
+      <!-- 学生列表 -->
+      <view class="student-list">
+        <view class="student-item" wx:for="{{studentList}}" wx:key="id" bindtap="showStudentDetail" data-id="{{item.id}}">
+          <image class="student-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+          <view class="student-info">
+            <view class="student-name">{{item.name}}</view>
+            <view class="student-class">{{item.class}}</view>
+          </view>
+          <view class="student-stats">
+            <view class="student-stat">
+              <text class="stat-label">平均分</text>
+              <text class="stat-value {{item.averageScore >= 85 ? 'good' : (item.averageScore >= 60 ? 'medium' : 'bad')}}">{{item.averageScore}}</text>
+            </view>
+            <view class="student-stat">
+              <text class="stat-label">作业提交</text>
+              <text class="stat-value {{item.homeworkRate >= 90 ? 'good' : (item.homeworkRate >= 70 ? 'medium' : 'bad')}}">{{item.homeworkRate}}%</text>
+            </view>
+            <view class="student-stat">
+              <text class="stat-label">出勤率</text>
+              <text class="stat-value {{item.attendanceRate >= 95 ? 'good' : (item.attendanceRate >= 80 ? 'medium' : 'bad')}}">{{item.attendanceRate}}%</text>
+            </view>
+          </view>
+          <i class="t-icon t-icon-chevron-right arrow-icon"></i>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

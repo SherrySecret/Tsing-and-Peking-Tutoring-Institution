@@ -1,0 +1,55 @@
+<view class="container">
+  <view class="header flex items-center">
+    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
+      <i class="t-icon t-icon-chevron-left"></i>
+    </view>
+    <text class="title">教学资源</text>
+    <view class="upload-button" bindtap="uploadResource">
+      <i class="t-icon t-icon-add"></i>
+      <text>上传</text>
+    </view>
+  </view>
+
+  <view class="content">
+    <!-- 搜索栏 -->
+    <view class="search-box">
+      <i class="t-icon t-icon-search"></i>
+      <input type="text" placeholder="搜索资源" bindinput="searchResource" />
+    </view>
+
+    <!-- 分类选项卡 -->
+    <view class="category-tabs">
+      <view class="tab-item {{currentTab === 'all' ? 'active' : ''}}" bindtap="switchTab" data-tab="all">全部</view>
+      <view class="tab-item {{currentTab === 'slides' ? 'active' : ''}}" bindtap="switchTab" data-tab="slides">课件</view>
+      <view class="tab-item {{currentTab === 'plans' ? 'active' : ''}}" bindtap="switchTab" data-tab="plans">教案</view>
+      <view class="tab-item {{currentTab === 'exercises' ? 'active' : ''}}" bindtap="switchTab" data-tab="exercises">习题</view>
+    </view>
+
+    <!-- 资源列表 -->
+    <view class="resource-list">
+      <view class="resource-item" wx:for="{{filteredResources}}" wx:key="id" bindtap="viewResourceDetail" data-id="{{item.id}}">
+        <view class="resource-icon {{item.type === 'pdf' ? 'pdf' : (item.type === 'word' ? 'word' : 'excel')}}">
+          <i class="t-icon {{item.type === 'pdf' ? 't-icon-file-pdf' : (item.type === 'word' ? 't-icon-file-word' : 't-icon-file-excel')}}"></i>
+        </view>
+        <view class="resource-info">
+          <view class="resource-title">{{item.title}}</view>
+          <view class="resource-date">上传时间：{{item.uploadDate}}</view>
+          <view class="resource-stats">
+            <text class="resource-size">{{item.size}}</text>
+            <text class="resource-downloads">下载次数：{{item.downloads}}</text>
+            <text class="resource-rating">评分：{{item.rating}}</text>
+          </view>
+        </view>
+        <view class="resource-more" catchtap="showResourceOptions" data-id="{{item.id}}">
+          <i class="t-icon t-icon-more"></i>
+        </view>
+      </view>
+    </view>
+
+    <!-- 无数据提示 -->
+    <view class="empty-tip" wx:if="{{filteredResources.length === 0}}">
+      <image src="/assets/images/empty-resource.png" mode="aspectFit"></image>
+      <text>暂无相关资源</text>
+    </view>
+  </view>
+</view> 

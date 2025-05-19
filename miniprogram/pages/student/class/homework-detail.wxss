@@ -1,0 +1,276 @@
+/* pages/student/class/homework-detail.wxss */
+
+/* 全局容器样式 */
+page {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  padding-bottom: 120rpx;
+  box-sizing: border-box;
+}
+
+/* 顶部标题栏 */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 128rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eee;
+  z-index: 100;
+  padding-top: 40rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #333;
+}
+
+/* 主要内容区域 */
+.content {
+  margin-top: 128rpx;
+  height: calc(100vh - 128rpx);
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 30rpx;
+}
+
+/* 卡片样式 */
+.homework-card, .section-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 作业标题 */
+.homework-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+/* 元数据项 */
+.homework-meta {
+  margin-bottom: 20rpx;
+}
+
+.meta-item {
+  display: flex;
+  margin-bottom: 14rpx;
+}
+
+.meta-label {
+  font-size: 28rpx;
+  color: #888;
+  width: 160rpx;
+}
+
+.meta-value {
+  font-size: 28rpx;
+  color: #333;
+  flex: 1;
+}
+
+.meta-value.overdue {
+  color: #f53f3f;
+}
+
+.meta-value.status-pending {
+  color: #fa8c16;
+}
+
+.meta-value.status-submitted {
+  color: #0052d9;
+}
+
+.meta-value.status-graded {
+  color: #00a870;
+}
+
+.meta-value.score {
+  font-weight: 700;
+  color: #f5222d;
+}
+
+/* 章节标题 */
+.section-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20rpx;
+  position: relative;
+  padding-left: 20rpx;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8rpx;
+  width: 8rpx;
+  height: 32rpx;
+  background-color: #0052d9;
+  border-radius: 4rpx;
+}
+
+/* 作业内容 */
+.homework-content {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+  padding: 20rpx;
+  background-color: #f7f9fc;
+  border-radius: 8rpx;
+}
+
+/* 附件列表 */
+.attachment-list {
+  margin-top: 20rpx;
+}
+
+.attachment-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #f7f9fc;
+  border-radius: 8rpx;
+  margin-bottom: 16rpx;
+}
+
+.attachment-icon {
+  margin-right: 20rpx;
+}
+
+.attachment-name {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.attachment-action {
+  color: #0052d9;
+}
+
+/* 老师评语 */
+.comment-content {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+  padding: 20rpx;
+  background-color: #f7f9fc;
+  border-radius: 8rpx;
+}
+
+/* 上传部分 */
+.upload-section {
+  margin-top: 20rpx;
+}
+
+.upload-list {
+  margin-bottom: 20rpx;
+}
+
+.upload-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #f7f9fc;
+  border-radius: 8rpx;
+  margin-bottom: 16rpx;
+}
+
+.upload-icon {
+  margin-right: 20rpx;
+}
+
+.upload-name {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.upload-delete {
+  color: #f53f3f;
+}
+
+.upload-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 96rpx;
+  background-color: #f7f9fc;
+  border-radius: 8rpx;
+  border: 2rpx dashed #d9d9d9;
+  color: #0052d9;
+  font-size: 28rpx;
+}
+
+.upload-add text {
+  margin-left: 10rpx;
+}
+
+/* 表单项 */
+.form-item {
+  margin-top: 30rpx;
+}
+
+.form-label {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.form-textarea {
+  width: 100%;
+  height: 200rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #d9d9d9;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  background-color: #f7f9fc;
+}
+
+/* 提交按钮 */
+.action-buttons {
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+}
+
+/* 已提交的备注 */
+.submitted-remark {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background-color: #f7f9fc;
+  border-radius: 8rpx;
+}
+
+.remark-label {
+  font-size: 28rpx;
+  color: #888;
+  margin-right: 10rpx;
+}
+
+.remark-content {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}
+
+.submitted-time {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #888;
+  text-align: right;
+} 

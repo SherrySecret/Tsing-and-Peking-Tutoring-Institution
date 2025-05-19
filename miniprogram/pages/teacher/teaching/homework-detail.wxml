@@ -1,0 +1,151 @@
+<view class="container">
+  <view class="header flex items-center">
+    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
+      <i class="t-icon t-icon-chevron-left"></i>
+    </view>
+    <text class="title">作业详情</text>
+  </view>
+
+  <view class="content">
+    <!-- 作业信息卡片 -->
+    <view class="homework-card">
+      <view class="homework-title">{{homework.title}}</view>
+      <view class="homework-meta">
+        <view class="meta-item">
+          <i class="t-icon t-icon-usergroup"></i>
+          <text>{{homework.className}}</text>
+        </view>
+        <view class="meta-item">
+          <i class="t-icon t-icon-time"></i>
+          <text>发布时间：{{homework.publishDate}}</text>
+        </view>
+        <view class="meta-item">
+          <i class="t-icon t-icon-alarm"></i>
+          <text>截止时间：{{homework.deadline}}</text>
+        </view>
+      </view>
+      <view class="homework-description">{{homework.description}}</view>
+      <view class="homework-files" wx:if="{{homework.files && homework.files.length > 0}}">
+        <view class="files-title">附件</view>
+        <view class="file-item" wx:for="{{homework.files}}" wx:key="name" bindtap="previewFile" data-url="{{item.url}}">
+          <i class="t-icon t-icon-file"></i>
+          <text class="file-name">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 提交统计 -->
+    <view class="stats-card">
+      <view class="stats-title">提交统计</view>
+      <view class="stats-grid">
+        <view class="stat-item">
+          <view class="stat-value">{{homework.totalCount}}人</view>
+          <view class="stat-label">应交人数</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-value">{{homework.submittedCount}}人</view>
+          <view class="stat-label">已交人数</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-value">{{homework.totalCount - homework.submittedCount}}人</view>
+          <view class="stat-label">未交人数</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-value">{{homework.correctedCount}}份</view>
+          <view class="stat-label">已批改</view>
+        </view>
+      </view>
+      <view class="submission-progress">
+        <view class="progress-label">提交进度</view>
+        <view class="progress-bar">
+          <view class="progress-inner" style="width: {{progressWidth}}">
+          </view>
+        </view>
+        <view class="progress-text">{{homework.submittedCount}}/{{homework.totalCount}} ({{submissionPercentage}}%)</view>
+      </view>
+    </view>
+
+    <!-- 批改统计（如果有批改） -->
+    <view class="stats-card" wx:if="{{homework.correctedCount > 0}}">
+      <view class="stats-title">批改统计</view>
+      <view class="stats-grid">
+        <view class="stat-item">
+          <view class="stat-value">{{homework.averageScore}}分</view>
+          <view class="stat-label">平均分</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-value">{{homework.highestScore}}分</view>
+          <view class="stat-label">最高分</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-value">{{homework.lowestScore}}分</view>
+          <view class="stat-label">最低分</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-value">{{homework.passRate}}%</view>
+          <view class="stat-label">及格率</view>
+        </view>
+      </view>
+      <view class="score-distribution" wx:if="{{homework.scoreDistribution}}">
+        <view class="distribution-title">分数分布</view>
+        <view class="distribution-chart">
+          <!-- 这里使用图片代替实际图表组件 -->
+          <image class="chart-placeholder" src="/assets/images/score-distribution.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+
+    <!-- 学生提交列表 -->
+    <view class="student-submission-section">
+      <view class="section-header">
+        <view class="section-title">学生提交列表</view>
+        <view class="filter-tabs">
+          <view class="tab {{submissionFilter === 'all' ? 'active' : ''}}" bindtap="setSubmissionFilter" data-filter="all">全部</view>
+          <view class="tab {{submissionFilter === 'submitted' ? 'active' : ''}}" bindtap="setSubmissionFilter" data-filter="submitted">已提交</view>
+          <view class="tab {{submissionFilter === 'unsubmitted' ? 'active' : ''}}" bindtap="setSubmissionFilter" data-filter="unsubmitted">未提交</view>
+        </view>
+      </view>
+      <view class="search-box">
+        <i class="t-icon t-icon-search"></i>
+        <input type="text" placeholder="搜索学生姓名" bindinput="searchStudent" />
+      </view>
+      <view class="student-list">
+        <view class="student-item" wx:for="{{filteredSubmissions}}" wx:key="studentId" bindtap="viewSubmissionDetail" data-id="{{item.studentId}}">
+          <image class="student-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+          <view class="student-info">
+            <view class="student-name">{{item.name}}</view>
+            <view class="student-meta">
+              <text class="student-number">学号: {{item.studentNumber}}</text>
+              <text class="submission-time" wx:if="{{item.submitted}}">提交于 {{item.submissionTime}}</text>
+              <text class="submission-status not-submitted" wx:else>未提交</text>
+            </view>
+          </view>
+          <view class="submission-status-right">
+            <view wx:if="{{item.submitted && item.corrected}}" class="status-tag corrected">
+              {{item.score}}分
+            </view>
+            <view wx:elif="{{item.submitted && !item.corrected}}" class="status-tag uncorrected">
+              待批改
+            </view>
+            <view wx:else class="status-tag not-submitted">
+              未提交
+            </view>
+          </view>
+          <i class="t-icon t-icon-chevron-right"></i>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <button class="action-button secondary" bindtap="remindUnsubmitted">
+      <i class="t-icon t-icon-notification"></i>
+      <text>提醒未交</text>
+    </button>
+    <button class="action-button primary" bindtap="batchCorrect">
+      <i class="t-icon t-icon-check"></i>
+      <text>批量批改</text>
+    </button>
+  </view>
+</view> 

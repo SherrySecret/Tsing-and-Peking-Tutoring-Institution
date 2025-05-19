@@ -1,0 +1,344 @@
+.container {
+  min-height: 100vh;
+  background-color: #f7f8fa;
+}
+
+.header {
+  position: relative;
+  height: 88rpx;
+  background-color: #fff;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content {
+  padding: 30rpx;
+  padding-bottom: 120rpx;
+}
+
+/* 上课状态卡片 */
+.status-card {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.03);
+  border-left: 8rpx solid #bbb;
+}
+
+.status-card.running {
+  border-left-color: #0052d9;
+}
+
+.status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.status-text {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.status-info {
+  font-size: 26rpx;
+  color: #888;
+}
+
+.status-button {
+  background-color: #0052d9;
+  color: #fff;
+  font-size: 28rpx;
+  padding: 12rpx 30rpx;
+  border-radius: 8rpx;
+  border: none;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.status-body {
+  border-top: 1rpx solid #f0f0f0;
+  padding-top: 20rpx;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 10rpx;
+}
+
+.info-row:last-child {
+  margin-bottom: 0;
+}
+
+.info-label {
+  width: 140rpx;
+  font-size: 28rpx;
+  color: #888;
+}
+
+.info-value {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 课堂工具 */
+.tools-section {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.03);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+  color: #333;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30rpx;
+}
+
+.tool-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tool-icon {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  background-color: #f0f3fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+  color: #0052d9;
+  font-size: 40rpx;
+}
+
+.tool-name {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 学生状态 */
+.student-section {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.03);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.tab-group {
+  display: flex;
+}
+
+.tab {
+  font-size: 28rpx;
+  color: #666;
+  margin-left: 20rpx;
+  padding-bottom: 8rpx;
+  position: relative;
+}
+
+.tab.active {
+  color: #0052d9;
+  font-weight: 500;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rpx;
+  background-color: #0052d9;
+  border-radius: 2rpx;
+}
+
+.student-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20rpx;
+}
+
+.student-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  position: relative;
+  border-radius: 8rpx;
+  background-color: #f9f9f9;
+}
+
+.student-item.offline {
+  opacity: 0.6;
+}
+
+.student-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  margin-bottom: 12rpx;
+}
+
+.student-name {
+  font-size: 26rpx;
+  color: #333;
+  text-align: center;
+}
+
+.student-status-icon {
+  position: absolute;
+  top: 16rpx;
+  right: 16rpx;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 15rpx;
+}
+
+.student-status-icon.online {
+  color: #19be6b;
+}
+
+.student-status-icon.offline {
+  color: #c8c9cc;
+}
+
+/* 课堂记录 */
+.record-section {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.03);
+}
+
+.record-item {
+  display: flex;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.record-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.record-time {
+  font-size: 24rpx;
+  color: #999;
+  width: 140rpx;
+  flex-shrink: 0;
+}
+
+.record-content {
+  flex: 1;
+}
+
+.record-type {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.record-text {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* 底部工具栏 */
+.bottom-toolbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 30rpx;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.toolbar-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.toolbar-button::after {
+  display: none;
+}
+
+.toolbar-button i {
+  font-size: 48rpx;
+  margin-bottom: 6rpx;
+}
+
+.toolbar-button.danger {
+  color: #e34d59;
+}
+
+/* 工具类 */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.mr-2 {
+  margin-right: 16rpx;
+} 

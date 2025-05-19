@@ -1,0 +1,150 @@
+<view class="container">
+  <view class="header flex items-center">
+    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
+      <i class="t-icon t-icon-chevron-left"></i>
+    </view>
+    <text class="title">{{className}} - {{courseName}}</text>
+  </view>
+
+  <view class="content">
+    <!-- 上课状态卡片 -->
+    <view class="status-card {{isClassRunning ? 'running' : ''}}">
+      <view class="status-header">
+        <view class="status-left">
+          <view class="status-text">{{isClassRunning ? '上课中' : '未开始'}}</view>
+          <view class="status-info" wx:if="{{isClassRunning}}">已上课{{classTime}}分钟</view>
+        </view>
+        <view class="status-right">
+          <button class="status-button" bindtap="toggleClassStatus">
+            {{isClassRunning ? '结束课堂' : '开始上课'}}
+          </button>
+        </view>
+      </view>
+      <view class="status-body" wx:if="{{isClassRunning}}">
+        <view class="info-row">
+          <text class="info-label">班级:</text>
+          <text class="info-value">{{className}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">课程:</text>
+          <text class="info-value">{{courseName}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">开始时间:</text>
+          <text class="info-value">{{startTime}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">应到人数:</text>
+          <text class="info-value">{{totalStudents}}人</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">实到人数:</text>
+          <text class="info-value">{{presentStudents}}人</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 课堂工具 -->
+    <view class="tools-section">
+      <view class="section-title">课堂工具</view>
+      <view class="tools-grid">
+        <view class="tool-item" bindtap="openRollCall">
+          <view class="tool-icon">
+            <i class="t-icon t-icon-usergroup"></i>
+          </view>
+          <text class="tool-name">点名</text>
+        </view>
+        <view class="tool-item" bindtap="openRandomPick">
+          <view class="tool-icon">
+            <i class="t-icon t-icon-user-avatar"></i>
+          </view>
+          <text class="tool-name">随机抽人</text>
+        </view>
+        <view class="tool-item" bindtap="openGrouping">
+          <view class="tool-icon">
+            <i class="t-icon t-icon-view-module"></i>
+          </view>
+          <text class="tool-name">分组</text>
+        </view>
+        <view class="tool-item" bindtap="openTimer">
+          <view class="tool-icon">
+            <i class="t-icon t-icon-time"></i>
+          </view>
+          <text class="tool-name">计时器</text>
+        </view>
+        <view class="tool-item" bindtap="openQuiz">
+          <view class="tool-icon">
+            <i class="t-icon t-icon-help-circle"></i>
+          </view>
+          <text class="tool-name">随堂测验</text>
+        </view>
+        <view class="tool-item" bindtap="openHomework">
+          <view class="tool-icon">
+            <i class="t-icon t-icon-root-list"></i>
+          </view>
+          <text class="tool-name">布置作业</text>
+        </view>
+        <view class="tool-item" bindtap="openMaterials">
+          <view class="tool-icon">
+            <i class="t-icon t-icon-folder"></i>
+          </view>
+          <text class="tool-name">课堂资料</text>
+        </view>
+        <view class="tool-item" bindtap="openScreenShare">
+          <view class="tool-icon">
+            <i class="t-icon t-icon-computer"></i>
+          </view>
+          <text class="tool-name">屏幕共享</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 学生状态 -->
+    <view class="student-section">
+      <view class="section-header">
+        <view class="section-title">学生状态</view>
+        <view class="tab-group">
+          <view class="tab {{studentStatus === 'all' ? 'active' : ''}}" bindtap="switchStatus" data-status="all">全部</view>
+          <view class="tab {{studentStatus === 'online' ? 'active' : ''}}" bindtap="switchStatus" data-status="online">在线</view>
+          <view class="tab {{studentStatus === 'offline' ? 'active' : ''}}" bindtap="switchStatus" data-status="offline">离线</view>
+        </view>
+      </view>
+      
+      <view class="student-list">
+        <view class="student-item {{student.status === 'offline' ? 'offline' : ''}}" wx:for="{{filteredStudents}}" wx:key="id" wx:for-item="student">
+          <image class="student-avatar" src="{{student.avatar}}" mode="aspectFill"></image>
+          <view class="student-name">{{student.name}}</view>
+          <view class="student-status-icon {{student.status === 'online' ? 'online' : 'offline'}}">
+            <i class="t-icon {{student.status === 'online' ? 't-icon-check-circle-filled' : 't-icon-close-circle-filled'}}"></i>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 课堂记录 -->
+    <view class="record-section">
+      <view class="section-title">课堂记录</view>
+      <view class="record-list">
+        <view class="record-item" wx:for="{{classRecords}}" wx:key="id">
+          <view class="record-time">{{item.time}}</view>
+          <view class="record-content">
+            <view class="record-type">{{item.type}}</view>
+            <view class="record-text">{{item.content}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部工具栏 -->
+    <view class="bottom-toolbar" wx:if="{{isClassRunning}}">
+      <button class="toolbar-button" bindtap="showClassSummary">
+        <i class="t-icon t-icon-chart"></i>
+        <text>课堂总结</text>
+      </button>
+      <button class="toolbar-button danger" bindtap="endClass">
+        <i class="t-icon t-icon-power-off"></i>
+        <text>结束课堂</text>
+      </button>
+    </view>
+  </view>
+</view> 

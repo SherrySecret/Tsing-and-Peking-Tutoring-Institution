@@ -1,0 +1,57 @@
+ <!-- 顶部标题栏 -->
+<view class="header">
+  <text class="title">班级管理</text>
+</view>
+
+<!-- 班级信息 -->
+<view class="class-info">
+  <view class="class-avatar">
+    <text>{{classInfo.name[0]}}</text>
+  </view>
+  <view class="class-detail">
+    <view class="class-name">{{classInfo.name}}</view>
+    <view class="class-stats">{{classInfo.studentCount}}名学生 • {{classInfo.teacherCount}}位教师</view>
+  </view>
+</view>
+
+<!-- 班级管理选项 -->
+<view class="manage-section">
+  <t-cell-group title="班级信息">
+    <t-cell title="班级名称" arrow note="{{classInfo.name}}" bindtap="editClassName" />
+    <t-cell title="班级编号" arrow note="{{classInfo.code}}" bindtap="editClassCode" />
+    <t-cell title="所属年级" arrow note="{{classInfo.grade}}" bindtap="editGrade" />
+    <t-cell title="班主任" arrow note="{{classInfo.headTeacher}}" bindtap="editHeadTeacher" />
+  </t-cell-group>
+
+  <t-cell-group title="管理设置">
+    <t-cell title="成员管理" arrow bindtap="navigateTo" data-url="/pages/teacher/class/members" />
+    <t-cell title="考勤记录" arrow bindtap="navigateTo" data-url="/pages/teacher/class/attendance" />
+    <t-cell title="作业管理" arrow bindtap="navigateTo" data-url="/pages/teacher/class/homework" />
+    <t-cell title="通知管理" arrow bindtap="navigateTo" data-url="/pages/teacher/class/notice-manage" />
+    <t-cell title="资料管理" arrow bindtap="navigateTo" data-url="/pages/teacher/class/file-manage" />
+    <t-cell title="成绩管理" arrow bindtap="navigateTo" data-url="/pages/teacher/class/scores" />
+  </t-cell-group>
+
+  <t-cell-group title="隐私设置">
+    <t-cell title="允许学生加入" right-icon>
+      <t-switch value="{{classInfo.allowJoin}}" bindchange="toggleAllowJoin" slot="note"></t-switch>
+    </t-cell>
+    <t-cell title="允许学生查看成绩" right-icon>
+      <t-switch value="{{classInfo.allowViewScores}}" bindchange="toggleAllowViewScores" slot="note"></t-switch>
+    </t-cell>
+    <t-cell title="信息公开范围" arrow note="{{classInfo.privacyLevel}}" bindtap="editPrivacyLevel" />
+  </t-cell-group>
+</view>
+
+<!-- 解散班级按钮 -->
+<view class="action-buttons">
+  <t-button theme="danger" size="large" block bindtap="disbandClass">解散班级</t-button>
+</view>
+
+<!-- 底部导航栏 -->
+<t-tab-bar value="{{activeTabBar}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
+  <t-tab-bar-item value="home" icon="home">首页</t-tab-bar-item>
+  <t-tab-bar-item value="class" icon="view-list">班级</t-tab-bar-item>
+  <t-tab-bar-item value="teaching" icon="edit">教学</t-tab-bar-item>
+  <t-tab-bar-item value="profile" icon="user">我的</t-tab-bar-item>
+</t-tab-bar>

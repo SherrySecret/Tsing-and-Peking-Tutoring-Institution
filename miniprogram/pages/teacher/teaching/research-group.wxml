@@ -1,0 +1,80 @@
+<view class="container">
+  <view class="header flex items-center">
+    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
+      <i class="t-icon t-icon-chevron-left"></i>
+    </view>
+    <text class="title">教研组</text>
+  </view>
+
+  <view class="content">
+    <!-- 我的教研组 -->
+    <view class="my-group">
+      <view class="section-title">我的教研组</view>
+      <view class="group-card" bindtap="viewGroupDetail" data-id="{{myGroup.id}}">
+        <view class="group-icon">
+          <i class="t-icon t-icon-usergroup"></i>
+        </view>
+        <view class="group-info">
+          <view class="group-name">{{myGroup.name}}</view>
+          <view class="group-meta">成员：{{myGroup.memberCount}}人 | 组长：{{myGroup.leader}}</view>
+        </view>
+        <view class="group-arrow">
+          <i class="t-icon t-icon-chevron-right"></i>
+        </view>
+      </view>
+    </view>
+
+    <!-- 最近活动 -->
+    <view class="activities">
+      <view class="section-header">
+        <view class="section-title">最近活动</view>
+      </view>
+      <view class="activity-list">
+        <view class="activity-item" wx:for="{{activities}}" wx:key="id" bindtap="viewActivityDetail" data-id="{{item.id}}">
+          <view class="activity-header">
+            <view class="activity-title">{{item.title}}</view>
+            <view class="activity-status {{item.status === 'upcoming' ? 'upcoming' : 'completed'}}">
+              {{item.status === 'upcoming' ? '未开始' : '已结束'}}
+            </view>
+          </view>
+          <view class="activity-topic">主题：{{item.topic}}</view>
+          <view class="activity-meta">
+            <view class="meta-item">
+              <i class="t-icon t-icon-user-circle"></i>
+              <text>组织人：{{item.organizer}}</text>
+            </view>
+            <view class="meta-item">
+              <i class="t-icon t-icon-time"></i>
+              <text>时间：{{item.time}}</text>
+            </view>
+            <view class="meta-item">
+              <i class="t-icon t-icon-location"></i>
+              <text>地点：{{item.location}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 教研资料 -->
+    <view class="materials">
+      <view class="section-header">
+        <view class="section-title">教研资料</view>
+      </view>
+      <view class="material-list">
+        <view class="material-item" wx:for="{{materials}}" wx:key="id" bindtap="viewMaterial" data-id="{{item.id}}">
+          <view class="material-icon {{item.type === 'pdf' ? 'pdf' : (item.type === 'word' ? 'word' : 'other')}}">
+            <i class="t-icon {{item.type === 'pdf' ? 't-icon-file-pdf' : (item.type === 'word' ? 't-icon-file-word' : 't-icon-file')}}"></i>
+          </view>
+          <view class="material-info">
+            <view class="material-title">{{item.title}}</view>
+            <view class="material-date">上传时间：{{item.uploadDate}}</view>
+          </view>
+          <view class="material-download">
+            <i class="t-icon t-icon-download"></i>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

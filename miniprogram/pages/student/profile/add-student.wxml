@@ -1,0 +1,88 @@
+<!-- 顶部标题栏 -->
+<view class="header">
+  <text class="title">添加学生档案</text>
+</view>
+
+<!-- 主要内容区域 -->
+<scroll-view scroll-y class="content">
+  <view class="container">
+    <view class="form-card">
+      <view class="form-header">
+        <text class="form-title">学生基本信息</text>
+        <text class="form-desc">请填写学生的基本信息，以便于教师管理</text>
+      </view>
+
+      <!-- 学生信息表单 -->
+      <view class="form-fields">
+        <view class="form-item">
+          <text class="form-label">学生姓名 <text class="required">*</text></text>
+          <input class="form-input" placeholder="请输入学生姓名" value="{{form.name}}" bindinput="onNameInput" />
+        </view>
+
+        <view class="form-item">
+          <text class="form-label">学号</text>
+          <input class="form-input" placeholder="请输入学号" value="{{form.studentId}}" bindinput="onStudentIdInput" />
+        </view>
+
+        <view class="form-item">
+          <text class="form-label">性别</text>
+          <view class="radio-group">
+            <view class="radio-item {{form.gender === '男' ? 'checked' : ''}}" bindtap="onGenderSelect" data-value="男">
+              <view class="radio-dot"></view>
+              <text class="radio-text">男</text>
+            </view>
+            <view class="radio-item {{form.gender === '女' ? 'checked' : ''}}" bindtap="onGenderSelect" data-value="女">
+              <view class="radio-dot"></view>
+              <text class="radio-text">女</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="form-item">
+          <text class="form-label">学校 <text class="required">*</text></text>
+          <input class="form-input" placeholder="请输入学校名称" value="{{form.school}}" bindinput="onSchoolInput" />
+        </view>
+
+        <view class="form-item">
+          <text class="form-label">年级 <text class="required">*</text></text>
+          <picker mode="selector" range="{{gradeOptions}}" value="{{gradeIndex}}" bindchange="onGradeChange">
+            <view class="picker-view">
+              <text>{{gradeOptions[gradeIndex] || '请选择年级'}}</text>
+              <t-icon name="chevron-down" color="#bbb" />
+            </view>
+          </picker>
+        </view>
+
+        <view class="form-item">
+          <text class="form-label">班级</text>
+          <input class="form-input" type="text" placeholder="请输入班级" value="{{form.class}}" bindinput="onClassInput" />
+        </view>
+
+        <view class="form-item">
+          <text class="form-label">家长姓名</text>
+          <input class="form-input" placeholder="请输入家长姓名" value="{{form.parentName}}" bindinput="onParentNameInput" />
+        </view>
+
+        <view class="form-item">
+          <text class="form-label">家长手机号</text>
+          <input class="form-input" type="number" placeholder="请输入家长手机号" value="{{form.parentPhone}}" bindinput="onParentPhoneInput" />
+        </view>
+
+        <view class="form-item">
+          <text class="form-label">备注</text>
+          <textarea class="form-textarea" placeholder="可选填写备注信息" value="{{form.remarks}}" bindinput="onRemarksInput" />
+        </view>
+      </view>
+    </view>
+
+    <view class="form-tips">
+      <text class="tips-text">添加学生档案后，可以更方便地管理学生的班级、作业、成绩等信息</text>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="form-actions">
+      <t-button theme="default" size="large" block bindtap="onCancel">取消</t-button>
+      <t-button theme="primary" size="large" block bindtap="onSubmit">保存</t-button>
+    </view>
+  </view>
+</scroll-view> 

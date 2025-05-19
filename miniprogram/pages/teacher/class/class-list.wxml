@@ -1,0 +1,120 @@
+<!-- 顶部标题栏 -->
+<view class="header">
+  <text class="title">班级管理</text>
+</view>
+
+<!-- 搜索栏 -->
+<view class="search-bar">
+  <view class="search-inner">
+    <t-icon name="search" class="search-icon" />
+    <input type="text" placeholder="搜索班级、学生" confirm-type="search" bindinput="onSearchInput" />
+  </view>
+</view>
+
+<!-- 类别选项卡 -->
+<t-tabs value="{{activeTabIndex}}" bind:change="onTabChange">
+  <t-tab-panel label="班主任班级" value="0" />
+  <t-tab-panel label="任教班级" value="1" />
+</t-tabs>
+
+<!-- 班级列表容器 -->
+<scroll-view scroll-y class="class-list-container">
+  <!-- 班主任班级列表 -->
+  <view class="class-list {{activeTabIndex !== '0' ? 'hidden' : ''}}">
+    <block wx:for="{{headmasterClasses}}" wx:key="id">
+      <view class="class-card">
+        <navigator url="/pages/teacher/class/class-detail?id={{item.id}}" class="class-info">
+          <view class="class-header">
+            <view class="class-icon bg-{{item.color}}">
+              <t-icon name="class" color="#{{item.iconColor}}" />
+            </view>
+            <view class="class-detail">
+              <text class="class-name">{{item.name}}</text>
+              <text class="class-desc">{{item.role}} • {{item.studentCount}}名学生</text>
+            </view>
+            <t-icon name="chevron-right" color="#bbb" />
+          </view>
+        </navigator>
+        <scroll-view scroll-x class="action-scroll" enable-flex>
+          <view class="action-list">
+            <view class="action-item" bindtap="onGradeAnalysis" data-id="{{item.id}}">
+              <t-icon name="chart" color="#0052d9" />
+              <text>成绩分析</text>
+            </view>
+            <view class="action-item" bindtap="onPublishHomework" data-id="{{item.id}}">
+              <t-icon name="file-icon" color="#00a870" />
+              <text>发布作业</text>
+            </view>
+            <view class="action-item" bindtap="onClassNotice" data-id="{{item.id}}">
+              <t-icon name="notification" color="#f59e0b" />
+              <text>班级通知</text>
+            </view>
+            <view class="action-item" bindtap="onClassSettings" data-id="{{item.id}}">
+              <t-icon name="setting" color="#9e67e7" />
+              <text>班级设置</text>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 任教班级列表 -->
+  <view class="class-list {{activeTabIndex !== '1' ? 'hidden' : ''}}">
+    <block wx:for="{{teachingClasses}}" wx:key="id">
+      <view class="class-card">
+        <navigator url="/pages/teacher/class/class-detail?id={{item.id}}" class="class-info">
+          <view class="class-header">
+            <view class="class-icon bg-{{item.color}}">
+              <t-icon name="class" color="#{{item.iconColor}}" />
+            </view>
+            <view class="class-detail">
+              <text class="class-name">{{item.name}}</text>
+              <text class="class-desc">{{item.role}} • {{item.studentCount}}名学生</text>
+            </view>
+            <t-icon name="chevron-right" color="#bbb" />
+          </view>
+        </navigator>
+        <scroll-view scroll-x class="action-scroll" enable-flex>
+          <view class="action-list">
+            <view class="action-item" bindtap="onGradeAnalysis" data-id="{{item.id}}">
+              <t-icon name="chart" color="#0052d9" />
+              <text>成绩分析</text>
+            </view>
+            <view class="action-item" bindtap="onPublishHomework" data-id="{{item.id}}">
+              <t-icon name="file-icon" color="#00a870" />
+              <text>发布作业</text>
+            </view>
+            <view class="action-item" bindtap="onAttendance" data-id="{{item.id}}">
+              <t-icon name="check-circle" color="#f59e0b" />
+              <text>考勤记录</text>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 无内容提示 -->
+  <view wx:if="{{activeTabIndex === '0' && headmasterClasses.length === 0}}" class="empty-tip">
+    <t-icon name="info-circle" size="96rpx" color="#aaa" />
+    <text class="empty-text">暂无班主任班级</text>
+  </view>
+  <view wx:if="{{activeTabIndex === '1' && teachingClasses.length === 0}}" class="empty-tip">
+    <t-icon name="info-circle" size="96rpx" color="#aaa" />
+    <text class="empty-text">暂无任教班级</text>
+  </view>
+</scroll-view>
+
+<!-- 创建班级悬浮按钮 -->
+<view class="floating-button" bindtap="onCreateClass">
+  <t-icon name="add" size="44rpx" color="#fff" />
+</view>
+
+<!-- 底部导航栏 -->
+<t-tab-bar value="{{activeBarTab}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
+  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
+  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
+  <t-tab-bar-item value="teaching" icon="edit" badge-props="{{ { count: 0 } }}">教学</t-tab-bar-item>
+  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
+</t-tab-bar> 

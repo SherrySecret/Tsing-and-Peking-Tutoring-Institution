@@ -1,0 +1,199 @@
+/* 页面容器 */
+page {
+  background-color: #f7f8fa;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部标题栏 */
+.header {
+  height: 88rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: 500;
+}
+
+.action {
+  margin-left: auto;
+}
+
+.add-btn {
+  padding: 12rpx 32rpx;
+  background-color: #0052d9;
+  color: #fff;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+}
+
+/* 主要内容区域 */
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+.container {
+  padding: 32rpx;
+}
+
+/* 欢迎信息 */
+.welcome-box {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 48rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.welcome-title {
+  font-size: 36rpx;
+  font-weight: 500;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.welcome-desc {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 快速入口 */
+.quick-entry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32rpx;
+  margin-bottom: 48rpx;
+}
+
+.entry-item {
+  border-radius: 16rpx;
+  padding: 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.entry-item text {
+  margin-top: 16rpx;
+  font-size: 28rpx;
+}
+
+.bg-blue {
+  background-color: #0052d9;
+}
+
+.bg-green {
+  background-color: #00a870;
+}
+
+.bg-purple {
+  background-color: #9e67e7;
+}
+
+.bg-orange {
+  background-color: #f59e0b;
+}
+
+/* 学生档案入口 */
+.student-archive {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 48rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.archive-icon {
+  width: 96rpx;
+  height: 96rpx;
+  background-color: #fef3c7;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.archive-info {
+  flex: 1;
+  margin-left: 32rpx;
+}
+
+.archive-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.archive-desc {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.archive-btn {
+  padding: 12rpx 24rpx;
+  background-color: #f59e0b;
+  color: #fff;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+}
+
+/* 公告信息 */
+.notice {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.notice-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.notice-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-left: 16rpx;
+}
+
+.notice-list {
+  
+}
+
+.notice-item {
+  padding-bottom: 16rpx;
+  margin-bottom: 16rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.notice-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.notice-item-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  display: block;
+}
+
+.notice-item-date {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+  display: block;
+} 

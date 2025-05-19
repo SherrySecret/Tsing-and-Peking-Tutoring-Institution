@@ -1,0 +1,151 @@
+<!-- pages/teacher/class/homework.wxml -->
+<view class="container">
+  <!-- 顶部标题栏 -->
+  <view class="header">
+    <navigator url="class-detail" open-type="navigate" class="back-btn">
+      <t-icon name="chevron-left" size="xl" color="#0052D9" />
+    </navigator>
+    <view class="header-title">班级作业</view>
+  </view>
+
+  <!-- 筛选栏 -->
+  <view class="filter-bar">
+    <view class="filter-item">
+      <t-dropdown-menu>
+        <t-dropdown-item options="{{statusOptions}}" value="{{selectedStatus}}" bindchange="changeStatus" />
+      </t-dropdown-menu>
+    </view>
+    <view class="filter-item">
+      <t-dropdown-menu>
+        <t-dropdown-item options="{{timeOptions}}" value="{{selectedTime}}" bindchange="changeTime" />
+      </t-dropdown-menu>
+    </view>
+  </view>
+
+  <!-- 作业列表 -->
+  <view class="homework-list">
+    <view class="homework-items">
+      <view wx:for="{{homeworkList}}" wx:key="id" class="homework-item">
+        <view class="homework-info {{item.statusClass}}">
+          <view class="homework-header">
+            <view class="homework-title">{{item.title}}</view>
+            <view class="homework-status">{{item.status}}</view>
+          </view>
+          <view class="homework-meta">
+            <text>{{item.className}} • {{item.subject}}</text>
+          </view>
+          <view class="homework-deadline">
+            <t-icon name="time" size="xs" />
+            <text>截止时间：{{item.deadline}}</text>
+          </view>
+          <view class="homework-progress">
+            <view class="progress-item">
+              <text class="progress-value">{{item.submitted}}</text>/{{item.total}} 人已提交
+            </view>
+            <view class="progress-item">
+              <text class="progress-value corrected">{{item.corrected}}</text> 人已批改
+            </view>
+          </view>
+        </view>
+        <view class="homework-footer">
+          <view class="homework-time">布置时间：{{item.publishTime}}</view>
+          <view class="homework-action" bindtap="viewHomeworkDetail" data-id="{{item.id}}" data-status="{{item.status}}">
+            <block wx:if="{{item.status === '待批改'}}">批改</block>
+            <block wx:else>{{item.status === '进行中' ? '详情' : '查看'}}</block>
+            <t-icon name="chevron-right" size="xs" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 悬浮添加按钮 -->
+  <view class="floating-btn" bindtap="openPublishModal">
+    <text>+</text>
+  </view>
+
+  <!-- 发布作业弹窗 -->
+  <t-popup visible="{{showPublishModal}}" bind:visible-change="closePublishModal" placement="bottom">
+    <view class="publish-modal">
+      <view class="modal-header">
+        <text class="modal-title">布置作业</text>
+        <t-icon name="close" size="xl" bind:tap="closePublishModal" />
+      </view>
+
+      <view class="modal-content">
+        <!-- 作业标题 -->
+        <t-input label="作业标题" placeholder="请输入作业标题" value="{{homeworkTitle}}" bindchange="onTitleInput" />
+        
+        <!-- 科目选择器 -->
+        <t-picker 
+          title="选择科目"
+          visible="{{subjectPickerVisible}}"
+          value="{{subjectIndex}}"
+          cancelBtn="取消"
+          confirmBtn="确认"
+          bind:confirm="onSubjectConfirm"
+          bind:cancel="onSubjectPickerCancel"
+        >
+          <t-picker-item options="{{subjects}}"/>
+        </t-picker>
+        
+        <view class="subject-select" bind:tap="showSubjectPicker">
+          <view class="subject-label">所属科目</view>
+          <view class="subject-value">{{homeworkSubject || '请选择科目'}}</view>
+          <t-icon name="chevron-right" size="small" color="#BBBBBB" />
+        </view>
+        
+        <!-- 作业内容 -->
+        <t-textarea label="作业内容" placeholder="请输入作业内容描述..." value="{{homeworkDesc}}" disableDefaultPadding="{{true}}" autosize bindchange="onDescInput" />
+        
+        <!-- 截止时间 -->
+        <t-date-time-picker mode="datetime" title="截止时间" value="{{homeworkDeadline}}" bindchange="onDeadlineChange" />
+        
+        <!-- 作业附件 -->
+        <view class="attachment-section">
+          <text class="section-label">作业附件</text>
+          <view class="attachment-box" bindtap="chooseFiles">
+            <view wx:if="{{uploadFiles.length === 0}}" class="upload-placeholder">
+              <t-icon name="upload" size="xl" color="#a6a6a6" />
+              <text class="upload-hint">点击上传或拖拽文件到此处</text>
+              <text class="upload-format">支持 PDF、Word、图片等格式</text>
+              <t-button theme="primary" size="small">选择文件</t-button>
+            </view>
+            
+            <view wx:else class="file-list">
+              <view wx:for="{{uploadFiles}}" wx:key="index" class="file-item">
+                <t-icon name="file" size="xs" />
+                <text class="file-name">{{item.name}}</text>
+                <t-icon name="close-circle" size="xs" color="#888" catchap="removeFile" data-index="{{index}}" />
+              </view>
+              <t-button theme="primary" size="small" class="add-more-btn" bindtap="chooseFiles">添加更多</t-button>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 班级选择 -->
+        <view class="class-section">
+          <text class="section-label">布置班级</text>
+          <view class="class-list">
+            <view wx:for="{{selectedClasses}}" wx:key="id" class="class-item">
+              <t-checkbox value="{{item.checked}}" label="{{item.name}}" data-index="{{index}}" bind:change="toggleClass" />
+            </view>
+          </view>
+        </view>
+        
+        <!-- 批改设置 -->
+        <view class="setting-section">
+          <text class="section-label">批改设置</text>
+          <t-checkbox value="{{allowPeerReview}}" label="允许学生互评" bind:change="togglePeerReview" />
+          <t-checkbox value="{{autoShareAnswer}}" label="提交后自动查看答案" bind:change="toggleAutoShare" class="setting-item" />
+        </view>
+        
+        <!-- 按钮区域 -->
+        <view class="modal-footer">
+          <t-button theme="light" bindtap="closePublishModal">取消</t-button>
+          <t-button theme="primary" bindtap="submitHomework">发布</t-button>
+        </view>
+      </view>
+    </view>
+  </t-popup>
+</view> 

@@ -1,0 +1,189 @@
+ /* 页面整体样式 */
+.header {
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #f0f0f0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.content {
+  position: fixed;
+  top: 88rpx;
+  left: 0;
+  right: 0;
+  bottom: 112rpx;
+  background-color: #f5f5f5;
+}
+
+/* 通用板块样式 */
+.section {
+  margin: 20rpx;
+  padding: 30rpx;
+  background-color: #ffffff;
+  border-radius: 12rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.section-date, .section-more {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.section-more {
+  color: #0052d9;
+}
+
+/* 今日课程 */
+.course-list {
+  margin-top: 10rpx;
+}
+
+.course-card {
+  display: flex;
+  padding: 20rpx;
+  background-color: #f9f9f9;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.course-card:last-child {
+  margin-bottom: 0;
+}
+
+.course-time {
+  width: 120rpx;
+  font-size: 26rpx;
+  color: #0052d9;
+}
+
+.course-info {
+  flex: 1;
+}
+
+.course-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.course-location, .course-class {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 6rpx;
+}
+
+.course-actions {
+  width: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #0052d9;
+}
+
+.action-btn text {
+  font-size: 22rpx;
+  margin-top: 6rpx;
+}
+
+/* 空状态提示 */
+.empty-tip {
+  padding: 60rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #999999;
+}
+
+.empty-tip text {
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+/* 待批改作业 */
+.homework-list {
+  margin-top: 10rpx;
+}
+
+.homework-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.homework-item:last-child {
+  border-bottom: none;
+}
+
+.homework-info {
+  flex: 1;
+}
+
+.homework-title {
+  font-size: 30rpx;
+  color: #333333;
+}
+
+.homework-meta {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 8rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 班级统计 */
+.class-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+
+.stat-card {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 6rpx;
+}

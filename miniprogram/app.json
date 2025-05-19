@@ -1,13 +1,73 @@
 {
   "pages": [
+    "pages/entry/entry",
     "pages/index/index",
     "pages/logs/logs"
   ],
+  "subpackages": [
+    {
+      "root": "pages/student",
+      "pages": [
+        "home/home",
+        "class/index",
+        "class/detail",
+        "class/files",
+        "class/homework",
+        "class/homework-detail",
+        "class/join",
+        "class/members",
+        "class/notice-detail",
+        "class/scores",
+        "class/select-student",
+        "profile/index",
+        "profile/add-student",
+        "profile/edit-profile",
+        "profile/student-archives",
+        "teachers/index",
+        "teachers/detail",
+        "features/index"
+      ]
+    },
+    {
+      "root": "pages/teacher",
+      "pages": [
+        "index/index",
+        "class/class-list",
+        "class/class-detail",
+        "class/attendance",
+        "class/class-manage",
+        "class/create-class",
+        "class/create-homework",
+        "class/file-manage",
+        "class/homework",
+        "class/members",
+        "class/notice-manage",
+        "class/scores",
+        "profile/profile",
+        "profile/about",
+        "profile/edit-profile",
+        "profile/notification-settings",
+        "profile/security",
+        "teaching/teaching",
+        "teaching/analysis",
+        "teaching/attendance",
+        "teaching/classroom",
+        "teaching/course-schedule",
+        "teaching/exam-manage",
+        "teaching/grade-manage",
+        "teaching/homework-detail",
+        "teaching/homework-manage",
+        "teaching/research-group",
+        "teaching/resources"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "班级管理系统",
     "navigationBarBackgroundColor": "#ffffff"
   },
   "componentFramework": "glass-easel",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {}
 }

@@ -1,0 +1,130 @@
+<!-- pages/teacher/class/file-manage.wxml -->
+<view class="container">
+  <!-- 顶部标题栏 -->
+  <view class="header">
+    <navigator url="class-detail" open-type="navigate" class="back-btn">
+      <t-icon name="chevron-left" size="xl" color="#0052D9" />
+    </navigator>
+    <view class="header-title">文件管理</view>
+  </view>
+
+  <!-- 文件分类标签 -->
+  <view class="tab-container">
+    <t-tabs value="{{activeTab}}" bind:change="onTabChange" t-class="custom-tabs">
+      <t-tab-panel wx:for="{{tabs}}" wx:key="value" label="{{item.text}}" value="{{item.value}}" />
+    </t-tabs>
+  </view>
+
+  <!-- 文件列表 -->
+  <view class="file-list-container">
+    <view class="list-header">
+      <text class="section-title">文件列表</text>
+      <view class="header-actions">
+        <view class="action-btn">
+          <t-icon name="filter" size="xs" />
+          <text>筛选</text>
+        </view>
+        <view class="action-btn">
+          <t-icon name="sort" size="xs" />
+          <text>排序</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="file-list">
+      <view wx:for="{{fileList}}" wx:key="id" class="file-item">
+        <view class="file-icon {{item.type}}">
+          <t-icon wx:if="{{item.type === 'pdf'}}" name="file-pdf" color="{{item.iconColor}}" size="xl" />
+          <t-icon wx:elif="{{item.type === 'word'}}" name="file-word" color="{{item.iconColor}}" size="xl" />
+          <t-icon wx:elif="{{item.type === 'excel'}}" name="file-excel" color="{{item.iconColor}}" size="xl" />
+          <t-icon wx:elif="{{item.type === 'ppt'}}" name="file-ppt" color="{{item.iconColor}}" size="xl" />
+          <t-icon wx:else name="file" color="{{item.iconColor}}" size="xl" />
+        </view>
+        <view class="file-info">
+          <view class="file-name">{{item.name}}</view>
+          <view class="file-meta">{{item.size}} · {{item.uploadTime}} · {{item.category}}</view>
+        </view>
+        <view class="file-action" bindtap="showFileActions" data-id="{{item.id}}" data-name="{{item.name}}">
+          <t-icon name="more" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 悬浮添加按钮 -->
+  <view class="floating-btn" bindtap="openUploadModal">
+    <text>+</text>
+  </view>
+
+  <!-- 上传文件弹窗 -->
+  <t-popup visible="{{showUploadModal}}" bind:visible-change="closeUploadModal" placement="bottom">
+    <view class="upload-modal">
+      <view class="modal-header">
+        <text class="modal-title">上传文件</text>
+        <t-icon name="close" size="xl" bind:tap="closeUploadModal" />
+      </view>
+
+      <view class="modal-content">
+        <!-- 文件类型 -->
+        <t-picker 
+          title="选择文件类型"
+          visible="{{fileCategoryPickerVisible}}"
+          value="{{fileCategoryIndex}}"
+          cancelBtn="取消"
+          confirmBtn="确认"
+          bind:confirm="onCategoryConfirm"
+          bind:cancel="onCategoryPickerCancel"
+        >
+          <t-picker-item options="{{fileCategories}}"/>
+        </t-picker>
+        
+        <view class="category-select" bind:tap="showCategoryPicker">
+          <view class="category-label">文件类型</view>
+          <view class="category-value">{{fileCategory || '请选择文件类型'}}</view>
+          <t-icon name="chevron-right" size="small" color="#BBBBBB" />
+        </view>
+        
+        <!-- 文件上传区域 -->
+        <view class="upload-section">
+          <text class="section-label">选择文件</text>
+          <view class="upload-box" bindtap="chooseFile">
+            <block wx:if="{{!uploadFile}}">
+              <view class="upload-placeholder">
+                <t-icon name="upload" size="xl" color="#a6a6a6" />
+                <text class="upload-hint">点击上传或拖拽文件到此处</text>
+                <text class="upload-format">支持 PDF、Word、PPT、Excel 等格式</text>
+                <t-button theme="primary" size="small">选择文件</t-button>
+              </view>
+            </block>
+            <block wx:else>
+              <view class="file-preview">
+                <t-icon name="file" />
+                <text class="file-name">{{uploadFile.name}}</text>
+                <text class="file-size">{{uploadFile.size / 1024 / 1024 | toFixed(1)}}MB</text>
+              </view>
+            </block>
+          </view>
+        </view>
+        
+        <!-- 文件描述 -->
+        <t-textarea label="文件描述（选填）" placeholder="添加文件说明..." value="{{fileDesc}}" disableDefaultPadding="{{true}}" autosize bindchange="onDescInput" />
+        
+        <!-- 班级可见性 -->
+        <view class="visibility-section">
+          <text class="section-label">可见班级</text>
+          <view class="class-list">
+            <view wx:for="{{visibleClasses}}" wx:key="id" class="class-item">
+              <t-checkbox value="{{item.checked}}" label="{{item.name}}" data-index="{{index}}" bind:change="toggleClassVisibility" />
+            </view>
+          </view>
+        </view>
+        
+        <!-- 按钮区域 -->
+        <view class="modal-footer">
+          <t-button theme="light" bindtap="closeUploadModal">取消</t-button>
+          <t-button theme="primary" bindtap="submitUpload">上传</t-button>
+        </view>
+      </view>
+    </view>
+  </t-popup>
+</view> 

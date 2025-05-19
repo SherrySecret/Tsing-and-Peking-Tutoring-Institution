@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "筑梦清北",
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-icon": "tdesign-miniprogram/icon/icon"
+  }
+} 

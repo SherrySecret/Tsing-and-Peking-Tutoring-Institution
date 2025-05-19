@@ -1,0 +1,172 @@
+<!-- 顶部标题栏 -->
+<view class="header">
+  <text class="title">教师工作台</text>
+  <view class="action">
+    <view class="notification">
+      <t-icon name="notification" />
+    </view>
+    <view class="user">
+      <view class="avatar">
+        <t-icon name="user" color="#0052d9" />
+      </view>
+      <text class="username">李老师</text>
+    </view>
+  </view>
+</view>
+
+<!-- 主要内容区域 -->
+<scroll-view scroll-y class="content">
+  <view class="container">
+    <!-- 欢迎卡片 -->
+    <view class="welcome-card">
+      <view class="welcome-header">
+        <view class="avatar-large">
+          <t-icon name="user" color="#fff" size="48rpx" />
+        </view>
+        <view class="welcome-text">
+          <text class="welcome-hint">欢迎回来</text>
+          <text class="welcome-name">李老师</text>
+        </view>
+      </view>
+      <view class="welcome-stats">
+        <view class="stat-item">
+          <text class="stat-value">3</text>
+          <text class="stat-label">任教班级</text>
+        </view>
+        <view class="stat-item">
+          <text class="stat-value">89</text>
+          <text class="stat-label">学生总数</text>
+        </view>
+        <view class="stat-item">
+          <text class="stat-value">12</text>
+          <text class="stat-label">待批作业</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 快捷功能 -->
+    <view class="quick-functions">
+      <text class="section-title">快捷功能</text>
+      <view class="function-grid">
+        <navigator url="/pages/teacher/teaching/homework-manage" class="function-item">
+          <view class="function-icon bg-blue">
+            <t-icon name="file-icon" color="#0052d9" />
+          </view>
+          <text class="function-name">作业管理</text>
+        </navigator>
+        <navigator url="/pages/teacher/teaching/course-schedule" class="function-item">
+          <view class="function-icon bg-green">
+            <t-icon name="calendar" color="#00a870" />
+          </view>
+          <text class="function-name">课程安排</text>
+        </navigator>
+        <navigator url="/pages/teacher/teaching/attendance" class="function-item">
+          <view class="function-icon bg-purple">
+            <t-icon name="check-circle" color="#9e67e7" />
+          </view>
+          <text class="function-name">考勤记录</text>
+        </navigator>
+        <navigator url="/pages/teacher/teaching/grade-manage" class="function-item">
+          <view class="function-icon bg-orange">
+            <t-icon name="chart" color="#f59e0b" />
+          </view>
+          <text class="function-name">成绩管理</text>
+        </navigator>
+      </view>
+    </view>
+
+    <!-- 我的班级 -->
+    <view class="my-classes">
+      <view class="section-header">
+        <text class="section-title">我的班级</text>
+        <navigator url="/pages/teacher/class/class-list" class="view-all">查看全部</navigator>
+      </view>
+      <view class="class-list">
+        <navigator url="/pages/teacher/class/class-detail?id=1" class="class-item">
+          <view class="class-info">
+            <view class="class-icon bg-yellow">
+              <t-icon name="class" color="#f59e0b" />
+            </view>
+            <view class="class-detail">
+              <text class="class-name">高三（1）班</text>
+              <text class="class-role">班主任 • 38名学生</text>
+            </view>
+          </view>
+          <t-icon name="chevron-right" color="#aaa" />
+        </navigator>
+        <navigator url="/pages/teacher/class/class-detail?id=2" class="class-item">
+          <view class="class-info">
+            <view class="class-icon bg-blue">
+              <t-icon name="class" color="#0052d9" />
+            </view>
+            <view class="class-detail">
+              <text class="class-name">高三（2）班</text>
+              <text class="class-role">数学老师 • 42名学生</text>
+            </view>
+          </view>
+          <t-icon name="chevron-right" color="#aaa" />
+        </navigator>
+        <navigator url="/pages/teacher/class/class-detail?id=3" class="class-item">
+          <view class="class-info">
+            <view class="class-icon bg-green">
+              <t-icon name="class" color="#00a870" />
+            </view>
+            <view class="class-detail">
+              <text class="class-name">高二（3）班</text>
+              <text class="class-role">数学老师 • 39名学生</text>
+            </view>
+          </view>
+          <t-icon name="chevron-right" color="#aaa" />
+        </navigator>
+      </view>
+    </view>
+
+    <!-- 待办事项 -->
+    <view class="todo-list">
+      <view class="section-header">
+        <text class="section-title">待办事项</text>
+        <navigator url="/pages/teacher/todo-list" class="view-all">更多</navigator>
+      </view>
+      <view class="todo-items">
+        <view class="todo-item">
+          <view class="todo-indicator bg-red"></view>
+          <view class="todo-content">
+            <view class="todo-header">
+              <text class="todo-title">高三（1）班物理作业批改</text>
+              <text class="todo-date">今天</text>
+            </view>
+            <text class="todo-desc">12份作业待批改</text>
+          </view>
+        </view>
+        <view class="todo-item">
+          <view class="todo-indicator bg-orange"></view>
+          <view class="todo-content">
+            <view class="todo-header">
+              <text class="todo-title">高三期中考试成绩录入</text>
+              <text class="todo-date">明天</text>
+            </view>
+            <text class="todo-desc">3个班级成绩待录入</text>
+          </view>
+        </view>
+        <view class="todo-item">
+          <view class="todo-indicator bg-blue"></view>
+          <view class="todo-content">
+            <view class="todo-header">
+              <text class="todo-title">教研组会议</text>
+              <text class="todo-date">后天</text>
+            </view>
+            <text class="todo-desc">下午14:00，三楼会议室</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 底部导航栏 -->
+<t-tab-bar value="{{activeTab}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
+  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
+  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
+  <t-tab-bar-item value="teaching" icon="edit" badge-props="{{ { count: 0 } }}">教学</t-tab-bar-item>
+  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
+</t-tab-bar> 

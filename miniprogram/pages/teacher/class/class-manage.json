@@ -1,0 +1,12 @@
+{
+    "navigationBarTitleText": "班级管理",
+    "usingComponents": {
+      "t-icon": "tdesign-miniprogram/icon/icon",
+      "t-tab-bar": "tdesign-miniprogram/tab-bar/tab-bar",
+      "t-tab-bar-item": "tdesign-miniprogram/tab-bar-item/tab-bar-item",
+      "t-cell": "tdesign-miniprogram/cell/cell",
+      "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
+      "t-button": "tdesign-miniprogram/button/button",
+      "t-switch": "tdesign-miniprogram/switch/switch"
+    }
+  }

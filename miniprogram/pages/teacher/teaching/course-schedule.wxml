@@ -1,0 +1,88 @@
+<view class="container">
+  <view class="header flex items-center">
+    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
+      <i class="t-icon t-icon-chevron-left"></i>
+    </view>
+    <text class="title">课程安排</text>
+  </view>
+
+  <view class="content">
+    <!-- 日期选择 -->
+    <view class="date-selector">
+      <view class="flex justify-between items-center">
+        <view class="selector-arrow" bindtap="prevWeek">
+          <i class="t-icon t-icon-chevron-left"></i>
+        </view>
+        <view class="date-info">
+          <view class="month">{{currentYear}}年{{currentMonth}}月</view>
+          <view class="week">第{{currentWeek}}周</view>
+        </view>
+        <view class="selector-arrow" bindtap="nextWeek">
+          <i class="t-icon t-icon-chevron-right"></i>
+        </view>
+      </view>
+    </view>
+
+    <!-- 星期选择 -->
+    <view class="weekday-selector">
+      <view class="weekday-list">
+        <view 
+          class="weekday-item {{index === currentDayIndex ? 'active' : ''}}" 
+          wx:for="{{weekdays}}" 
+          wx:key="index"
+          bindtap="selectDay"
+          data-index="{{index}}"
+        >
+          <text class="weekday-name">{{item.name}}</text>
+          <text class="weekday-date {{item.isWeekend ? 'weekend' : ''}} {{index === currentDayIndex ? 'active-date' : ''}}">{{item.date}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 课程列表 -->
+    <view class="schedule-list">
+      <block wx:if="{{currentDaySchedule.length > 0}}">
+        <view 
+          class="schedule-item {{item.type === 'class' ? (item.hasClass ? 'has-class' : 'empty') : 'note'}}" 
+          wx:for="{{currentDaySchedule}}" 
+          wx:key="id"
+          bindtap="{{item.hasClass ? 'viewClassDetail' : ''}}"
+          data-id="{{item.id}}"
+        >
+          <view class="schedule-content">
+            <block wx:if="{{item.type === 'class'}}">
+              <view class="schedule-left">
+                <view class="schedule-number">{{item.number}}</view>
+                <view class="schedule-time">{{item.timeRange}}</view>
+              </view>
+              <view class="schedule-details" wx:if="{{item.hasClass}}">
+                <view class="schedule-title">{{item.className}} - {{item.courseName}}</view>
+                <view class="schedule-subtitle">{{item.topic}}</view>
+                <view class="schedule-location">{{item.location}}</view>
+              </view>
+              <view class="schedule-empty" wx:else>
+                <text>空闲</text>
+              </view>
+            </block>
+            <block wx:else>
+              <view class="note-content">
+                <view class="note-title">
+                  <i class="t-icon t-icon-notification"></i>
+                  <text>{{item.title}}</text>
+                </view>
+                <view class="note-time">时间：{{item.timeRange}}</view>
+                <view class="note-location">地点：{{item.location}}</view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+      
+      <!-- 无数据提示 -->
+      <view class="empty-tip" wx:if="{{currentDaySchedule.length === 0}}">
+        <image src="/assets/images/empty-schedule.png" mode="aspectFit"></image>
+        <text>当天暂无课程安排</text>
+      </view>
+    </view>
+  </view>
+</view> 

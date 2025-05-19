@@ -1,0 +1,78 @@
+/* pages/teacher/class/create-homework.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* 顶部标题栏 */
+.header {
+  height: 88rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+  position: relative;
+}
+
+.back-btn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f2f5ff;
+  margin-right: 24rpx;
+  z-index: 10;
+}
+
+.header-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  flex: 1;
+}
+
+/* 表单容器 */
+.form-container {
+  flex: 1;
+  padding: 24rpx;
+  overflow: auto;
+}
+
+.form-content {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx 0;
+}
+
+/* 科目选择器 */
+.subject-select {
+  display: flex;
+  align-items: center;
+  height: 96rpx;
+  background-color: #fff;
+  padding: 0 32rpx;
+  margin-bottom: 12rpx;
+  border-radius: 12rpx;
+}
+
+.subject-label {
+  width: 172rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.subject-value {
+  flex: 1;
+  font-size: 28rpx;
+  color: #000;
+}
+
+/* 按钮容器 */
+.button-container {
+  margin-top: 48rpx;
+  padding: 0 24rpx;
+} 

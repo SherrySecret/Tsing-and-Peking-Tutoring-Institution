@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "添加学生档案",
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-icon": "tdesign-miniprogram/icon/icon"
+  }
+} 

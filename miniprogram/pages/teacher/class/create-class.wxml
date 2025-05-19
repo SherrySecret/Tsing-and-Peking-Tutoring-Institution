@@ -1,0 +1,91 @@
+ <!-- 顶部标题栏 -->
+<view class="header">
+  <text class="title">创建班级</text>
+</view>
+
+<!-- 表单 -->
+<view class="form-container">
+  <view class="form-section">
+    <view class="section-title">基本信息</view>
+    
+    <!-- 班级名称 -->
+    <view class="form-item">
+      <view class="form-label">班级名称 <text class="required">*</text></view>
+      <t-input value="{{classForm.name}}" placeholder="请输入班级名称" bind:change="onInputChange" data-field="name" />
+    </view>
+    
+    <!-- 班级年级 -->
+    <view class="form-item">
+      <view class="form-label">所属年级 <text class="required">*</text></view>
+      <t-radio-group value="{{classForm.grade}}" bind:change="onGradeChange">
+        <t-radio value="高一" label="高一" />
+        <t-radio value="高二" label="高二" />
+        <t-radio value="高三" label="高三" />
+      </t-radio-group>
+    </view>
+    
+    <!-- 班级编号 -->
+    <view class="form-item">
+      <view class="form-label">班级编号 <text class="required">*</text></view>
+      <t-input value="{{classForm.code}}" placeholder="请输入班级编号" bind:change="onInputChange" data-field="code" />
+    </view>
+    
+    <!-- 班级描述 -->
+    <view class="form-item">
+      <view class="form-label">班级描述</view>
+      <t-input value="{{classForm.description}}" placeholder="请输入班级描述" type="textarea" maxcharacter="200" bind:change="onInputChange" data-field="description" />
+    </view>
+  </view>
+  
+  <view class="form-section">
+    <view class="section-title">班级设置</view>
+    
+    <!-- 班级封面 -->
+    <view class="form-item">
+      <view class="form-label">班级封面</view>
+      <t-uploader mediaType="{{['image']}}" max="1" files="{{classForm.coverFiles}}" bind:add="onAddCover" bind:remove="onRemoveCover" />
+    </view>
+    
+    <!-- 加入方式 -->
+    <view class="form-item">
+      <view class="form-label">加入方式 <text class="required">*</text></view>
+      <t-radio-group value="{{classForm.joinMethod}}" bind:change="onJoinMethodChange">
+        <t-radio value="code" label="班级码" />
+        <t-radio value="approval" label="教师审批" />
+        <t-radio value="closed" label="关闭加入" />
+      </t-radio-group>
+    </view>
+    
+    <!-- 隐私设置 -->
+    <view class="form-item">
+      <view class="form-label">隐私设置</view>
+      <t-cell title="允许学生查看成绩" bordered="{{false}}">
+        <t-switch value="{{classForm.allowViewScores}}" bindchange="onToggleScores" slot="note" />
+      </t-cell>
+      <t-cell title="通知自动提醒" bordered="{{false}}">
+        <t-switch value="{{classForm.notificationEnabled}}" bindchange="onToggleNotification" slot="note" />
+      </t-cell>
+    </view>
+  </view>
+  
+  <view class="form-section">
+    <view class="section-title">管理员设置</view>
+    
+    <!-- 班主任 -->
+    <view class="form-item">
+      <view class="form-label">班主任 <text class="required">*</text></view>
+      <t-cell title="{{classForm.headTeacher || '请选择班主任'}}" arrow bordered="{{false}}" bind:tap="selectHeadTeacher" />
+    </view>
+    
+    <!-- 科任教师 -->
+    <view class="form-item">
+      <view class="form-label">科任教师</view>
+      <t-cell title="{{classForm.subjectTeachers.length > 0 ? classForm.subjectTeachers.length + '位教师' : '请选择科任教师'}}" arrow bordered="{{false}}" bind:tap="selectSubjectTeachers" />
+    </view>
+  </view>
+</view>
+
+<!-- 提交按钮 -->
+<view class="submit-btn">
+  <t-button theme="primary" size="large" block bindtap="submitForm">创建班级</t-button>
+</view>

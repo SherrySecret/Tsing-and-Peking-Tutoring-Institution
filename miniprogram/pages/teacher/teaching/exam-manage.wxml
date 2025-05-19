@@ -1,0 +1,82 @@
+<view class="container">
+  <view class="header flex items-center">
+    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
+      <i class="t-icon t-icon-chevron-left"></i>
+    </view>
+    <text class="title">考试管理</text>
+    <view class="create-button" bindtap="createExam">
+      <i class="t-icon t-icon-add"></i>
+      <text>创建考试</text>
+    </view>
+  </view>
+
+  <view class="content">
+    <!-- 筛选栏 -->
+    <view class="filter-bar">
+      <view class="filter-item">
+        <picker 
+          bindchange="handleClassChange" 
+          value="{{selectedClassIndex}}" 
+          range="{{classes}}"
+          range-key="name"
+        >
+          <view class="picker-view">
+            <text>{{classes[selectedClassIndex].name}}</text>
+            <i class="t-icon t-icon-chevron-down"></i>
+          </view>
+        </picker>
+      </view>
+      <view class="filter-item">
+        <picker 
+          bindchange="handleTypeChange" 
+          value="{{selectedTypeIndex}}" 
+          range="{{examTypes}}"
+          range-key="name"
+        >
+          <view class="picker-view">
+            <text>{{examTypes[selectedTypeIndex].name}}</text>
+            <i class="t-icon t-icon-chevron-down"></i>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <!-- 考试列表 -->
+    <view class="exam-list">
+      <view class="exam-item" wx:for="{{filteredExams}}" wx:key="id" bindtap="viewExamDetail" data-id="{{item.id}}">
+        <view class="exam-content {{item.status === 'upcoming' ? 'upcoming' : (item.status === 'completed' ? 'completed' : 'pending')}}">
+          <view class="exam-info">
+            <view class="exam-title">{{item.title}}</view>
+            <view class="exam-subject">{{item.subject}} • {{item.className}}</view>
+            <view class="exam-time">
+              <i class="t-icon t-icon-time"></i>
+              <text>考试时间：{{item.examTime}}</text>
+            </view>
+            <view class="exam-location">
+              <i class="t-icon t-icon-location"></i>
+              <text>考试地点：{{item.location}}</text>
+            </view>
+          </view>
+          <view class="exam-status">
+            <text class="status-text {{item.status === 'upcoming' ? 'upcoming' : (item.status === 'completed' ? 'completed' : 'pending')}}">
+              {{item.status === 'upcoming' ? '即将进行' : (item.status === 'completed' ? '已完成' : '待准备')}}
+            </text>
+          </view>
+        </view>
+        <view class="exam-footer">
+          <view class="exam-teacher">负责老师：{{item.teacher}}</view>
+          <view class="exam-action">
+            <text>{{item.status === 'completed' ? '查看成绩' : (item.status === 'upcoming' ? '详情' : '编辑')}}</text>
+            <i class="t-icon t-icon-chevron-right"></i>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 无数据提示 -->
+    <view class="empty-tip" wx:if="{{filteredExams.length === 0}}">
+      <image src="/assets/images/empty-exam.png" mode="aspectFit"></image>
+      <text>暂无相关考试信息</text>
+    </view>
+  </view>
+</view> 

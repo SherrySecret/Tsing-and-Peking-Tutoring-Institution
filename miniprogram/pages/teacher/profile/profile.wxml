@@ -1,0 +1,94 @@
+<view class="container">
+  <view class="header">
+    <image class="bg-image" src="/assets/images/profile-bg.jpg" mode="aspectFill"></image>
+    <view class="header-content">
+      <view class="user-info">
+        <image class="avatar" src="{{userInfo.avatar || '/assets/images/default-avatar.png'}}" mode="aspectFill"></image>
+        <view class="user-details">
+          <view class="name">{{userInfo.name}}</view>
+          <view class="school">{{userInfo.school}}</view>
+        </view>
+      </view>
+      <view class="edit-btn" bindtap="navigateToEditProfile">
+        <i class="t-icon t-icon-edit"></i>
+      </view>
+    </view>
+  </view>
+
+  <view class="stats-bar">
+    <view class="stat-item">
+      <view class="stat-value">{{teachingYears}}</view>
+      <view class="stat-label">教龄</view>
+    </view>
+    <view class="divider"></view>
+    <view class="stat-item">
+      <view class="stat-value">{{classCount}}</view>
+      <view class="stat-label">班级</view>
+    </view>
+    <view class="divider"></view>
+    <view class="stat-item">
+      <view class="stat-value">{{studentCount}}</view>
+      <view class="stat-label">学生</view>
+    </view>
+  </view>
+
+  <view class="menu-section">
+    <view class="menu-group">
+      <view class="menu-item" bindtap="navigateToSecurity">
+        <view class="menu-icon security-icon">
+          <i class="t-icon t-icon-lock-on"></i>
+        </view>
+        <view class="menu-content">
+          <text class="menu-label">安全设置</text>
+          <i class="t-icon t-icon-chevron-right arrow-icon"></i>
+        </view>
+      </view>
+      
+      <view class="menu-item" bindtap="navigateToNotifications">
+        <view class="menu-icon notification-icon">
+          <i class="t-icon t-icon-notification"></i>
+        </view>
+        <view class="menu-content">
+          <text class="menu-label">通知设置</text>
+          <i class="t-icon t-icon-chevron-right arrow-icon"></i>
+        </view>
+      </view>
+      
+      <view class="menu-item" bindtap="navigateToAbout">
+        <view class="menu-icon about-icon">
+          <i class="t-icon t-icon-help-circle"></i>
+        </view>
+        <view class="menu-content">
+          <text class="menu-label">关于我们</text>
+          <i class="t-icon t-icon-chevron-right arrow-icon"></i>
+        </view>
+      </view>
+    </view>
+
+    <view class="menu-group">
+      <view class="menu-item" bindtap="contactCustomerService">
+        <view class="menu-icon service-icon">
+          <i class="t-icon t-icon-service"></i>
+        </view>
+        <view class="menu-content">
+          <text class="menu-label">联系客服</text>
+          <i class="t-icon t-icon-chevron-right arrow-icon"></i>
+        </view>
+      </view>
+      
+      <view class="menu-item" bindtap="provideFeedback">
+        <view class="menu-icon feedback-icon">
+          <i class="t-icon t-icon-thumb-up"></i>
+        </view>
+        <view class="menu-content">
+          <text class="menu-label">意见反馈</text>
+          <i class="t-icon t-icon-chevron-right arrow-icon"></i>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="version-info">
+    <text>版本 1.0.0</text>
+  </view>
+</view>

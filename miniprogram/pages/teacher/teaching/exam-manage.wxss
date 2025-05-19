@@ -1,0 +1,223 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  padding: 8px 16px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+}
+
+.create-button {
+  display: flex;
+  align-items: center;
+  background-color: #0052d9;
+  color: #fff;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 16px;
+}
+
+.create-button i {
+  margin-right: 4px;
+  font-size: 14px;
+}
+
+.content {
+  flex: 1;
+  padding: 16px;
+  margin-top: 44px;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.mr-2 {
+  margin-right: 8px;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+/* 筛选栏 */
+.filter-bar {
+  display: flex;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.filter-item {
+  flex: 1;
+}
+
+.picker-view {
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.picker-view i {
+  color: #999;
+  font-size: 12px;
+}
+
+/* 考试列表 */
+.exam-list {
+  margin-bottom: 20px;
+}
+
+.exam-item {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.exam-content {
+  padding: 16px;
+  position: relative;
+  border-left: 4px solid transparent;
+}
+
+.exam-content.upcoming {
+  border-color: #0052d9;
+}
+
+.exam-content.completed {
+  border-color: #00a870;
+}
+
+.exam-content.pending {
+  border-color: #9c27b0;
+}
+
+.exam-info {
+  padding-right: 80px;
+}
+
+.exam-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.exam-subject {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.exam-time, .exam-location {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #999;
+  margin-top: 6px;
+}
+
+.exam-time i, .exam-location i {
+  font-size: 14px;
+  margin-right: 6px;
+}
+
+.exam-status {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.status-text {
+  font-size: 12px;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.status-text.upcoming {
+  background-color: #0052d9;
+}
+
+.status-text.completed {
+  background-color: #00a870;
+}
+
+.status-text.pending {
+  background-color: #9c27b0;
+}
+
+.exam-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #f0f0f0;
+}
+
+.exam-teacher {
+  font-size: 13px;
+  color: #666;
+}
+
+.exam-action {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #0052d9;
+}
+
+.exam-action i {
+  margin-left: 4px;
+}
+
+/* 无数据提示 */
+.empty-tip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.empty-tip image {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 16px;
+}
+
+.empty-tip text {
+  font-size: 14px;
+  color: #999;
+} 

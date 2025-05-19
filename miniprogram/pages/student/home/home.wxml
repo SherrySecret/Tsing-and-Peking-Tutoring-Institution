@@ -1,0 +1,84 @@
+<!-- 顶部标题栏 -->
+<view class="header">
+  <text class="title">班级管理系统</text>
+  <view class="action">
+    <navigator url="/pages/student/profile/add-student" class="add-btn">
+      <text>添加学生档案</text>
+    </navigator>
+  </view>
+</view>
+
+<!-- 主要内容区域 -->
+<scroll-view scroll-y class="content">
+  <view class="container">
+    <!-- 欢迎信息 -->
+    <view class="welcome-box">
+      <text class="welcome-title">欢迎使用班级管理系统</text>
+      <text class="welcome-desc">这是一个便捷的班级管理平台，为家长、学生和老师提供互动与管理功能。</text>
+    </view>
+
+    <!-- 快速入口 -->
+    <view class="quick-entry">
+      <navigator url="/pages/student/class/index" class="entry-item bg-blue">
+        <t-icon name="class" size="48rpx" />
+        <text>我的班级</text>
+      </navigator>
+      <navigator url="/pages/student/teachers/index" class="entry-item bg-green">
+        <t-icon name="user" size="48rpx" />
+        <text>名师互动</text>
+      </navigator>
+      <navigator url="/pages/student/features/index" class="entry-item bg-purple">
+        <t-icon name="apps" size="48rpx" />
+        <text>教学功能</text>
+      </navigator>
+      <navigator url="/pages/student/profile/index" class="entry-item bg-orange">
+        <t-icon name="user-circle" size="48rpx" />
+        <text>个人中心</text>
+      </navigator>
+    </view>
+
+    <!-- 学生档案入口 -->
+    <view class="student-archive">
+      <view class="archive-icon">
+        <t-icon name="user-add" color="#f59e0b" size="48rpx" />
+      </view>
+      <view class="archive-info">
+        <text class="archive-title">绑定学生档案</text>
+        <text class="archive-desc">填写学生ID，绑定学生身份以便使用班级功能</text>
+      </view>
+      <navigator url="/pages/student/profile/add-student" class="archive-btn">
+        <text>立即绑定</text>
+      </navigator>
+    </view>
+
+    <!-- 公告信息 -->
+    <view class="notice">
+      <view class="notice-header">
+        <t-icon name="notification" color="#0052d9" size="40rpx" />
+        <text class="notice-title">最新公告</text>
+      </view>
+      <view class="notice-list">
+        <view class="notice-item">
+          <text class="notice-item-title">2023年春季学期开学通知</text>
+          <text class="notice-item-date">2023-02-15</text>
+        </view>
+        <view class="notice-item">
+          <text class="notice-item-title">系统更新：作业批改功能上线</text>
+          <text class="notice-item-date">2023-02-10</text>
+        </view>
+        <view class="notice-item">
+          <text class="notice-item-title">关于线上家长会的通知</text>
+          <text class="notice-item-date">2023-02-05</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 底部导航栏 -->
+<t-tab-bar value="{{activeTab}}" bindchange="onTabBarChange" theme="tag" split="{{false}}">
+  <t-tab-bar-item value="home" icon="home" badge-props="{{ { count: 0 } }}">首页</t-tab-bar-item>
+  <t-tab-bar-item value="class" icon="class" badge-props="{{ { count: 0 } }}">班级</t-tab-bar-item>
+  <t-tab-bar-item value="features" icon="apps" badge-props="{{ { count: 0 } }}">功能</t-tab-bar-item>
+  <t-tab-bar-item value="profile" icon="user-circle" badge-props="{{ { count: 0 } }}">我的</t-tab-bar-item>
+</t-tab-bar> 

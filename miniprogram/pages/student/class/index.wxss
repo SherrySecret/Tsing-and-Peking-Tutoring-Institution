@@ -1,0 +1,146 @@
+/* 页面容器 */
+page {
+  background-color: #f7f8fa;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部标题栏 */
+.header {
+  height: 88rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: 500;
+}
+
+.action {
+  margin-left: auto;
+}
+
+.add-btn {
+  padding: 12rpx 32rpx;
+  background-color: #0052d9;
+  color: #fff;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+}
+
+/* 内容区域 */
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+.container {
+  padding: 32rpx;
+}
+
+/* 班级列表 */
+.class-list {
+  
+}
+
+.class-item {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+.class-icon {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 32rpx;
+}
+
+.bg-blue {
+  background-color: #e6f2ff;
+}
+
+.bg-green {
+  background-color: #e6ffec;
+}
+
+.class-info {
+  flex: 1;
+}
+
+.class-name {
+  font-size: 36rpx;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.class-teacher {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.class-student {
+  font-size: 28rpx;
+  color: #0052d9;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.class-stats {
+  display: flex;
+  align-items: center;
+}
+
+.stat-text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.divider {
+  margin: 0 16rpx;
+  color: #ddd;
+  font-size: 24rpx;
+}
+
+/* 无班级提示 */
+.empty-tip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64rpx 32rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #666;
+  margin: 32rpx 0;
+}
+
+.join-btn {
+  padding: 16rpx 48rpx;
+  background-color: #0052d9;
+  color: #fff;
+  border-radius: 32rpx;
+  font-size: 28rpx;
+} 

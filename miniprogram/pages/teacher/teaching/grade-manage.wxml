@@ -1,0 +1,110 @@
+<view class="container">
+  <view class="header flex items-center">
+    <view bindtap="handleBack" class="t-button t-button--variant-text t-button--theme-primary t-button--shape-circle flex-shrink-0 mr-2">
+      <i class="t-icon t-icon-chevron-left"></i>
+    </view>
+    <text class="title">成绩管理</text>
+    <view class="add-button" bindtap="enterGrades">
+      <i class="t-icon t-icon-add"></i>
+      <text>录入成绩</text>
+    </view>
+  </view>
+
+  <view class="content">
+    <!-- 筛选栏 -->
+    <view class="filter-bar">
+      <view class="filter-item">
+        <view class="filter-label">班级</view>
+        <picker 
+          bindchange="handleClassChange" 
+          value="{{selectedClassIndex}}" 
+          range="{{classes}}"
+          range-key="name"
+        >
+          <view class="picker-view">
+            <text>{{classes[selectedClassIndex].name}}</text>
+            <i class="t-icon t-icon-chevron-down"></i>
+          </view>
+        </picker>
+      </view>
+      <view class="filter-item">
+        <view class="filter-label">考试</view>
+        <picker 
+          bindchange="handleExamChange" 
+          value="{{selectedExamIndex}}" 
+          range="{{exams}}"
+          range-key="name"
+        >
+          <view class="picker-view">
+            <text>{{exams[selectedExamIndex].name}}</text>
+            <i class="t-icon t-icon-chevron-down"></i>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <!-- 成绩卡片列表 -->
+    <view class="grade-list">
+      <view class="grade-card" wx:for="{{filteredGrades}}" wx:key="id">
+        <view class="card-header">
+          <view class="header-title">
+            <text>{{item.examName}}</text>
+            <view class="status-tag {{item.status === 'completed' ? 'completed' : 'incomplete'}}">
+              {{item.status === 'completed' ? '已完成' : '未完成'}}
+            </view>
+          </view>
+          <view class="exam-date">考试时间：{{item.examDate}}</view>
+        </view>
+        
+        <view class="card-content" wx:if="{{item.status === 'completed'}}">
+          <view class="stats-grid">
+            <view class="stat-item">
+              <view class="stat-value avg">{{item.averageScore}}分</view>
+              <view class="stat-label">平均分</view>
+            </view>
+            <view class="stat-item">
+              <view class="stat-value high">{{item.highestScore}}分</view>
+              <view class="stat-label">最高分</view>
+            </view>
+            <view class="stat-item">
+              <view class="stat-value low">{{item.lowestScore}}分</view>
+              <view class="stat-label">最低分</view>
+            </view>
+          </view>
+          <view class="grade-meta">
+            <view class="grade-class">
+              班级：{{item.className}}
+            </view>
+            <view class="grade-action" bindtap="viewGradeDetail" data-id="{{item.id}}">
+              <text>查看详情</text>
+              <i class="t-icon t-icon-chevron-right"></i>
+            </view>
+          </view>
+        </view>
+        
+        <view class="card-content" wx:else>
+          <view class="enter-grade">
+            <button class="enter-button" bindtap="enterExamGrade" data-id="{{item.id}}">
+              <i class="t-icon t-icon-edit"></i>
+              <text>录入成绩</text>
+            </button>
+          </view>
+          <view class="grade-meta">
+            <view class="grade-class">
+              班级：{{item.className}}
+            </view>
+            <view class="grade-count">
+              {{item.enteredCount}}/{{item.totalCount}}人已录入
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 无数据提示 -->
+      <view class="empty-tip" wx:if="{{filteredGrades.length === 0}}">
+        <image src="/assets/images/empty-grade.png" mode="aspectFit"></image>
+        <text>暂无相关成绩信息</text>
+      </view>
+    </view>
+  </view>
+</view> 

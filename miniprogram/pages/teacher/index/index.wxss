@@ -1,0 +1,319 @@
+/* 页面容器 */
+page {
+  background-color: #f7f8fa;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部标题栏 */
+.header {
+  height: 88rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: 500;
+}
+
+.action {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.notification {
+  margin-right: 24rpx;
+  color: #666;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  background-color: #e6f2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8rpx;
+}
+
+.username {
+  font-size: 28rpx;
+}
+
+/* 主要内容区域 */
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+.container {
+  padding: 32rpx;
+}
+
+/* 欢迎卡片 */
+.welcome-card {
+  background: linear-gradient(to right, #0052d9, #0066ff);
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 48rpx;
+  color: #fff;
+}
+
+.welcome-header {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-large {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 32rpx;
+}
+
+.welcome-text {
+  
+}
+
+.welcome-hint {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+}
+
+.welcome-name {
+  font-size: 36rpx;
+  font-weight: 500;
+}
+
+.welcome-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32rpx;
+  text-align: center;
+}
+
+.stat-item {
+  
+}
+
+.stat-value {
+  font-size: 40rpx;
+  font-weight: 500;
+  display: block;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 快捷功能 */
+.quick-functions {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 48rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 24rpx;
+  display: block;
+}
+
+.function-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32rpx;
+}
+
+.function-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.function-icon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8rpx;
+}
+
+.function-name {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.bg-blue {
+  background-color: #e6f2ff;
+}
+
+.bg-green {
+  background-color: #e6ffec;
+}
+
+.bg-purple {
+  background-color: #f5e6ff;
+}
+
+.bg-orange {
+  background-color: #fff2e6;
+}
+
+.bg-yellow {
+  background-color: #fef3c7;
+}
+
+.bg-red {
+  background-color: #ef4444;
+}
+
+/* 我的班级 */
+.my-classes {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 48rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.view-all {
+  font-size: 26rpx;
+  color: #0052d9;
+}
+
+.class-list {
+  
+}
+
+.class-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx;
+  background-color: #f7f8fa;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.class-item:last-child {
+  margin-bottom: 0;
+}
+
+.class-info {
+  display: flex;
+  align-items: center;
+}
+
+.class-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 24rpx;
+}
+
+.class-detail {
+  
+}
+
+.class-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  display: block;
+}
+
+.class-role {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+
+/* 待办事项 */
+.todo-list {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.todo-items {
+  
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  background-color: #f7f8fa;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.todo-item:last-child {
+  margin-bottom: 0;
+}
+
+.todo-indicator {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+
+.todo-content {
+  flex: 1;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-title {
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.todo-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.todo-desc {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 8rpx;
+} 
